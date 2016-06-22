@@ -1,0 +1,11 @@
+.videogular-container {
+    width: 100%;
+    height: 320px;
+    margin: auto;
+    overflow: hidden;
+}
+videogular vg-poster img.stop, [videogular] vg-poster img.stop {
+    display: block;
+     margin: 0;
+     height: 100%;
+} 

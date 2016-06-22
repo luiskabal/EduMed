@@ -1,0 +1,38 @@
+ion-view.ion-view-login {
+  background: url(../img/back/back.jpg);
+  background-position: center center;
+  background-size: cover; }
+
+.content-app {
+  //background: rgba(244, 243, 240, 0.85); 
+}
+
+
+
+
+
+.content-logo-login {
+  background-image: linear-gradient(180deg, rgba(244, 243, 240, 0.85) 50.5%, transparent 50%);
+  border-radius: 50%;
+  width: 100px;
+  height: 100px; }
+
+.content-login {
+  position: relative;
+  top: 50px;
+  padding-top: 70px; }
+  .content-login .content-logo-login {
+    position: absolute;
+    top: -50px;
+    left: 50%;
+    margin-left: -50px; }
+    .content-login .content-logo-login .logo-login {
+      background: url(../img/icon/icon-app-full.svg);
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin-top: -60px;
+      margin-left: -75px;
+      width: 150px;
+      height: 150px;
+      background-repeat: no-repeat; }

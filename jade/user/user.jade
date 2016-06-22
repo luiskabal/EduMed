@@ -1,0 +1,35 @@
+ion-view.myaccount(view-title='Mi Cuenta')
+  ion-content(delegate-handle="example-scroller" elastic-header="detalle-header3")
+    .banner-avatar(id="detalle-header3")
+      .cont-avatar
+        .avatar
+          img(src="../img/avatar/mike.png")
+        h4 Luis Ramos
+    .content-app.padding
+      //elasticHeader
+      
+      .item
+        .datos-user       
+          .row.row-top
+            .col.col-33 Nombre: 
+            .col Luis Ramos              
+          .row.row-top
+            .col.col-33 Edad: 
+            .col 34 Años
+          .row.row-top
+            .col.col-33 Email: 
+            .col luis.ramos@gmail.com
+          .row.row-top
+            .col.col-33 Institución de Salud: 
+            .col Hospital Sotero del Rio
+          .row.row-top
+            .col.col-33 Interes: 
+            .col 
+              | Gastro enterologia
+              br 
+              | Cancer Colon Rectal       
+                
+      .item
+        a.button.button-full.button-energized(href="#/app/edit-user")
+          | Editar   
+        

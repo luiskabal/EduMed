@@ -1,0 +1,74 @@
+body {
+   font-family: 'Lato';
+}
+.title-view {
+  color: #5C9BAA;
+  font-size: 20px; }
+
+.tcenter {
+  text-align: center; }
+
+.tleft {
+  text-align: left; }
+
+.tright {
+  text-align: right; }
+
+hr {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  border: 0;
+  border-top: 1px solid #eee; }
+
+a {
+  text-decoration: none; }
+  a:hover {
+    text-decoration: none; }
+
+
+.content-app {
+ position: relative; 
+ background: rgba(244, 243, 240, 1);
+}
+
+.row-block {
+  letter-spacing: -.31em;
+  text-rendering: optimizespeed;
+  display: -webkit-flex;
+  -webkit-flex-flow: row wrap;
+  display: -ms-flexbox;
+  -ms-flex-flow: row wrap;
+  -ms-align-content: flex-start;
+  -webkit-align-content: flex-start;
+  align-content: flex-start;
+}
+.col-block {
+  display: inline-block;
+  zoom: 1;
+  letter-spacing: normal;
+  word-spacing: normal;
+  vertical-align: top;
+  text-rendering: auto;
+}
+.flex-row {
+  flex-wrap: wrap;
+  -webkit-flex-direction: row;
+  -moz-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-flex-flow: row wrap;
+  -moz-flex-flow: row wrap;
+  -ms-flex-flow: row wrap;
+  flex-flow: row wrap;
+}
+
+@mixin col-w ($x) {
+-webkit-box-flex: 0;
+  -webkit-flex: 0 0 $x;
+  -moz-box-flex: 0;
+  -moz-flex: 0 0 $x;
+  -ms-flex: 0 0 $x;
+  flex: 0 0 $x;
+  max-width: $x;
+}
+

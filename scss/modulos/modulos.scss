@@ -1,0 +1,97 @@
+.item-module {
+  padding: 10px;
+  .module {
+    padding: 0;
+    .col {
+      
+    }
+    .video {
+      padding: 0;
+      position: relative;
+      &:after {
+        content: "";
+        position:absolute;
+        top: 50%;
+        left: 50%;
+        background: url(../img/icon/play-button.svg);
+        display: block;
+        width: 30px;
+        height: 30px;
+        background-size: 30px;
+        margin-top: -15px;
+        margin-left: -15px;
+        opacity: 0.5;
+      }
+    }
+    .modulo-info {
+      padding: 0 10px;
+      .estado {
+        color:#f44336;
+        font-size: 11px;
+        &.ok {
+          color: #4caf50;
+        }
+      }
+    }
+    h3 {
+      color: #239BAB;
+      margin: 0;
+      font-size: 16px;
+      font-weight: bold;
+    }
+    h4 {
+      color: #239BAB;
+      margin: 0;
+      font-size: 13px;
+    }
+    
+    p {
+      color: #385356;
+    }
+    
+  }
+  .module-foot{
+   margin-top: 5px;
+   .row,
+   .col {
+     padding: 0;
+   }
+   .link-ver {
+     color: #239BAB;
+     line-height: 20px;
+     text-align: right;
+   }
+  }
+  .progress {
+    @extend .row-block;
+    .mod{
+      @extend .col-block;
+      color:#DC955D;
+      width: 25%;
+      &:before {
+        font-family: "Ionicons";
+        content: "\f463";
+        font-size: 25px;
+      }
+      &.ok {
+        color:#239BAB;
+        &:before {
+          content: "\f3fe";
+        }
+      }
+    }
+
+  }
+  &.module-big {
+    .module{
+      &.row {
+        @extend .flex-row;
+       .col {
+         &.video {
+           @include col-w(100%);
+         }
+       } 
+      }
+    } 
+  }
+}

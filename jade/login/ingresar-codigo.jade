@@ -1,0 +1,37 @@
+ion-view(hide-nav-bar='true')
+  // view-title="Login"
+  ion-content
+    .padding
+      .content-app.padding.content-login
+        .content-logo-login
+          .logo-login
+      .list
+        label.item.item-input.item-select
+          .input-label
+            | Lightsaber
+          select
+            option Blue
+            option(selected='') Green
+            option Red
+      
+        label.item.item-input.item-stacked-label
+          span.input-label Nombre:
+          input(type='text', placeholder='Nombre')
+        label.item.item-input.item-stacked-label
+          span.input-label E-mail:
+          input(type='text', placeholder='john@suhr.com')
+        label.item.item-input.item-stacked-label
+          span.input-label Contraseña:
+          input(type='password', placeholder='Suhr')
+        label.item.item-input.item-stacked-label
+          span.input-label Fecha de Nacimiento:
+          input(type='date', placeholder='fecha')
+      .padding
+        p Metodo de Pago
+      .item
+        button.button.button-full.button-positive
+          | Transaccion
+      hr
+      .item
+        button.button.button-full.button-assertive(ui-sref='suscripcion')
+          | Por Codigo

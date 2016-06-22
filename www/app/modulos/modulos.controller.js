@@ -1,0 +1,208 @@
+/*
+angular.module('starter.aprender', [])
+
+	.controller('aprenderCtrl',['$scope','$ionicLoading','$sce','$ionicModal', function($scope, $ionicLoading,$sce,$ionicModal) {
+		console.log('aprenderCtrl');
+		//$scope.setBodyClass('aprender');
+        $ionicLoading.show({
+            template: '<div class="edumed-loading"></div>'
+        });
+        setTimeout(function(){
+            $ionicLoading.hide();
+        }, 2000);
+        
+        
+        
+        
+        $scope.API = null;
+		$scope.onPlayerReady = function(API) {
+			console.log(API);
+			$scope.API = API;
+		};
+ 
+
+		$scope.config = {
+			
+            preload: "none",
+            sources: [
+                {src: $sce.trustAsResourceUrl("video/La_artritis_psoriasica.mp4"), type: "video/mp4"}
+            ],
+            theme: {
+                url: "lib/videogular-themes-default/videogular.css"
+            },
+            plugins: {
+         		poster: "video/La_artritis_psoriasica.jpg"
+            }
+           
+		};	
+		
+
+		$scope.onCompleteVideo = function() {
+			console.log("on complete 1");
+
+			ngDialog.open({ 
+				template: 'modules/modulos/templates/modal.html',
+				className: '',
+				controller: ['$scope', function($scope) { 
+					// Controller logic here
+					
+					console.log('alla');
+					$scope.clickToClose = function() {
+						console.log('jojo');
+						$scope.closeThisDialog(0);
+						//$location.path('/calendario');
+						//Moment.addMoment( { fecha: diaSelect.toISOString(), tipo: 'estudio' } );
+					};
+
+				}]
+			});
+		};
+
+
+		$scope.testRun = false;
+		$scope.starTest = function() {
+			$scope.testRun = true;
+			$scope.API.stop();
+		}
+		$scope.okTest = function() {
+			$scope.testRun = false;
+		}
+        
+        
+        $ionicModal.fromTemplateUrl('modules/aprender/templates/test.html', {
+            scope: $scope,
+            animation: 'slide-in-up'
+        }).then(function(modal) {
+            $scope.modal = modal;
+        });
+        
+        $scope.openModal = function() {           
+           $scope.modal.show();          
+        };
+        $scope.closeModal = function() {
+            $scope.modal.hide();
+        };
+        $scope.clickToSave = function(fecha) {
+           
+           $scope.modal.hide();
+           Moment.addMoment( { fecha: fecha.toISOString(), tipo: 'estudio' } );
+        };
+            
+       
+  	
+ 
+
+
+
+
+	}]);
+	
+*/
+
+(function() {
+'use strict';
+
+	angular
+		.module('eduMed')
+		.controller('modulosController', modulosController);
+
+	modulosController.$inject = ['$log','$ionicLoading','$sce','$ionicModal','$ionicPopup'];
+	function modulosController($log,$ionicLoading,$sce,$ionicModal,$ionicPopup) {
+		var vm = this;
+		
+
+		$log.log('modulosController');
+		//$scope.setBodyClass('aprender');
+       /*
+	    $ionicLoading.show({
+            template: '<div class="edumed-loading"></div>'
+        });
+        setTimeout(function(){
+            $ionicLoading.hide();
+        }, 2000);
+		*/
+		
+		vm.API = null;
+		vm.onPlayerReady = function(API) {
+			console.log(API);
+			vm.API = API;
+		};
+ 
+
+		vm.config = {
+			
+            preload: "none",
+            sources: [
+                {src: $sce.trustAsResourceUrl("video/La_artritis_psoriasica.mp4"), type: "video/mp4"}
+            ],
+            theme: {
+                url: "lib/videogular-themes-default/videogular.css"
+            },
+            plugins: {
+         		poster: "video/La_artritis_psoriasica.jpg"
+            }
+           
+		};
+		
+		vm.testRun = false;
+		vm.starTest = function() {
+			vm.testRun = true;
+			vm.API.stop();
+		}
+		vm.okTest = function() {
+			vm.testRun = false;
+		}
+		
+		$ionicModal.fromTemplateUrl('app/aprender/test.html', {
+			//scope: $scope,
+			animation: 'slide-in-up'
+		}).then(function(modal) {
+			vm.modal = modal;
+		});
+		
+		//Confirmar llenar form
+		vm.showConfirm = function() {
+			var confirmPopup = $ionicPopup.confirm({
+				title: 'Consume Ice Cream',
+				template: 'Are you sure you want to eat this ice cream?'
+			});
+
+			confirmPopup.then(function(res) {
+				if(res) {
+					vm.modal.show();
+					console.log('llenar form');
+				} else {
+					console.log('You are not sure');
+				}
+			});
+		};
+		
+		vm.onCompleteVideo = function() {
+			console.log("on complete 1");
+			 //vm.modal.show();
+			 vm.showConfirm();
+
+			/*ngDialog.open({ 
+				template: 'modules/modulos/templates/modal.html',
+				className: '',
+				controller: ['$scope', function($scope) { 
+					// Controller logic here
+					
+					console.log('alla');
+					$scope.clickToClose = function() {
+						console.log('jojo');
+						$scope.closeThisDialog(0);
+						//$location.path('/calendario');
+						//Moment.addMoment( { fecha: diaSelect.toISOString(), tipo: 'estudio' } );
+					};
+
+				}]
+			});*/
+		};
+		
+
+		
+		
+		
+	}
+})();

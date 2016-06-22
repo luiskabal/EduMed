@@ -1,0 +1,40 @@
+ion-view.myaccount.account-edit(view-title='Mi Cuenta')
+  ion-content(delegate-handle="example-scroller" elastic-header="detalle-header3")
+    .banner-avatar(id="detalle-header3")
+      .cont-avatar
+        .avatar
+          img(src="../img/avatar/mike.png")
+        h4 Luis Ramos
+    .content-app.padding
+      //elasticHeader
+      .padding-top
+        .list
+          label.item.item-input.item-stacked-label
+            span.input-label Nombre:
+            input(type='text', placeholder='Nombre Completo')
+          label.item.item-input.item-stacked-label
+            span.input-label Email:
+            input(type='text', placeholder='nombre@mail.com')
+          label.item.item-input.item-stacked-label
+            span.input-label fecha de Nacimiento:
+            input(type='date')
+          //label.item.item-input.item-stacked-label
+            span.input-label Interes:
+            input(type='text', placeholder='Añadir Interes')
+          label.item.item-input.item-select
+            .input-label
+              | Interes:
+            select
+              option Hospital Sotero del Rio
+              option(selected='') Clinica Las Condes
+          label.item.item-input.item-select
+            .input-label
+              | Institución:
+            select
+              option Hospital Sotero del Rio
+              option(selected='') Clinica Las Condes
+              
+          .item
+            button.button.button-full.button-energized
+              | Guardar     
+      

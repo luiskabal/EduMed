@@ -1,0 +1,37 @@
+ion-view
+  ion-content
+    .content-video
+      videogular(vg-player-ready='aprender.onPlayerReady($API)', ng-show='!aprender.testRun', vg-theme='aprender.config.theme.url', vg-complete='aprender.onCompleteVideo()')
+        vg-media(vg-src='aprender.config.sources', vg-native-controls='false')
+        vg-overlay-play
+        vg-poster(vg-url='aprender.config.plugins.poster')
+        vg-controls
+          vg-play-pause-button
+          vg-time-display {{ currentTime | date:'mm:ss':'+0000' }}
+          vg-scrub-bar
+            vg-scrub-bar-current-time
+          vg-time-display {{ timeLeft | date:'mm:ss':'+0000' }}
+          vg-time-display {{ totalTime | date:'mm:ss':'+0000' }}
+          vg-volume
+            vg-mute-button
+            vg-volume-bar
+          vg-fullscreen-button
+        vg-buffering
+    div
+      .padding
+        .box-bg
+          ul.module-steps
+            li.module-step.step-ok
+              span Modulo uno
+            li.module-step.active
+              span Modulo dos
+            li.module-step
+              span Modulo tres
+            li.module-step
+              span Modulo cuatro
+            li.module-step
+              span Modulo cinco
+          h2.title-view Artritis Psoriásica
+          .item
+            button.button.button-full.button-positive(type='submit', ng-click='aprender.openModal()')
+              | Comenzar Test

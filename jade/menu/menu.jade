@@ -1,0 +1,33 @@
+ion-side-menus(enable-menu-with-back-views='false')
+  ion-side-menu-content
+    ion-nav-bar.bar-positive
+      ion-nav-back-button
+      ion-nav-buttons(side='right')
+        button.button.button-icon.button-clear.ion-navicon(menu-toggle='right')
+    ion-nav-view(name='menuContent')
+  ion-side-menu(side='right')
+    ion-header-bar.bar-dark
+      .cont-avatar
+        .avatar
+          img(src="../img/avatar/mike.png")
+      h1.title Hola, 
+        strong Luis Ramos
+    ion-content.has-header
+      ion-list
+        ion-item.item-icon-left.item-icon-right(menu-close='',href="#/app/home")
+          i.icon.ion-android-home
+          | Inicio
+          i.icon.ion-ios-arrow-forward
+        ion-item.item-icon-left.item-icon-right(menu-close='',href="#/app/user")
+          i.icon.ion-person
+          | Mi Perfil
+          i.icon.ion-ios-arrow-forward
+        ion-item.item-icon-left.item-icon-right(menu-close='')
+          i.icon.ion-ios-paper
+          | Historial de Aprendizaje
+          i.icon.ion-ios-arrow-forward
+        ion-item.item-icon-left.item-icon-right(menu-close='',href="#/app/elements")
+          i.icon.ion-beer
+          | Elementos
+          i.icon.ion-ios-arrow-forward
+        
