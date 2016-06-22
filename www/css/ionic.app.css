@@ -9057,7 +9057,7 @@ a.button {
  * available width, and the height of each .col with take
  * up the height of the tallest .col in the same .row.
  */
-.row {
+.row, .module-steps {
   display: -webkit-box;
   display: -webkit-flex;
   display: -moz-box;
@@ -9075,14 +9075,14 @@ a.button {
 
 .row-no-padding {
   padding: 0; }
-  .row-no-padding > .col {
+  .row-no-padding > .col, .module-steps .row-no-padding > .module-step {
     padding: 0; }
 
-.row + .row {
+.row + .row, .module-steps + .row, .row + .module-steps, .module-steps + .module-steps {
   margin-top: -5px;
   padding-top: 0; }
 
-.col {
+.col, .module-steps .module-step {
   -webkit-box-flex: 1;
   -webkit-flex: 1;
   -moz-box-flex: 1;
@@ -9294,7 +9294,7 @@ a.button {
     -webkit-flex-direction: column;
     -ms-flex-direction: column;
     flex-direction: column; }
-    .responsive-sm .col, .responsive-sm .col-10, .responsive-sm .col-20, .responsive-sm .col-25, .responsive-sm .col-33, .responsive-sm .col-34, .responsive-sm .col-50, .responsive-sm .col-66, .responsive-sm .col-67, .responsive-sm .col-75, .responsive-sm .col-80, .responsive-sm .col-90 {
+    .responsive-sm .col, .responsive-sm .module-steps .module-step, .module-steps .responsive-sm .module-step, .responsive-sm .col-10, .responsive-sm .col-20, .responsive-sm .col-25, .responsive-sm .col-33, .responsive-sm .col-34, .responsive-sm .col-50, .responsive-sm .col-66, .responsive-sm .col-67, .responsive-sm .col-75, .responsive-sm .col-80, .responsive-sm .col-90 {
       -webkit-box-flex: 1;
       -webkit-flex: 1;
       -moz-box-flex: 1;
@@ -9315,7 +9315,7 @@ a.button {
     -webkit-flex-direction: column;
     -ms-flex-direction: column;
     flex-direction: column; }
-    .responsive-md .col, .responsive-md .col-10, .responsive-md .col-20, .responsive-md .col-25, .responsive-md .col-33, .responsive-md .col-34, .responsive-md .col-50, .responsive-md .col-66, .responsive-md .col-67, .responsive-md .col-75, .responsive-md .col-80, .responsive-md .col-90 {
+    .responsive-md .col, .responsive-md .module-steps .module-step, .module-steps .responsive-md .module-step, .responsive-md .col-10, .responsive-md .col-20, .responsive-md .col-25, .responsive-md .col-33, .responsive-md .col-34, .responsive-md .col-50, .responsive-md .col-66, .responsive-md .col-67, .responsive-md .col-75, .responsive-md .col-80, .responsive-md .col-90 {
       -webkit-box-flex: 1;
       -webkit-flex: 1;
       -moz-box-flex: 1;
@@ -9336,7 +9336,7 @@ a.button {
     -webkit-flex-direction: column;
     -ms-flex-direction: column;
     flex-direction: column; }
-    .responsive-lg .col, .responsive-lg .col-10, .responsive-lg .col-20, .responsive-lg .col-25, .responsive-lg .col-33, .responsive-lg .col-34, .responsive-lg .col-50, .responsive-lg .col-66, .responsive-lg .col-67, .responsive-lg .col-75, .responsive-lg .col-80, .responsive-lg .col-90 {
+    .responsive-lg .col, .responsive-lg .module-steps .module-step, .module-steps .responsive-lg .module-step, .responsive-lg .col-10, .responsive-lg .col-20, .responsive-lg .col-25, .responsive-lg .col-33, .responsive-lg .col-34, .responsive-lg .col-50, .responsive-lg .col-66, .responsive-lg .col-67, .responsive-lg .col-75, .responsive-lg .col-80, .responsive-lg .col-90 {
       -webkit-box-flex: 1;
       -webkit-flex: 1;
       -moz-box-flex: 1;
@@ -9992,7 +9992,7 @@ a:hover {
   vertical-align: top;
   text-rendering: auto; }
 
-.flex-row, .item-module.module-big .module.row {
+.flex-row, .item-module.module-big .module.row, .item-module.module-big .module.module-steps {
   flex-wrap: wrap;
   -webkit-flex-direction: row;
   -moz-flex-direction: row;
@@ -10148,12 +10148,12 @@ ion-side-menu.menu {
       margin: 5px 0 0 0;
       font-weight: 300; }
 
-.datos-user .row {
+.datos-user .row, .datos-user .module-steps {
   padding: 0; }
-  .datos-user .row .col {
+  .datos-user .row .col, .datos-user .module-steps .col, .module-steps .datos-user .row .module-step, .datos-user .module-steps .module-step {
     white-space: normal;
     font-size: 13px; }
-    .datos-user .row .col:first-child {
+    .datos-user .row .col:first-child, .datos-user .module-steps .col:first-child, .module-steps .datos-user .row .module-step:first-child, .datos-user .module-steps .module-step:first-child {
       font-weight: bold; }
 
 .myaccount .avatar:before {
@@ -10202,8 +10202,10 @@ ion-side-menu.menu {
       color: #385356; }
   .item-module .module-foot {
     margin-top: 5px; }
-    .item-module .module-foot .row,
-    .item-module .module-foot .col {
+    .item-module .module-foot .row, .item-module .module-foot .module-steps,
+    .item-module .module-foot .col,
+    .item-module .module-foot .module-steps .module-step, .module-steps
+    .item-module .module-foot .module-step {
       padding: 0; }
     .item-module .module-foot .link-ver {
       color: #239BAB;
@@ -10220,7 +10222,7 @@ ion-side-menu.menu {
       color: #239BAB; }
       .item-module .progress .mod.ok:before {
         content: "\f3fe"; }
-  .item-module.module-big .module.row .col.video {
+  .item-module.module-big .module.row .col.video, .item-module.module-big .module.module-steps .col.video, .item-module.module-big .module.row .module-steps .video.module-step, .module-steps .item-module.module-big .module.row .video.module-step, .item-module.module-big .module.module-steps .video.module-step {
     -webkit-box-flex: 0;
     -webkit-flex: 0 0 100%;
     -moz-box-flex: 0;
@@ -10228,6 +10230,88 @@ ion-side-menu.menu {
     -ms-flex: 0 0 100%;
     flex: 0 0 100%;
     max-width: 100%; }
+
+.module-steps {
+  padding: 20px 0 0 0;
+  margin: 0; }
+  .module-steps .module-step {
+    position: relative;
+    font-size: 14px;
+    text-align: center;
+    padding: 30px 0 0 0; }
+    .module-steps .module-step:before {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 1px;
+      background: #D2D2D2;
+      position: absolute;
+      top: 12.5px;
+      left: 50%; }
+    .module-steps .module-step:after {
+      content: "1";
+      line-height: 25px;
+      text-align: center;
+      width: 25px;
+      height: 25px;
+      position: absolute;
+      left: 50%;
+      top: 0;
+      margin-left: -12.5px;
+      border-radius: 50%;
+      display: block;
+      background: #BFBFBF;
+      color: #FFFFFF;
+      border-width: 1px;
+      border-style: solid;
+      border-color: #B3B3B3; }
+    .module-steps .module-step span {
+      font-size: 12px;
+      line-height: 100%;
+      display: inline-block; }
+    .module-steps .module-step:last-child:before {
+      display: none; }
+    .module-steps .module-step.active:after {
+      background: #F29659 !important;
+      border-color: #F29659;
+      color: #fff; }
+    .module-steps .module-step.step-ok span:before {
+      display: inline-block;
+      font-family: "Ionicons";
+      content: "\f121 ";
+      color: #6BB6D2;
+      font-size: 12px;
+      margin-right: 3px; }
+    .module-steps .module-step:first-child:after {
+      content: "1"; }
+    .module-steps .module-step:first-child.step-ok:after {
+      background: #6BB6D2;
+      border-color: #6BB6D2;
+      color: #fff; }
+    .module-steps .module-step:first-child + .module-step:after {
+      content: "2"; }
+    .module-steps .module-step:first-child + .module-step.step-ok:after {
+      background: #57accc;
+      border-color: #57accc;
+      color: #fff; }
+    .module-steps .module-step:first-child + .module-step + .module-step:after {
+      content: "3"; }
+    .module-steps .module-step:first-child + .module-step + .module-step.step-ok:after {
+      background: #44a3c6;
+      border-color: #44a3c6;
+      color: #fff; }
+    .module-steps .module-step:first-child + .module-step + .module-step + .module-step:after {
+      content: "4"; }
+    .module-steps .module-step:first-child + .module-step + .module-step + .module-step .step-ok:after {
+      background: #3286a5;
+      border: #3286a5;
+      color: #fff; }
+    .module-steps .module-step:first-child + .module-step + .module-step + .module-step + .module-step:after {
+      content: "5"; }
+    .module-steps .module-step:first-child + .module-step + .module-step + .module-step + .module-step .step-ok:after {
+      background: #2c7691;
+      border: #2c7691;
+      color: #fff; }
 
 .videogular-container {
   width: 100%;

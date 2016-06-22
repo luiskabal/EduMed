@@ -1,10 +1,10 @@
 ion-view
   ion-content
     .content-video
-      videogular(vg-player-ready='aprender.onPlayerReady($API)', ng-show='!aprender.testRun', vg-theme='aprender.config.theme.url', vg-complete='aprender.onCompleteVideo()')
-        vg-media(vg-src='aprender.config.sources', vg-native-controls='false')
+      videogular(vg-player-ready='module.onPlayerReady($API)', ng-show='!module.testRun', vg-theme='module.config.theme.url', vg-complete='module.onCompleteVideo()')
+        vg-media(vg-src='module.config.sources', vg-native-controls='false')
         vg-overlay-play
-        vg-poster(vg-url='aprender.config.plugins.poster')
+        vg-poster(vg-url='module.config.plugins.poster')
         vg-controls
           vg-play-pause-button
           vg-time-display {{ currentTime | date:'mm:ss':'+0000' }}
@@ -33,5 +33,5 @@ ion-view
               span Modulo cinco
           h2.title-view Artritis Psoriásica
           .item
-            button.button.button-full.button-positive(type='submit', ng-click='aprender.openModal()')
+            button.button.button-full.button-positive(type='submit', ng-click='module.openModal()')
               | Comenzar Test

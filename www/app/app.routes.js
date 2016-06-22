@@ -86,7 +86,8 @@
             views: {
                 'menuContent': {
                     templateUrl: 'app/modulos/video.html',
-                    controller: 'modulosController'
+                    controller: 'modulosController',
+                    controllerAs: 'module'
                 }
             }
         });
