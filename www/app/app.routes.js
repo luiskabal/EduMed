@@ -68,7 +68,8 @@
             views: {
                 'menuContent': {
                     templateUrl: 'app/elements/elements.html',
-                    controller: 'elementsController'
+                    controller: 'elementsController',
+                    controllerAs: 'elements'
                 }
             }
         })

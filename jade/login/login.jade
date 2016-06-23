@@ -6,16 +6,18 @@ ion-view.ion-view-login(hide-nav-bar='true')
         .content-logo-login
           .logo-login
         .list
-          label.item.item-input.item-stacked-label
+          label.item.item-input.item-stacked-label.error
             span.input-label E-mail:
-            input(type='text', placeholder='john@suhr.com')
+            input(type='text', placeholder='mail@mail.com')
+            span.msj-error Error mensaje
           label.item.item-input.item-stacked-label
             span.input-label Contraseña:
-            input(type='password', placeholder='Suhr')
-        .item
-          button.button.button-full.button-positive
-            | Iniciar Sesion
+            input(type='password', placeholder='•••••••')
+            
+          .item
+            button.button.button-full.button-positive
+              | Iniciar Sesion
         hr
         .item
-          button.button.button-full.button-energized(ui-sref='suscripcion')
+          button.button.button-full.button-energized(ui-sref='suscribirse')
             | Suscribete

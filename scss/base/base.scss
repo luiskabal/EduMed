@@ -72,3 +72,66 @@ a {
   max-width: $x;
 }
 
+.item {
+  &.error {
+    border-bottom: 2px solid #ff5722;
+    input,
+    select {
+      color:#ff5722;
+    }
+    .msj-error {
+      color:#ff5722;
+      font-size: 11px;
+    }
+  }
+}
+
+.item-select {
+  display: block;
+  .input-label {
+    position: static;
+    width: 100%;
+    display: block;
+    max-width: 100%;
+    min-width: 100%;
+  }
+  select {
+    width: 100%;
+    display: block;
+    min-width: 100%;
+    position: static;
+    max-width: 100%;
+    direction: ltr;
+    padding-left: 0;
+  }
+}
+
+
+///Mensajes
+.block-msj {
+  padding: 16px;
+  text-align: center;
+  p {
+    color: #757575;
+    font-size: 13px;
+    line-height: 130%;
+    
+  }
+}
+
+.backdrop {
+   background-color: rgba(255, 255, 255, 0.68);
+}
+.popup-container.active .popup {
+  background: transparent;
+  .icon {
+    color: #239BAB;
+    font-size: 60px;
+  }
+  .popup-head {
+    border: none;
+  }
+  .popup-body {
+    color: #424242 ;
+  }
+}
