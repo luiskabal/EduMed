@@ -1,0 +1,45 @@
+ion-view(view-title="Nuevas Guías")
+  ion-content
+    label.item.item-input
+      i.icon.ion-search.placeholder-icon
+      input(type='text', placeholder='Buscar Guías')
+    
+    ion-list
+      ion-item.item-module(href="#/app/aprender")
+        .module.row
+          .col.col-33.video
+            img.full-image(src="img/video/La_artritis_psoriasica.jpg")
+          .col.modulo-info
+            h3 Artritis Psoriasica
+            h4 Introducción
+            span.estado.ok completo
+        .module-foot.row 
+          .col.progress
+            .mod.ok
+            .mod.ok
+            .mod.ok
+            .mod.ok             
+          .col
+            .link-ver
+              | Ver Modulo
+      ion-item.item-module(href="#/app/aprender")
+        .module.row
+          .col.col-33.video
+            img.full-image(src="img/video/La_artritis_psoriasica.jpg")
+          .col.modulo-info
+            h3 Artritis Psoriasica
+            h4 Introducción
+            span.estado incompleto
+        .module-foot.row 
+          .col.progress
+            .mod.ok
+            .mod.ok
+            .mod
+            .mod            
+          .col
+            .link-ver
+              | Ver Modulo
+       
+          
+            
+    

@@ -1,4 +1,4 @@
-ion-view
+ion-view(view-title="Artritis Psoriásica")
   ion-content
     .content-video
       videogular(vg-player-ready='module.onPlayerReady($API)', ng-show='!module.testRun', vg-theme='module.config.theme.url', vg-complete='module.onCompleteVideo()')
@@ -22,15 +22,15 @@ ion-view
         .box-bg
           ul.module-steps
             li.module-step.step-ok
-              span Modulo uno
+              //span Modulo uno
             li.module-step.active
-              span Modulo dos
+              //span Modulo dos
             li.module-step
-              span Modulo tres
+              //span Modulo tres
             li.module-step
-              span Modulo cuatro
+              //span Modulo cuatro
             li.module-step
-              span Modulo cinco
+              //span Modulo cinco
           h2.title-view Artritis Psoriásica
           .item
             button.button.button-full.button-positive(type='submit', ng-click='module.openModal()')

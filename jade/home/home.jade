@@ -1,26 +1,39 @@
 ion-view(view-title='EduMed')
   .tabs-striped.tabs-top.tabs-background-positive.tabs-color-light
     .tabs
-      a.tab-item
+      a.tab-item(href="#/app/search/new-guide")
         | Nuevas Guías
-      a.tab-item
+      a.tab-item(href="#/app/search/guides-interest")
         | Guías de Mi Interes 
   ion-content.has-subheader
-    label.item.item-input
-      i.icon.ion-search.placeholder-icon
-      input(type='text', placeholder='Search')
+  
+    
+    
     .padding
-      .list.card.card-video
-        .item.item-body
-          .block-video
-            img.full-image(src="img/video/La_artritis_psoriasica.jpg")
-          p
-            a.subdued(href='#') Aprender
-      .list.card.card-video
-        .item.item-body
-          .block-video
-            img.full-image(src="img/video/La_artritis_psoriasica.jpg")
-          p
-            a.subdued(href='#') 1 Like
-            a.subdued(href='#') 5 Comments
+      .row
+        .col.state-module.completo
+          p.module-title Artritis Psoriasica
+          .icon
+            .estado
+          p progreso
+          .progress-flag(data-progress="5")
+            span
+            span
+            span
+            span
+            span
+            //.porcent 75% 
+        .col.state-module
+          p.module-title Diabetes
+          .icon
+           .estado
+          p progreso
+          .progress-flag(data-progress="2")
+            span
+            span
+            span
+            span
+            span
+            //.porcent 75%             
+      
       

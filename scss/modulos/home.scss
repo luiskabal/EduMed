@@ -22,3 +22,213 @@
    } 
   }
 }
+
+
+.state-module {
+  text-align: center;
+  p {
+    color: #424242;
+    margin-bottom: 5px;
+    font-size: 11px;
+    &.module-title {
+       font-weight: bold;
+       font-size: 16px;
+     }
+  }
+  .icon {
+    display: inline-block;
+    background: #ffc107 url(../img/icon/heart.svg);
+    background-size: 30px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    position: relative;
+    span {
+      color: #fff;
+    }
+    .estado {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      background-color: #4caf50;
+      background: #4caf50 url(../img/icon/checked-mark.svg);
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background-size: 10px;
+      background-position: center center;
+      background-repeat: no-repeat;
+      display: none;
+      
+    }
+  }
+  & + .state-module {
+    .icon {
+      background: #ff5722 url(../img/icon/pills.svg);
+      background-size: 30px;
+    background-repeat: no-repeat;
+    background-position: center center;
+
+    }
+  }
+  &.completo {
+    .icon {
+      .estado {
+        display: block;
+      }
+    }
+  }
+  
+ .progress {
+   background: #F7852C;
+   height: 15px;
+   border-radius: 10px;
+   //overflow: hidden;
+   width: 80px;
+   //max-width: 80px;
+   display: inline-block;
+   position: relative;
+   //right: 20px;
+   .porcent {
+     position: absolute;
+     font-size: 11px;
+     right: -25px;
+     top: 50%;
+     margin-top: -10px;
+     color: #F7852C;
+   }
+   span {
+     height: 14px;
+     display: block;
+     background: #fff;
+     opacity: 0.5;
+     width: 20%;
+     font-size: 11px;
+     
+   }
+ }
+}
+
+$progress-flag-step: 5;
+$progress-flag-width: 100%;
+$progress-flag-icon-size:20px;
+$progress-flag-color-step:#239bab;
+.progress-flag {
+  height: 4px;
+   border-radius: 10px;
+   //overflow: hidden;
+   width: 80px;
+   //max-width: 80px;
+   display: block;
+   margin: 0 auto;
+   position: relative;
+   background-color: red;
+  span {
+    width: $progress-flag-width / $progress-flag-step;
+    height: 4px;
+    background: #ccc;
+    display: block;
+    position: relative;
+    float: left;
+    &:before {
+      position: absolute;
+      right: -3px;
+      top: 50%;
+      margin-top: -3px;
+      content: "";
+      display: block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #ccc;
+      z-index: 1;
+    }
+    &:last-child {
+      &:after {
+        @include icon-flag(#ccc);
+        background-size: $progress-flag-icon-size;
+        position: absolute;
+        right: - $progress-flag-icon-size;
+        bottom: 6px;
+    
+        content: "";
+        display: block;
+        width: $progress-flag-icon-size;
+        height: $progress-flag-icon-size;
+
+
+      }
+    }
+    
+  }
+  &[data-progress="1"] {
+    span {
+      background-color: $progress-flag-color-step;
+      &:before {
+        background-color: $progress-flag-color-step;
+      }
+      + span {
+        background-color:  #ccc;
+        &:before {
+          background-color: #ccc;
+        }
+      }
+    }
+  }
+  &[data-progress="2"] {
+    span {
+      background-color: $progress-flag-color-step;
+      &:before {
+        background-color: $progress-flag-color-step;
+      }
+      + span + span  {
+        background-color:  #ccc;
+        &:before {
+          background-color: #ccc;
+        }
+      }
+    }
+  }
+  &[data-progress="3"] {
+    span {
+      background-color: $progress-flag-color-step;
+      &:before {
+        background-color: $progress-flag-color-step;
+      }
+      + span + span + span {
+        background-color:  #ccc;
+        &:before {
+          background-color: #ccc;
+        }
+      }
+    }
+  }
+  &[data-progress="4"] {
+    span {
+      background-color: $progress-flag-color-step;
+      &:before {
+        background-color: $progress-flag-color-step;
+      }
+      + span + span + span + span {
+        background-color:  #ccc;
+        &:before {
+          background-color: #ccc;
+        }
+      }
+    }
+  }
+  &[data-progress="5"] {
+    span {
+      background-color: $progress-flag-color-step;
+      &:before {
+        background-color: $progress-flag-color-step;
+      }
+      &:after {
+        @include icon-flag($progress-flag-color-step);
+      }
+      
+    }
+  }
+}
