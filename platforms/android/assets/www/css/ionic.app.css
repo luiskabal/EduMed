@@ -10059,6 +10059,108 @@ a:hover {
   .popup-container.active .popup .popup-body {
     color: #424242; }
 
+.loading-container.active {
+  z-index: 99; }
+
+.backdrop {
+  background-color: rgba(0, 0, 0, 0.5); }
+
+.loading-container .loading {
+  background: none; }
+
+.edumed-loading {
+  background: url(../img/icon/spinner-in.svg);
+  width: 70px;
+  height: 70px;
+  background-size: 50px;
+  background-position: center center;
+  position: relative; }
+  .edumed-loading:before {
+    background: url(../img/icon/spinner.svg);
+    content: "";
+    display: block;
+    width: 70px;
+    height: 70px;
+    -webkit-animation: spin 0.8s infinite linear;
+    animation: spin 0.8s infinite linear;
+    opacity: 0.7; }
+
+ion-view {
+  padding-top: 16px; }
+
+@-webkit-keyframes tabMenuShow {
+  0% {
+    transform: translateY(0); }
+  100% {
+    transform: translateY(-40px); } }
+
+@-moz-keyframes tabMenuShow {
+  0% {
+    transform: translateY(0); }
+  100% {
+    transform: translateY(-40px); } }
+
+@-o-keyframes tabMenuShow {
+  0% {
+    transform: translateY(0); }
+  100% {
+    transform: translateY(-40px); } }
+
+@keyframes tabMenuShow {
+  0% {
+    transform: translateY(0); }
+  100% {
+    transform: translateY(-40px); } }
+
+@-webkit-keyframes tabMenuHide {
+  0% {
+    transform: translateY(-40px); }
+  100% {
+    transform: translateY(-40px); } }
+
+@-moz-keyframes tabMenuHide {
+  0% {
+    transform: translateY(-40px); }
+  100% {
+    transform: translateY(0px); } }
+
+@-o-keyframes tabMenuHide {
+  0% {
+    transform: translateY(-40px); }
+  100% {
+    transform: translateY(0px); } }
+
+@keyframes tabMenuHide {
+  0% {
+    transform: translateY(-40px); }
+  100% {
+    transform: translateY(0px); } }
+
+@-webkit-keyframes spin {
+  100% {
+    transform: rotate(360deg); } }
+
+@-moz-keyframes spin {
+  100% {
+    transform: rotate(360deg); } }
+
+@-o-keyframes spin {
+  100% {
+    transform: rotate(360deg); } }
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg); } }
+
+.modal {
+  background: #f0f0f0; }
+  .modal .bar-header {
+    background: #f0f0f0;
+    border-color: #f0f0f0; }
+    .modal .bar-header h2 {
+      color: #5C9BAA;
+      font-size: 20px; }
+
 ion-view.ion-view-login {
   background: url(../img/back/back.jpg);
   background-position: center center;

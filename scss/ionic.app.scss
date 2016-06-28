@@ -37,6 +37,7 @@ $lato-font-path: '../lib/lato/font' !default;
 @import "modulos/avatar";
 @import "modulos/modulos";
 @import "modulos/video";
+@import "modulos/pacientes";
 
 /*.item-stacked-label {
   &.item-select {
@@ -71,11 +72,19 @@ direction: ltr;
 
 .item-radio {
 	padding:6px 16px;
+	.input-label {
+		 white-space: initial;
+		 display: block;
+		 width: 100%;
+		 max-width: 100%;
+		 padding-right: 0;
+	}
 	 .label-radio {
 		display: inline-block;
-	    padding: 0px;
-	    vertical-align: middle;
-	    color:#5C9BAA;
+		padding: 0px;
+		vertical-align: middle;
+		color:#5C9BAA;
+		    white-space: initial;
 	}
 	.row {
 		padding:0;
