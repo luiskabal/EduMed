@@ -226,3 +226,27 @@
 		}
 	}	
 }
+
+.foot-data {
+	margin: 5px 0 0!important;
+	padding: 0;
+	color:#1a7581;
+	.col {
+		padding: 0;
+		font-size: 12px;
+		line-height: 18px;
+		span {
+			//font-weight: bold;
+			+ span {
+				margin-left: 5px;
+			}
+		}
+		.icon {
+			font-size: 18px;
+			line-height: 100%;
+		}
+		&:first-child {
+			@include col-w(20px); 
+		}
+	}
+}

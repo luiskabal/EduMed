@@ -19,13 +19,15 @@
                 url: '/login',
                 //abstract: true,
                 templateUrl: 'app/login/login.html',
-                controller: 'LoginController'
+                controller: 'LoginController',
+                controllerAs: 'login'
             })
             .state('suscribirse', {
                 url: '/suscribirse',
                 //abstract: true,
                 templateUrl: 'app/login/suscribirse.html',
-                controller: 'LoginController'
+                controller: 'LoginController',
+                controllerAs: 'login'
             })
             .state('codigo', {
                 url: '/codigo',
@@ -135,12 +137,22 @@
                         controllerAs: 'patients'
                     }
                 }
+            })
+            .state('app.patient-history', {
+                url: '/patient-history',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'app/patients/patient-history.html',
+                        controller: 'patientsController',
+                        controllerAs: 'patients'
+                    }
+                }
             });
 
         // Each tab has its own nav history stack which is defined in the corresponding module.
 
         // if none of the above states are matched, use this as the fallback
-        $urlRouterProvider.otherwise('/app/home');
+        $urlRouterProvider.otherwise('/login');
     }
 
 })();

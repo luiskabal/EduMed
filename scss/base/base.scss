@@ -134,19 +134,27 @@ a {
 }
 
 .backdrop {
-   background-color: rgba(255, 255, 255, 0.68);
+   //background-color: rgba(255, 255, 255, 0.68)!important;
 }
 .popup-container.active .popup {
-  background: transparent;
+  //background: transparent;
+  background: #fff;
+  //padding: 16px;
   .icon {
     color: #239BAB;
     font-size: 60px;
   }
   .popup-head {
     border: none;
+    .popup-title {
+      color: #239BAB;
+      font-size: 24px;
+    }
   }
   .popup-body {
     color: #424242 ;
+    text-align: center;
+    font-size: 14px;
   }
 }
 

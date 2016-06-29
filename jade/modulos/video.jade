@@ -31,7 +31,7 @@ ion-view(view-title="Artritis Psoriásica")
               //span Modulo cuatro
             li.module-step
               //span Modulo cinco
-          h2.title-view Artritis Psoriásica
+          h2.title-view(ng-click="module.showConfirm()") Artritis Psoriásica
           .item
             button.button.button-full.button-positive(type='submit', ng-click='module.openModal()')
               | Comenzar Test

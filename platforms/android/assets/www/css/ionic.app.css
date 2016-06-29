@@ -10046,18 +10046,20 @@ a:hover {
     font-size: 13px;
     line-height: 130%; }
 
-.backdrop {
-  background-color: rgba(255, 255, 255, 0.68); }
-
 .popup-container.active .popup {
-  background: transparent; }
+  background: #fff; }
   .popup-container.active .popup .icon {
     color: #239BAB;
     font-size: 60px; }
   .popup-container.active .popup .popup-head {
     border: none; }
+    .popup-container.active .popup .popup-head .popup-title {
+      color: #239BAB;
+      font-size: 24px; }
   .popup-container.active .popup .popup-body {
-    color: #424242; }
+    color: #424242;
+    text-align: center;
+    font-size: 14px; }
 
 .loading-container.active {
   z-index: 99; }
@@ -10559,10 +10561,7 @@ ion-side-menu.menu {
       border-radius: 50%;
       display: block;
       background: #BFBFBF;
-      color: #FFFFFF;
-      border-width: 1px;
-      border-style: solid;
-      border-color: #B3B3B3; }
+      color: #FFFFFF; }
     .module-steps .module-step span {
       font-size: 12px;
       line-height: 100%;
@@ -10622,6 +10621,23 @@ videogular vg-poster img.stop, [videogular] vg-poster img.stop {
   margin: 0;
   height: 100%; }
 
+.item.item-avatar h2 {
+  color: #239bab;
+  font-size: 17px;
+  font-weight: bold;
+  margin: 0; }
+
+.item.item-avatar hr {
+  border-top: 1px solid rgba(35, 155, 171, 0.3);
+  margin: 3px 0; }
+
+.item.item-avatar p {
+  color: #239bab;
+  margin: 0; }
+  .item.item-avatar p.centro-med {
+    color: #DC955D;
+    font-size: 12px; }
+
 /*.item-stacked-label {
   &.item-select {
     .input-label {
@@ -10652,11 +10668,18 @@ direction: ltr;
 
 .item-radio {
   padding: 6px 16px; }
+  .item-radio .input-label {
+    white-space: initial;
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    padding-right: 0; }
   .item-radio .label-radio {
     display: inline-block;
     padding: 0px;
     vertical-align: middle;
-    color: #5C9BAA; }
+    color: #5C9BAA;
+    white-space: initial; }
   .item-radio .row, .item-radio .module-steps {
     padding: 0; }
     .item-radio .row .col, .item-radio .module-steps .col, .module-steps .item-radio .row .module-step, .item-radio .module-steps .module-step {

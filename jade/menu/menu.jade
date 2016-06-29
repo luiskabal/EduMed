@@ -9,7 +9,7 @@ ion-side-menus(enable-menu-with-back-views='false')
     ion-header-bar.bar-dark
       .cont-avatar
         .avatar
-          img(src="../img/avatar/mike.png")
+          img(src="img/avatar/mike.png")
       h1.title Hola, 
         strong Luis Ramos
     ion-content.has-header
@@ -25,6 +25,10 @@ ion-side-menus(enable-menu-with-back-views='false')
         ion-item.item-icon-left.item-icon-right(menu-close='')
           i.icon.ion-ios-paper
           | Historial de Aprendizaje
+          i.icon.ion-ios-arrow-forward
+        ion-item.item-icon-left.item-icon-right(menu-close='', href="#/app/patients")
+          i.icon.ion-ios-paper
+          | Pacientes
           i.icon.ion-ios-arrow-forward
         ion-item.item-icon-left.item-icon-right(menu-close='',href="#/app/elements")
           i.icon.ion-beer

@@ -10046,18 +10046,20 @@ a:hover {
     font-size: 13px;
     line-height: 130%; }
 
-.backdrop {
-  background-color: rgba(255, 255, 255, 0.68); }
-
 .popup-container.active .popup {
-  background: transparent; }
+  background: #fff; }
   .popup-container.active .popup .icon {
     color: #239BAB;
     font-size: 60px; }
   .popup-container.active .popup .popup-head {
     border: none; }
+    .popup-container.active .popup .popup-head .popup-title {
+      color: #239BAB;
+      font-size: 24px; }
   .popup-container.active .popup .popup-body {
-    color: #424242; }
+    color: #424242;
+    text-align: center;
+    font-size: 14px; }
 
 .loading-container.active {
   z-index: 99; }
@@ -10227,7 +10229,35 @@ ion-view.ion-view-login {
   margin: 0; }
 
 .state-module {
-  text-align: center; }
+  text-align: center;
+  /*.progress {
+   background: #F7852C;
+   height: 15px;
+   border-radius: 10px;
+   //overflow: hidden;
+   width: 80px;
+   //max-width: 80px;
+   display: inline-block;
+   position: relative;
+   //right: 20px;
+   .porcent {
+     position: absolute;
+     font-size: 11px;
+     right: -25px;
+     top: 50%;
+     margin-top: -10px;
+     color: #F7852C;
+   }
+   span {
+     height: 14px;
+     display: block;
+     background: #fff;
+     opacity: 0.5;
+     width: 20%;
+     font-size: 11px;
+     
+   }
+ }*/ }
   .state-module p {
     color: #424242;
     margin-bottom: 5px;
@@ -10267,27 +10297,6 @@ ion-view.ion-view-login {
     background-position: center center; }
   .state-module.completo .icon .estado {
     display: block; }
-  .state-module .progress {
-    background: #F7852C;
-    height: 15px;
-    border-radius: 10px;
-    width: 80px;
-    display: inline-block;
-    position: relative; }
-    .state-module .progress .porcent {
-      position: absolute;
-      font-size: 11px;
-      right: -25px;
-      top: 50%;
-      margin-top: -10px;
-      color: #F7852C; }
-    .state-module .progress span {
-      height: 14px;
-      display: block;
-      background: #fff;
-      opacity: 0.5;
-      width: 20%;
-      font-size: 11px; }
 
 .progress-flag {
   height: 4px;
@@ -10608,6 +10617,28 @@ ion-side-menu.menu {
       border: #2c7691;
       color: #fff; }
 
+.foot-data {
+  margin: 5px 0 0 !important;
+  padding: 0;
+  color: #1a7581; }
+  .foot-data .col, .foot-data .module-steps .module-step, .module-steps .foot-data .module-step {
+    padding: 0;
+    font-size: 12px;
+    line-height: 18px; }
+    .foot-data .col span + span, .foot-data .module-steps .module-step span + span, .module-steps .foot-data .module-step span + span {
+      margin-left: 5px; }
+    .foot-data .col .icon, .foot-data .module-steps .module-step .icon, .module-steps .foot-data .module-step .icon {
+      font-size: 18px;
+      line-height: 100%; }
+    .foot-data .col:first-child, .foot-data .module-steps .module-step:first-child, .module-steps .foot-data .module-step:first-child {
+      -webkit-box-flex: 0;
+      -webkit-flex: 0 0 20px;
+      -moz-box-flex: 0;
+      -moz-flex: 0 0 20px;
+      -ms-flex: 0 0 20px;
+      flex: 0 0 20px;
+      max-width: 20px; }
+
 .videogular-container {
   width: 100%;
   height: 320px;
@@ -10635,6 +10666,76 @@ videogular vg-poster img.stop, [videogular] vg-poster img.stop {
   .item.item-avatar p.centro-med {
     color: #DC955D;
     font-size: 12px; }
+
+.cont-progress {
+  padding-right: 45px;
+  background-color: #239bab; }
+
+.progress-porcent {
+  height: 10px;
+  display: block;
+  background: #2dc0d4;
+  margin-right: 45px;
+  position: relative; }
+  .progress-porcent span {
+    display: block;
+    font-weight: bold;
+    color: #1f8896;
+    position: absolute;
+    width: 40px;
+    right: -45px;
+    top: -15px;
+    text-align: left;
+    line-height: 15px;
+    font-size: 13px; }
+
+.modulo-actual .icon-collapse {
+  position: absolute;
+  right: 10px;
+  top: 10px; }
+
+.modulo-actual p {
+  font-size: 11px;
+  line-height: 120%; }
+
+.modulo-actual h3 {
+  font-size: 18px;
+  color: #239bab;
+  margin: 0; }
+
+.modulo-actual h4 {
+  font-size: 16px;
+  color: #239bab;
+  margin: 0;
+  border-bottom: 1px solid #239bab; }
+
+.modulo-actual .cont-progress {
+  margin: 20px 0 10px; }
+
+.info-history {
+  padding: 0;
+  background: #239bab; }
+  .info-history .col, .info-history .module-steps .module-step, .module-steps .info-history .module-step {
+    text-align: center; }
+    .info-history .col span, .info-history .module-steps .module-step span, .module-steps .info-history .module-step span {
+      font-size: 14px;
+      display: block;
+      color: #394A54;
+      color: #ace6ee; }
+      .info-history .col span.porcent, .info-history .module-steps .module-step span.porcent, .module-steps .info-history .module-step span.porcent {
+        font-size: 30px;
+        line-height: 100%;
+        color: #fff; }
+        .info-history .col span.porcent small, .info-history .module-steps .module-step span.porcent small, .module-steps .info-history .module-step span.porcent small {
+          font-size: 12px;
+          color: #ace6ee; }
+    .info-history .col small, .info-history .module-steps .module-step small, .module-steps .info-history .module-step small {
+      font-size: 12px;
+      color: #ace6ee; }
+    .info-history .col + .col, .info-history .module-steps .module-step + .col, .module-steps .info-history .module-step + .col, .info-history .module-steps .col + .module-step, .module-steps .info-history .col + .module-step, .info-history .module-steps .module-step + .module-step, .module-steps .info-history .module-step + .module-step {
+      background: #1f8896; }
+      .info-history .col + .col + .col, .info-history .module-steps .module-step + .col + .col, .module-steps .info-history .module-step + .col + .col, .info-history .module-steps .col + .module-step + .col, .module-steps .info-history .col + .module-step + .col, .info-history .module-steps .module-step + .module-step + .col, .module-steps .info-history .module-step + .module-step + .col, .info-history .module-steps .col + .col + .module-step, .module-steps .info-history .col + .col + .module-step, .info-history .module-steps .module-step + .col + .module-step, .module-steps .info-history .module-step + .col + .module-step, .info-history .module-steps .col + .module-step + .module-step, .module-steps .info-history .col + .module-step + .module-step, .info-history .module-steps .module-step + .module-step + .module-step, .module-steps .info-history .module-step + .module-step + .module-step {
+        background: #239bab; }
 
 /*.item-stacked-label {
   &.item-select {

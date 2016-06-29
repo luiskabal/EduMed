@@ -7,8 +7,8 @@
 		.module('eduMed')
 		.controller('modulosController', modulosController);
 
-	modulosController.$inject = ['$log','$ionicLoading','$sce','$ionicModal','$ionicPopup'];
-	function modulosController($log,$ionicLoading,$sce,$ionicModal,$ionicPopup) {
+	modulosController.$inject = ['$log','$ionicLoading','$sce','$ionicModal','$ionicPopup','$timeout'];
+	function modulosController($log,$ionicLoading,$sce,$ionicModal,$ionicPopup,$timeout) {
 		var vm = this;
 		
 
@@ -64,8 +64,8 @@
 		//Confirmar llenar form
 		vm.showConfirm = function() {
 			var confirmPopup = $ionicPopup.confirm({
-				title: 'Consume Ice Cream',
-				template: 'Are you sure you want to eat this ice cream?'
+				title: 'Artritis Psoriásica',
+				template: 'has terminado el primer video de este módulo. ¿Quieres comenzar a responder el test de esté modulo?'
 			});
 
 			confirmPopup.then(function(res) {
@@ -81,7 +81,10 @@
 		vm.onCompleteVideo = function() {
 			console.log("on complete 1");
 			 //vm.modal.show();
-			 vm.showConfirm();
+			  $timeout(function() {
+					vm.showConfirm(); //close the popup after 3 seconds for some reason
+				}, 600);
+			 
 
 			/*ngDialog.open({ 
 				template: 'modules/modulos/templates/modal.html',
