@@ -9949,7 +9949,7 @@ body {
   font-size: 20px; }
 
 .title-bg {
-  background-color: #e0e0e0;
+  background-color: #F1EFEF;
   font-size: 16px;
   text-transform: uppercase;
   color: #5C9BAA;
@@ -10162,6 +10162,12 @@ ion-view {
     .modal .bar-header h2 {
       color: #5C9BAA;
       font-size: 20px; }
+
+.bar.bar-positive {
+  border-color: #239bab;
+  background-color: #239bab;
+  background-image: linear-gradient(0deg, #239bab, #239bab 50%, transparent 50%);
+  color: #fff; }
 
 ion-view.ion-view-login {
   background: url(../img/back/back.jpg);
@@ -10378,7 +10384,13 @@ ion-side-menu.menu {
   background: #eceff1; }
   ion-side-menu.menu .bar-dark.bar.bar-header {
     height: 100px;
-    padding-top: 60px; }
+    padding-top: 60px;
+    background: #99ABAB;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #99ABAB, #142C37);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #99ABAB, #142C37);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */ }
     ion-side-menu.menu .bar-dark.bar.bar-header .title {
       position: static;
       font-size: 16px; }
@@ -10417,7 +10429,7 @@ ion-side-menu.menu {
   position: relative; }
   .avatar:before {
     content: "\f2d3";
-    display: inline-block;
+    display: none;
     font-family: "Ionicons";
     font-size: 20px;
     position: absolute;
@@ -10440,9 +10452,38 @@ ion-side-menu.menu {
     margin-top: -30px;
     display: block;
     height: 300px;
-    background: url(../img/back/back2.jpg);
+    background: url(../img/back/test.jpg);
     background-size: contain;
-    -webkit-filter: grayscale(0.1) blur(5px); }
+    background: #085078;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #085078, #85D8CE);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #085078, #85D8CE);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: #304352;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #304352, #d7d2cc);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #304352, #d7d2cc);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: #F1F2B5;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #F1F2B5, #135058);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #F1F2B5, #135058);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: #136a8a;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #136a8a, #267871);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #136a8a, #267871);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: #99ABAB;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #99ABAB, #142C37);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #99ABAB, #142C37);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */ }
   .banner-avatar .cont-avatar {
     position: absolute;
     width: 100%;
@@ -10620,7 +10661,7 @@ ion-side-menu.menu {
 .foot-data {
   margin: 5px 0 0 !important;
   padding: 0;
-  color: #1a7581; }
+  color: #49676B; }
   .foot-data .col, .foot-data .module-steps .module-step, .module-steps .foot-data .module-step {
     padding: 0;
     font-size: 12px;
@@ -10629,7 +10670,8 @@ ion-side-menu.menu {
       margin-left: 5px; }
     .foot-data .col .icon, .foot-data .module-steps .module-step .icon, .module-steps .foot-data .module-step .icon {
       font-size: 18px;
-      line-height: 100%; }
+      line-height: 100%;
+      color: #6A8281; }
     .foot-data .col:first-child, .foot-data .module-steps .module-step:first-child, .module-steps .foot-data .module-step:first-child {
       -webkit-box-flex: 0;
       -webkit-flex: 0 0 20px;
@@ -10667,50 +10709,70 @@ videogular vg-poster img.stop, [videogular] vg-poster img.stop {
     color: #DC955D;
     font-size: 12px; }
 
-.cont-progress {
-  padding-right: 45px;
-  background-color: #239bab; }
+.cont-progress span {
+  display: block;
+  color: #49676B;
+  width: 40px;
+  right: 0px;
+  top: -15px;
+  text-align: left;
+  line-height: 18px;
+  font-size: 16px; }
 
 .progress-porcent {
-  height: 10px;
+  height: 7px;
   display: block;
-  background: #2dc0d4;
-  margin-right: 45px;
-  position: relative; }
-  .progress-porcent span {
+  position: relative;
+  overflow: hidden; }
+  .progress-porcent:before {
+    background-image: -webkit-linear-gradient(left, #f44, #DC955D, #F1F747, #5FC74D);
+    content: "";
     display: block;
-    font-weight: bold;
-    color: #1f8896;
     position: absolute;
-    width: 40px;
-    right: -45px;
-    top: -15px;
-    text-align: left;
-    line-height: 15px;
-    font-size: 13px; }
+    width: 100%;
+    width: 100vw;
+    height: 7px;
+    margin-left: -16px; }
 
-.modulo-actual .icon-collapse {
+.collapse {
+  padding-top: 10px;
+  position: relative;
+  height: 24px;
+  line-height: 24px; }
+  .collapse h4 {
+    border-bottom: none !important; }
+  .collapse + .row, .collapse + .module-steps {
+    padding: 0; }
+    .collapse + .row .col, .collapse + .module-steps .col, .collapse + .row .module-steps .module-step, .module-steps .collapse + .row .module-step, .collapse + .module-steps .module-step {
+      padding: 0; }
+
+.modulo-history .icon-collapse {
   position: absolute;
   right: 10px;
-  top: 10px; }
+  top: 10px;
+  color: #6A8281; }
 
-.modulo-actual p {
+.modulo-history p {
   font-size: 11px;
-  line-height: 120%; }
+  line-height: 120%;
+  color: #49676B; }
 
-.modulo-actual h3 {
+.modulo-history h3 {
   font-size: 18px;
   color: #239bab;
   margin: 0; }
 
-.modulo-actual h4 {
+.modulo-history h4 {
   font-size: 16px;
   color: #239bab;
   margin: 0;
   border-bottom: 1px solid #239bab; }
 
-.modulo-actual .cont-progress {
-  margin: 20px 0 10px; }
+.modulo-history .cont-progress {
+  margin: 10px 0 10px; }
+
+.modulo-history.modulo-history-small .collapse h4 {
+  font-size: 14px; }
 
 .info-history {
   padding: 0;
@@ -10736,6 +10798,23 @@ videogular vg-poster img.stop, [videogular] vg-poster img.stop {
       background: #1f8896; }
       .info-history .col + .col + .col, .info-history .module-steps .module-step + .col + .col, .module-steps .info-history .module-step + .col + .col, .info-history .module-steps .col + .module-step + .col, .module-steps .info-history .col + .module-step + .col, .info-history .module-steps .module-step + .module-step + .col, .module-steps .info-history .module-step + .module-step + .col, .info-history .module-steps .col + .col + .module-step, .module-steps .info-history .col + .col + .module-step, .info-history .module-steps .module-step + .col + .module-step, .module-steps .info-history .module-step + .col + .module-step, .info-history .module-steps .col + .module-step + .module-step, .module-steps .info-history .col + .module-step + .module-step, .info-history .module-steps .module-step + .module-step + .module-step, .module-steps .info-history .module-step + .module-step + .module-step {
         background: #239bab; }
+
+progress[value] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 250px;
+  height: 15px; }
+  progress[value]::-webkit-progress-bar {
+    background-color: #eee;
+    border-radius: 2px; }
+  progress[value]::-webkit-progress-value {
+    background-image: -webkit-linear-gradient(left, #f44, #DC955D, #F1F747, #5FC74D);
+    border-radius: 2px; }
+
+progress[value="3"] {
+  border: solid red 3px; }
+  progress[value="3"]::-webkit-progress-value {
+    background-image: -webkit-linear-gradient(left, #f44) !important; }
 
 /*.item-stacked-label {
   &.item-select {

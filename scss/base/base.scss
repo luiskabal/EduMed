@@ -7,7 +7,7 @@ body {
   font-size: 20px;
  }
 .title-bg {
-  background-color: #e0e0e0;
+  background-color: #F1EFEF;
   font-size: 16px;
   text-transform: uppercase;
   color: #5C9BAA;
@@ -135,6 +135,9 @@ a {
 
 .backdrop {
    //background-color: rgba(255, 255, 255, 0.68)!important;
+}
+.icon {
+  //color: $color-icon;
 }
 .popup-container.active .popup {
   //background: transparent;
@@ -302,3 +305,9 @@ ion-view {
     }
 }
 
+.bar.bar-positive {
+    border-color: #239bab;
+    background-color: #239bab;
+    background-image: linear-gradient(0deg, #239bab, #239bab 50%, transparent 50%);
+    color: #fff;
+}

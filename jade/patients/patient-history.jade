@@ -1,18 +1,21 @@
 ion-view(view-title="Historial de Paciente")
   ion-content
-    .padding
-    .cont-avatar
-      .avatar
-        img(src="img/avatar/old.jpg")
-      h4 Jose Hernandez
-    .item.modulo-actual
-      i.ion-chevron-down.icon-collapse
+    .banner-avatar(id="detalle-header3")
+      .cont-avatar
+        .avatar
+          img(src="img/avatar/old.jpg")
+        h4 Jose Hernandez
+    
+    .item.modulo-history
+      
       p Modulo Actual
       h3 Artritis Psoriasica
       h4 Introducción
+      //progress(max="5", value="3")
       .cont-progress
-        .progress-porcent
-          span 75%
+        span 60%
+        .progress-porcent(style="width:60%")
+        
       .row.info-history
         .col
           span Completado
@@ -26,6 +29,52 @@ ion-view(view-title="Historial de Paciente")
           span Tiempo
           span.porcent 1
           small Semana
+      .collapse( ng-click="active = !active")
+        h4 Detalle {{detalle}}
+        i.icon-collapse(ng-class="{'ion-chevron-up': active, 'ion-chevron-down': !active}")
+      .row(ng-show="active")
+        .col
+          | mas datos
     h3.title-bg.tcenter Modulos Completados
+    .item.modulo-history.modulo-history-small      
+      h3 Artritis Psoriasica
+      h4 Introducción
+      .row.foot-data
+        .col
+          i.icon.ion-android-calendar
+        .col
+          span 
+            strong Inicio: 
+            | 24/06/2016 
+        
+          span 
+            strong Fin:  
+            | 28/06/2016
+      .collapse( ng-click="active2 = !active2")
+        h4 Detalle {{detalle}}
+        i.icon-collapse(ng-class="{'ion-chevron-up': active2, 'ion-chevron-down': !active2}")
+      .row(ng-show="active2")
+        .col
+          | mas datos
+    .item.modulo-history.modulo-history-small      
+      h3 Artritis Psoriasica
+      h4 Introducción
+      .row.foot-data
+        .col
+          i.icon.ion-android-calendar
+        .col
+          span 
+            strong Inicio: 
+            | 24/06/2016 
+        
+          span 
+            strong Fin:  
+            | 28/06/2016
+      .collapse( ng-click="active2 = !active2")
+        h4 Detalle {{detalle}}
+        i.icon-collapse(ng-class="{'ion-chevron-up': active2, 'ion-chevron-down': !active2}")
+      .row(ng-show="active2")
+        .col
+          | mas datos
     
           

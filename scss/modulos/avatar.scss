@@ -9,7 +9,7 @@
   position: relative;
   &:before {
     content: "\f2d3";
-    display: inline-block;
+    display: none;
     font-family: "Ionicons";
     font-size: 20px;
     position: absolute;
@@ -34,10 +34,42 @@
     margin-top: -30px;
     display: block;
     height: 300px;
-    background: url(../img/back/back2.jpg);
+    background: url(../img/back/test.jpg);
     //background-position:  center center;
     background-size: contain;
-    -webkit-filter: grayscale(0.1) blur(5px);
+    //-webkit-filter: grayscale(0.1) blur(5px);
+
+
+background: #085078; /* fallback for old browsers */
+background: -webkit-linear-gradient(to left, #085078 , #85D8CE); /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to left, #085078 , #85D8CE); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
+
+background: #304352; /* fallback for old browsers */
+background: -webkit-linear-gradient(to left, #304352 , #d7d2cc); /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to left, #304352 , #d7d2cc); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        
+
+
+background: #F1F2B5; /* fallback for old browsers */
+background: -webkit-linear-gradient(to left, #F1F2B5 , #135058); /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to left, #F1F2B5 , #135058); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        
+
+       
+
+background: #136a8a; /* fallback for old browsers */
+background: -webkit-linear-gradient(to left, #136a8a , #267871); /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to left, #136a8a , #267871); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+                 
+
+background: #99ABAB; /* fallback for old browsers */
+background: -webkit-linear-gradient(to left, #99ABAB , #142C37); /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to left, #99ABAB , #142C37); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+           
+        
   }
   .cont-avatar {
     position: absolute;

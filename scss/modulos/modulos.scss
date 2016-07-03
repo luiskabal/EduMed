@@ -230,7 +230,8 @@
 .foot-data {
 	margin: 5px 0 0!important;
 	padding: 0;
-	color:#1a7581;
+	color: #49676B;
+	//color:#1a7581;
 	.col {
 		padding: 0;
 		font-size: 12px;
@@ -244,6 +245,7 @@
 		.icon {
 			font-size: 18px;
 			line-height: 100%;
+			color: $color-icon;
 		}
 		&:first-child {
 			@include col-w(20px); 
