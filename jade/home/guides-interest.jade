@@ -1,4 +1,7 @@
 ion-view(view-title="Guías de interés")
+  ion-nav-buttons(side='primary')
+    button.button.button-clear(ng-click="goBack()")
+      i.icon.ion-ios-arrow-left
   ion-content
     label.item.item-input
       i.icon.ion-search.placeholder-icon
@@ -19,8 +22,9 @@ ion-view(view-title="Guías de interés")
             .mod.ok
             .mod.ok
             .mod.ok             
-          .col
-            .link-ver
+          .col.tright
+            button.button.button-small.button-positive.icon-left
+              i.icon.ion-ios-search-strong
               | Ver Modulo
       ion-item.item-module(href="#/app/aprender")
         .module.row
@@ -36,9 +40,10 @@ ion-view(view-title="Guías de interés")
             .mod.ok
             .mod
             .mod            
-          .col
+          .col.tright
             .link-ver
-              a(href="")
+              button.button.button-small.button-positive.icon-left
+                i.icon.ion-ios-search-strong
                 | Ver Modulo
        
           

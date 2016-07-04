@@ -1,4 +1,7 @@
 ion-view(view-title="Nuevas Guías")
+  ion-nav-buttons(side='primary')
+    button.button.button-clear(ng-click="goBack()")
+      i.icon.ion-ios-arrow-left
   ion-content
     label.item.item-input
       i.icon.ion-search.placeholder-icon
@@ -13,15 +16,18 @@ ion-view(view-title="Nuevas Guías")
             h3 Artritis Psoriasica
             h4 Introducción
             span.estado.ok completo
+        
         .module-foot.row 
           .col.progress
             .mod.ok
             .mod.ok
             .mod.ok
             .mod.ok             
-          .col
-            .link-ver
+          .col.tright
+             button.button.button-small.button-positive.icon-left
+              i.icon.ion-ios-search-strong
               | Ver Modulo
+        
       ion-item.item-module(href="#/app/aprender")
         .module.row
           .col.col-33.video
@@ -36,8 +42,9 @@ ion-view(view-title="Nuevas Guías")
             .mod.ok
             .mod
             .mod            
-          .col
-            .link-ver
+          .col.tright
+            button.button.button-small.button-positive.icon-left
+              i.icon.ion-ios-search-strong
               | Ver Modulo
        
           

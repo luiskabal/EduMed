@@ -232,3 +232,15 @@ $progress-flag-color-step:#239bab;
     }
   }
 }
+
+ion-list {
+  .item-module{
+    &.item {
+      &.item-complex {
+        .item-content {
+          padding: 16px;
+        }
+      }
+    } 
+  } 
+}

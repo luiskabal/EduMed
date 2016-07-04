@@ -14,8 +14,8 @@ $assertive:                       #ef473a !default;
 $royal:                           #886aea !default;
 $dark:                            #444 !default;
 */
-
-$positive:                        #239BAB !default;
+$positive:  #00BCD4!default;
+//$positive:                        #239BAB !default;
 $energized:                       #DC955D !default;
 $input-label-color:               #DC955D !default;
 $input-color:                     #385356 !default;
@@ -23,6 +23,8 @@ $input-color-placeholder:         #b0bec5 !default;
 $dark:                            #37474f !default;
 
 $color-icon: #6A8281!default;
+
+//#009688, #004D40
 // The path for our ionicons font files, relative to the built CSS in www/css
 $ionicons-font-path: "../lib/ionic/fonts" !default;
 $lato-font-path: '../lib/lato/font' !default;

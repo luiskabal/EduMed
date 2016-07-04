@@ -1,4 +1,7 @@
 ion-view(view-title="Artritis Psoriásica")
+  ion-nav-buttons(side='primary')
+    button.button.button-clear(ng-click="goBack()")
+      i.icon.ion-ios-arrow-left
   ion-content
     .content-video
       videogular(vg-player-ready='module.onPlayerReady($API)', ng-show='!module.testRun', vg-theme='module.config.theme.url', vg-complete='module.onCompleteVideo()')
