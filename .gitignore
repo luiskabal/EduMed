@@ -1,0 +1,17 @@
+
+#ignore bower and node components
+node_modules/
+bower_components/
+
+
+#ionic
+platforms/
+
+#intellij
+.idea/
+*.iml
+
+
+
+#logs
+*.log

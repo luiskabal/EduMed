@@ -11,8 +11,8 @@ ion-view(view-title='EduMed')
     
     .padding
       .row
-        .col.state-module.completo
-          p.module-title Artritis Psoriasica
+        .col.state-module(ng-repeat="guide in home.guides")
+          p.module-title(ng-bind="guide.titulo")
           .icon
             .estado
           p progreso
@@ -23,17 +23,6 @@ ion-view(view-title='EduMed')
             span
             span
             //.porcent 75% 
-        .col.state-module
-          p.module-title Diabetes
-          .icon
-           .estado
-          p progreso
-          .progress-flag(data-progress="2")
-            span
-            span
-            span
-            span
-            span
-            //.porcent 75%             
+
       
       
