@@ -8,14 +8,15 @@ ion-view(view-title="Nuevas Guías")
       input(type='text', placeholder='Buscar Guías')
     
     ion-list
-      ion-item.item-module(href="#/app/aprender")
+      ion-item.item-module(ng-repeat="g in newguides.guides",href="#/app/aprender")
         .module.row
           .col.col-33.video
             img.full-image(src="img/video/La_artritis_psoriasica.jpg")
           .col.modulo-info
-            h3 Artritis Psoriasica
-            h4 Introducción
-            span.estado.ok completo
+            h3(ng-bind="g.titulo")
+            h4(ng-bind="g.subtitulo")
+            span.estado(ng-class="{ok: newguides.isComplete(g)}")
+            | {{ newguides.isComplete(g)? 'completo' : 'incompleto' }}
         
         .module-foot.row 
           .col.progress

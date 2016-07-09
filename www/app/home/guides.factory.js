@@ -16,15 +16,11 @@
         };
 
         function getNewGuides(){
-
-        }
-
-        function getGuidesOfInterest(){
             var deferred = $q.defer();
             $http({
-                    url: URL_API + 'guia?latest=' + CANT_GUIDES_HOME,
-                    method: "GET",
-                    headers: {'Content-Type': 'application/json'}
+                url: URL_API + 'guia?latest=' + CANT_GUIDES_HOME,
+                method: "GET",
+                headers: {'Content-Type': 'application/json'}
             }).then(function(result){
 
                 var guidesList = result.data;
@@ -36,6 +32,10 @@
             });
 
             return deferred.promise;
+        }
+
+        function getGuidesOfInterest(){
+
         }
 
 

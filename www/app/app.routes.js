@@ -67,8 +67,8 @@
                 views: {
                     'new-guide': {
                         templateUrl: 'app/home/new-guide.html',
-                        controller: 'homeController',
-                        controllerAs: 'home'
+                        controller: 'newGuidesController',
+                        controllerAs: 'newguides'
                     }
                 }
             })

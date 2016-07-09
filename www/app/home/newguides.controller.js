@@ -1,34 +1,34 @@
 (function() {
-'use strict';
+    'use strict';
 
     angular
         .module('eduMed')
-        .controller('homeController', homeController);
+        .controller('newGuidesController', newGuidesController);
 
-    homeController.$inject = ['$scope','$state','$ionicHistory','$location','$rootScope','guidesFactory'];
-    function homeController($scope,$state,$ionicHistory,$location,$rootScope,guidesFactory) {
+    newGuidesController.$inject = ['$scope','$state','$ionicHistory','$location','$rootScope','guidesFactory'];
+    function newGuidesController($scope,$state,$ionicHistory,$location,$rootScope,guidesFactory) {
         var vm = this;
-        
+
         //init
         vm.guides = [];
         loadNewGuides();
-        $scope.$on('$ionicView.enter',function(e){
-            console.log(e);
-        });
 
         //
+        vm.isComplete = function(guide){
+            return guide.avance && guide.avance.completado;
+        };
 
         vm.toLearn = function() {
-			$log.log('va');
+            $log.log('va');
             $state.go('app.aprender');
-		};
-        
+        };
+
         $rootScope.goBack = function() {
             $log.log('va');
             $ionicHistory.goBack();                           //This doesn't work
-        //window.history.back();                          //This works
-        //alert('code to go back called. Did it work?');  //For testing
-        }
+            //window.history.back();                          //This works
+            //alert('code to go back called. Did it work?');  //For testing
+        };
 
 
 
