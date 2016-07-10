@@ -17,7 +17,7 @@
 
 
         $httpProvider.interceptors.push(function(){
-                var hash = 'eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJkYW5pZWxAeG1haWwuY29tIiwidXNlcm5hbWUiOiJkYW5pZWxAeG1haWwuY29tIiwicm9sZXMiOiJkb2N0b3IifQ.cRoSuKyLkt4ePEQpp_C9ns028Brzqo3SNpCXQf2HuFS5X2WEkUDp3abaFLY6VrLiHuvZ71jJQrjIccusD9bNYw';
+                var hash = 'eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJkcmd1dGllcnJlekBvdXRsb29rLmNsIiwidXNlcm5hbWUiOiJkcmd1dGllcnJlekBvdXRsb29rLmNsIiwicm9sZXMiOiJST0xFX1BBQ0lFTlRFIn0.F_-2TIPu9c8qnDY6h4qRZgfb7s4RJJokJ5rKFFBCRgDW4bX-74IZmX-v7uMtZzqfSZG1rn7pYpRPVHJJsIDhtQ';
                 return {
                     request: function(req) {
                         req.headers['X-Auth'] = hash;

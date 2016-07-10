@@ -1,0 +1,33 @@
+ion-view(view-title="{{ guidesCtrl.titulo }}")
+  ion-nav-buttons(side='primary')
+    button.button.button-clear(ng-click="goBack()")
+      i.icon.ion-ios-arrow-left
+  ion-content
+    label.item.item-input
+      i.icon.ion-search.placeholder-icon
+      input(type='text', placeholder='Buscar Guías')
+    
+    ion-list
+      ion-item.item-module(ng-repeat="g in guidesCtrl.guides",href="#/app/aprender")
+        .module.row
+          .col.col-33.video
+            img.full-image(ng-src="{{ guidesCtrl.getImage(g) }}")
+          .col.modulo-info
+            h3(ng-bind="g.titulo")
+            h4(ng-bind="g.subtitulo")
+            span.estado(ng-bind="guidesCtrl.isComplete(g)? 'completo' : 'incompleto'",
+                        ng-class="{ok: guidesCtrl.isComplete(g)}")
+        
+        .module-foot.row 
+          .col.progress
+            .mod(ng-repeat="mod in g.avance.modulos", ng-class="{ok: mod.completado }")
+          .col.tright
+             button.button.button-small.button-positive.icon-left
+              i.icon.ion-ios-search-strong
+              | Ver Modulo
+        
+
+       
+          
+            
+    

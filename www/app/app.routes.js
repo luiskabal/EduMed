@@ -47,7 +47,7 @@
                     'menuContent': {
                         templateUrl: 'app/home/home.html',
                         controller: 'homeController',
-                        controllerAs: 'home'
+                        controllerAs: 'homeCtrl'
                     }
                 }
             })
@@ -66,9 +66,9 @@
                 url: '/new-guide',
                 views: {
                     'new-guide': {
-                        templateUrl: 'app/home/new-guide.html',
-                        controller: 'newGuidesController',
-                        controllerAs: 'newguides'
+                        templateUrl: 'app/home/guides.html',
+                        controller: 'guidesController',
+                        controllerAs: 'guidesCtrl'
                     }
                 }
             })
@@ -76,9 +76,9 @@
                 url: '/guides-interest',
                 views: {
                     'guides-interest': {
-                        templateUrl: 'app/home/guides-interest.html',
-                        controller: 'homeController',
-                        controllerAs: 'home'
+                        templateUrl: 'app/home/guides.html',
+                        controller: 'guidesController',
+                        controllerAs: 'guidesCtrl'
                     }
                 }
             })

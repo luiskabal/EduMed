@@ -13,7 +13,7 @@
         vm.guides = [];
         loadNewGuides();
         $scope.$on('$ionicView.enter',function(e){
-            console.log(e);
+            //console.log(e);
         });
 
         //

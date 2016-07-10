@@ -7,8 +7,6 @@
 
     guidesFactory.$inject = ['$q','$http','URL_API','CANT_GUIDES_HOME'];
     function guidesFactory($q,$http,URL_API,CANT_GUIDES_HOME) {
-        var vm = this;
-
 
         return {
             getNewGuides : getNewGuides,

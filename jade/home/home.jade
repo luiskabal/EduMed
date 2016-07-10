@@ -11,7 +11,7 @@ ion-view(view-title='EduMed')
     
     .padding
       .row
-        .col.state-module(ng-repeat="guide in home.guides")
+        .col.state-module(ng-repeat="guide in homeCtrl.guides")
           p.module-title(ng-bind="guide.titulo")
           .icon
             .estado
