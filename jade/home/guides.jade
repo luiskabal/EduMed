@@ -8,7 +8,7 @@ ion-view(view-title="{{ guidesCtrl.titulo }}")
       input(type='text', placeholder='Buscar Guías')
     
     ion-list
-      ion-item.item-module(ng-repeat="g in guidesCtrl.guides",href="#/app/aprender")
+      ion-item.item-module(ng-repeat="g in guidesCtrl.guides",ng-click="guidesCtrl.toLearn(g.idGuia)")
         .module.row
           .col.col-33.video
             img.full-image(ng-src="{{ guidesCtrl.getImage(g) }}")

@@ -2,6 +2,7 @@
 #ignore bower and node components
 node_modules/
 bower_components/
+www/lib
 
 
 #ionic

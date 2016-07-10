@@ -5,8 +5,8 @@
         .module('eduMed')
         .controller('homeController', homeController);
 
-    homeController.$inject = ['$scope','$state','$ionicHistory','$location','$rootScope','guidesFactory'];
-    function homeController($scope,$state,$ionicHistory,$location,$rootScope,guidesFactory) {
+    homeController.$inject = ['$scope','$state','$ionicHistory','commonService','$rootScope','guidesFactory'];
+    function homeController($scope,$state,$ionicHistory,commonService,$rootScope,guidesFactory) {
         var vm = this;
         
         //init
@@ -14,22 +14,17 @@
         loadNewGuides();
         $scope.$on('$ionicView.enter',function(e){
             //console.log(e);
+            $rootScope.goBack = commonService.goBack($ionicHistory);
         });
 
-        //
 
-        vm.toLearn = function() {
-			$log.log('va');
-            $state.go('app.aprender');
-		};
-        
-        $rootScope.goBack = function() {
-            $log.log('va');
-            $ionicHistory.goBack();                           //This doesn't work
-        //window.history.back();                          //This works
-        //alert('code to go back called. Did it work?');  //For testing
-        }
 
+
+        // scope functions
+
+
+
+        // internal functions
 
 
         function loadNewGuides(){

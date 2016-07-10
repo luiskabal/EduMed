@@ -19,14 +19,17 @@
             console.log('in tab: ' + tab);
 
             vm.titulo = tab==='new' ? 'Nuevas Guías' : 'Guías de interés';
+
             loadGuides();
+
+            $rootScope.goBack = commonService.goBack($ionicHistory);
 
         });
 
         // .-
 
 
-        //functions
+        // scope functions
 
 
         vm.isComplete = function(guide){
@@ -38,18 +41,18 @@
             return commonService.getFileUrl(guide.pathImgPreview);
         };
 
-        vm.toLearn = function() {
-            $state.go('app.aprender');
+        vm.toLearn = function(idGuide) {
+            console.log('toLearn: ' + idGuide);
+            $state.go(
+                'app.aprender',
+                {
+                    id: idGuide
+                }
+            );
         };
 
-        $rootScope.goBack = function() {
-            $log.log('va');
-            $ionicHistory.goBack();                           //This doesn't work
-            //window.history.back();                          //This works
-            //alert('code to go back called. Did it work?');  //For testing
-        };
 
-
+        // internal functions
 
         function loadGuides(){
             var response = tab==='new' ? guidesFactory.getNewGuides() : guidesFactory.getGuidesOfInterest() ;

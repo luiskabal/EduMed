@@ -5,41 +5,33 @@
         .module('eduMed')
         .factory('guidesFactory', guidesFactory);
 
-    guidesFactory.$inject = ['$q','$http','URL_API','CANT_GUIDES_HOME'];
-    function guidesFactory($q,$http,URL_API,CANT_GUIDES_HOME) {
+    guidesFactory.$inject = ['$q','commonService','CANT_GUIDES_HOME'];
+    function guidesFactory($q,commonService,CANT_GUIDES_HOME) {
 
         return {
+            getGuide : getGuide,
             getNewGuides : getNewGuides,
-            getGuidesOfInterest : getGuidesOfInterest
+            getGuidesOfInterest : getGuidesOfInterest,
+            getRelatedGuides : getRelatedGuides
         };
 
         function getNewGuides(){
-            return getGuides('guia?latest=' + CANT_GUIDES_HOME);
+            return commonService.getResource('guia?latest=' + CANT_GUIDES_HOME);
         }
 
         function getGuidesOfInterest(){
-            return getGuides('guia');
+            return commonService.getResource('guia');
+        }
+
+        function getGuide(idGuide){
+            return commonService.getResource('guia/'+idGuide);
+        }
+
+        function getRelatedGuides(idAffliction){
+            return commonService.getResource('guia?idEnfermedad='+idAffliction);
         }
 
 
-        function getGuides(restUrl){
-            var deferred = $q.defer();
-            $http({
-                url: URL_API + restUrl,
-                method: "GET",
-                headers: {'Content-Type': 'application/json'}
-            }).then(function(result){
-
-                var guidesList = result.data;
-
-                deferred.resolve(guidesList);
-
-            }, function(){
-                deferred.reject();
-            });
-
-            return deferred.promise;
-        }
 
 
     }

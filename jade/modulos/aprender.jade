@@ -6,17 +6,15 @@ ion-view(view-title="Aprender")
     .item.item-module.module-big
       .module.row
         .col.col-33.video
-          img.full-image(src="img/video/La_artritis_psoriasica.jpg")
+          img.full-image(ng-src="{{ aprenderCtrl.getImage() }}")
         .col.modulo-info
-          h3 Artritis Psoriasica
-          h4 Introducción
-          span.estado.ok completo
+          h3(ng-bind="aprenderCtrl.guide.titulo")
+          h4(ng-bind="aprenderCtrl.guide.subtitulo")
+          span.estado(ng-bind="aprenderCtrl.isComplete()? 'completo' : 'incompleto'",
+          ng-class="{ok: aprenderCtrl.isComplete()}")
       .module-foot.row 
         .col.progress
-          .mod
-          .mod
-          .mod
-          .mod            
+          .mod(ng-repeat="mod in aprenderCtrl.guide.avance.modulos", ng-class="{ok: mod.completado }")
         .col
           .link-ver
             a(href="#/app/modulo")
@@ -34,23 +32,15 @@ ion-view(view-title="Aprender")
             | 28/06/2016
     h3.title-bg.tcenter Guias Relacionadas
   
-    .item.item-module.item-icon-right
+    .item.item-module.item-icon-right(ng-repeat="rg in aprenderCtrl.relatedGuides",ng-click="aprenderCtrl.toLearn(rg.idGuia)")
       .module.row
         .col.col-33.video
-          img.full-image(src="img/video/La_artritis_psoriasica.jpg")
+          img.full-image(ng-src="{{ aprenderCtrl.getImage(rg) }}")
         .col.modulo-info
-          h3 Artritis Psoriasica
-          h4 Introducción
-          span.estado.ok completo
-      i.icon.ion-ios-arrow-forward
-    .item.item-module.item-icon-right
-      .module.row
-        .col.col-33.video
-          img.full-image(src="img/video/La_artritis_psoriasica.jpg")
-        .col.modulo-info
-          h3 Artritis Psoriasica
-          h4 Introducción
-          span.estado incompleto
+          h3(ng-bind="rg.titulo")
+          h4(ng-bind="rg.subtitulo")
+          span.estado(ng-bind="aprenderCtrl.isComplete(rg)? 'completo' : 'incompleto'",
+          ng-class="{ok: aprenderCtrl.isComplete(rg)}")
       i.icon.ion-ios-arrow-forward
           
     

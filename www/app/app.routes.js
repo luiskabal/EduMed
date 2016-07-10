@@ -109,12 +109,12 @@
                 }
             })
             .state('app.aprender', {
-                url: '/aprender',
+                url: '/aprender/:id',
                 views: {
                     'menuContent': {
                         templateUrl: 'app/modulos/aprender.html',
-                        controller: 'elementsController',
-                        controllerAs: 'elements'
+                        controller: 'aprenderController',
+                        controllerAs: 'aprenderCtrl'
                     }
                 }
             })
