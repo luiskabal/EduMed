@@ -1,0 +1,25 @@
+ion-view.ion-view-login(hide-nav-bar='true')
+  // view-title="Login"
+  ion-content
+    .padding
+      .content-app.padding.content-login
+        .content-logo-login
+          .logo-login
+        .block-msj(ng-show="!recover")
+          p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam inventore unde, asperiores porro laborum magnam at provident, natus, qui laudantium hic blanditiis vero nostrum eligendi obcaecati sapiente recusandae temporibus repudiandae.
+        .list(ng-show="!recover")
+          label.item.item-input.item-stacked-label.error
+            span.input-label E-mail:
+            input(type='text', placeholder='mail@mail.com')
+            span.msj-error Error mensaje
+          .item
+            button.button.button-full.button-positive(ng-click="recover=!recover")
+              | Recuperar Password
+        .padding-top(ng-show="recover")
+          .mensaje.info
+            .icono
+            h3 lorem  ipsum dolor sit
+            p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem amet cum temporibus est dolorum.
+          .padding
+            button.button.button-full.button-positive(ng-click="recover=!recover")
+              | Volver a logearme

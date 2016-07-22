@@ -1,0 +1,37 @@
+.mensaje {
+  padding: 10px;
+  text-align: center;
+  .icono {
+    display: inline-block;
+    background-size: 50px;
+    width: 50px;
+    height: 50px;
+  }
+  h3 {
+    font-size: 18px;
+    margin: 10px 0 5px;
+  }
+  
+  &.info {
+    .icono {
+      background-image: url('../img/icon/sonrisa.svg');    
+    }
+    p {
+      color: #239BAB;
+    }
+    h3 {
+      color: #239BAB;
+    }
+  }
+  &.error {
+    .icono {
+      background-image: url('../img/icon/triste.svg');    
+    }
+    p {
+      color:#DC955D;
+    }
+    h3 {
+      color:#DC955D;
+    }
+  }
+}
