@@ -16,9 +16,9 @@ ion-view(view-title="Aprender")
         .col.progress
           .mod(ng-repeat="mod in aprenderCtrl.guide.avance.modulos", ng-class="{ok: mod.completado }")
         .col
-          .link-ver
-            a(href="#/app/modulo")
-              | Ver Modulo
+          a.button.button-small.button-positive.icon-left.button-block(href="#/app/modulo")
+            i.icon.ion-ios-play
+            | Ver Modulo
       .row.foot-data
         .col
           i.icon.ion-android-calendar

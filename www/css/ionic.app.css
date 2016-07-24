@@ -10520,6 +10520,10 @@ ion-side-menu.menu {
   .item-module .module-foot .module-steps .module-step, .module-steps
   .item-module .module-foot .module-step {
     padding: 0; }
+  .item-module .module-foot .button {
+    line-height: 22px; }
+    .item-module .module-foot .button .icon {
+      margin-right: 5px; }
   .item-module .module-foot .link-ver {
     color: #239BAB;
     line-height: 20px;
@@ -10632,21 +10636,21 @@ ion-side-menu.menu {
   .foot-data .col, .foot-data .module-steps .module-step, .module-steps .foot-data .module-step {
     padding: 0;
     font-size: 12px;
-    line-height: 18px; }
-    .foot-data .col span + span, .foot-data .module-steps .module-step span + span, .module-steps .foot-data .module-step span + span {
-      margin-left: 5px; }
+    line-height: 120%; }
+    .foot-data .col span, .foot-data .module-steps .module-step span, .module-steps .foot-data .module-step span {
+      display: block; }
     .foot-data .col .icon, .foot-data .module-steps .module-step .icon, .module-steps .foot-data .module-step .icon {
-      font-size: 18px;
+      font-size: 27px;
       line-height: 100%;
       color: #6A8281; }
     .foot-data .col:first-child, .foot-data .module-steps .module-step:first-child, .module-steps .foot-data .module-step:first-child {
       -webkit-box-flex: 0;
-      -webkit-flex: 0 0 20px;
+      -webkit-flex: 0 0 30px;
       -moz-box-flex: 0;
-      -moz-flex: 0 0 20px;
-      -ms-flex: 0 0 20px;
-      flex: 0 0 20px;
-      max-width: 20px; }
+      -moz-flex: 0 0 30px;
+      -ms-flex: 0 0 30px;
+      flex: 0 0 30px;
+      max-width: 30px; }
 
 .videogular-container {
   width: 100%;

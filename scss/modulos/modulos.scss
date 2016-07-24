@@ -56,6 +56,12 @@
    .col {
      padding: 0;
    }
+   .button {
+   	line-height: 22px;
+   	.icon {
+   		margin-right: 5px;
+   	}
+   }
    .link-ver {
      color: #239BAB;
      line-height: 20px;
@@ -235,20 +241,20 @@
 	.col {
 		padding: 0;
 		font-size: 12px;
-		line-height: 18px;
+		line-height: 120%;
 		span {
 			//font-weight: bold;
+			display:block;
 			+ span {
-				margin-left: 5px;
 			}
 		}
 		.icon {
-			font-size: 18px;
+			font-size: 27px;
 			line-height: 100%;
 			color: $color-icon;
 		}
 		&:first-child {
-			@include col-w(20px); 
+			@include col-w(30px); 
 		}
 	}
 }
