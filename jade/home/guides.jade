@@ -22,8 +22,8 @@ ion-view(view-title="{{ guidesCtrl.titulo }}")
           .col.progress
             .mod(ng-repeat="mod in g.avance.modulos", ng-class="{ok: mod.completado }")
           .col.tright
-             button.button.button-small.button-positive.icon-left
-              i.icon.ion-ios-search-strong
+             a.button.button-small.button-positive.icon-left.button-block
+              i.icon.ion-ios-play
               | Ver Modulo
         
 

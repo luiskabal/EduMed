@@ -22,6 +22,13 @@
                 controller: 'LoginController',
                 controllerAs: 'login'
             })
+            .state('recuperar', {
+                url: '/recuperar',
+                //abstract: true,
+                templateUrl: 'app/login/recuperar.html',
+                controller: 'LoginController',
+                controllerAs: 'login'
+            })
             .state('suscribirse', {
                 url: '/suscribirse',
                 //abstract: true,
