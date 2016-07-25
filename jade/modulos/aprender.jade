@@ -17,7 +17,7 @@ ion-view(view-title="Aprender")
           .mod(ng-repeat="mod in aprenderCtrl.guide.avance.modulos", ng-class="{ok: mod.completado }")
         .col
           .link-ver
-            a(href="#/app/modulo")
+            a(ng-click="aprenderCtrl.toContent(aprenderCtrl.guide.idGuia)")
               | Ver Modulo
       .row.foot-data
         .col

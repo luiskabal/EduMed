@@ -8,21 +8,17 @@ ion-view(view-title='EduMed')
   ion-content.has-subheader
   
     
-    
+
     .padding
-      .row
-        .col.state-module(ng-repeat="guide in homeCtrl.guides")
+      .row(ng-repeat="guide in homeCtrl.guides")
+        .col.state-module
           p.module-title(ng-bind="guide.titulo")
           .icon
             .estado
           p progreso
-          .progress-flag(data-progress="5")
+          .progress-flag(data-progress="{{homeCtrl.drawProgress(guide)}}")
             span
-            span
-            span
-            span
-            span
-            //.porcent 75% 
+            //.porcent 75%
 
       
       

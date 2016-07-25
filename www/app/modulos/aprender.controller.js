@@ -37,6 +37,26 @@
             return commonService.getFileUrl(g.pathImgPreview);
         };
 
+        vm.toContent = function(idGuide) {
+            console.log('toContent: ' + idGuide);
+            $state.go(
+                'app.modulo',
+                {
+                    id: idGuide
+                }
+            );
+        };
+
+        vm.toLearn = function(idGuide) {
+            console.log('toLearn: ' + idGuide);
+            $state.go(
+                'app.aprender',
+                {
+                    id: idGuide
+                }
+            );
+        };
+
 
 
         // internal functions

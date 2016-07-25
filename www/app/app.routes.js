@@ -119,12 +119,12 @@
                 }
             })
             .state('app.modulo', {
-                url: '/modulo',
+                url: '/modulo/:id',
                 views: {
                     'menuContent': {
                         templateUrl: 'app/modulos/video.html',
                         controller: 'modulosController',
-                        controllerAs: 'module'
+                        controllerAs: 'moduleCtrl'
                     }
                 }
             })

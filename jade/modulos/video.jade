@@ -1,13 +1,13 @@
-ion-view(view-title="Artritis Psoriásica")
+ion-view(view-title="{{moduleCtrl.guide.titulo}}")
   ion-nav-buttons(side='primary')
     button.button.button-clear(ng-click="goBack()")
       i.icon.ion-ios-arrow-left
   ion-content
     .content-video
-      videogular(vg-player-ready='module.onPlayerReady($API)', ng-show='!module.testRun', vg-theme='module.config.theme.url', vg-complete='module.onCompleteVideo()')
-        vg-media(vg-src='module.config.sources', vg-native-controls='false')
+      videogular(vg-player-ready='moduleCtrl.onPlayerReady($API)', ng-show='!moduleCtrl.testRun', vg-theme='moduleCtrl.config.theme.url', vg-complete='moduleCtrl.onCompleteVideo()')
+        vg-media(vg-src='moduleCtrl.config.sources', vg-native-controls='false')
         vg-overlay-play
-        vg-poster(vg-url='module.config.plugins.poster')
+        vg-poster(vg-url='moduleCtrl.config.plugins.poster')
         vg-controls
           vg-play-pause-button
           vg-time-display {{ currentTime | date:'mm:ss':'+0000' }}
@@ -34,7 +34,7 @@ ion-view(view-title="Artritis Psoriásica")
               //span Modulo cuatro
             li.module-step
               //span Modulo cinco
-          h2.title-view(ng-click="module.showConfirm()") Artritis Psoriásica
+          h2.title-view(ng-bind="moduleCtrl.guide.titulo",ng-click="moduleCtrl.showConfirm()")
           .item
-            button.button.button-full.button-positive(type='submit', ng-click='module.openModal()')
+            button.button.button-full.button-positive(type='submit', ng-click='moduleCtrl.openModal()')
               | Comenzar Test
