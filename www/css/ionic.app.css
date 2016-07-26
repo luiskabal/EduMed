@@ -10074,7 +10074,7 @@ a:hover {
   background: url(../img/icon/spinner-in.svg);
   width: 70px;
   height: 70px;
-  background-size: 50px;
+  background-size: 60px;
   background-position: center center;
   position: relative; }
   .edumed-loading:before {
@@ -10150,6 +10150,9 @@ a:hover {
 @keyframes spin {
   100% {
     transform: rotate(360deg); } }
+
+.backdrop.visible.backdrop-loading.active {
+  background-color: rgba(255, 255, 255, 0.8); }
 
 .modal {
   background: #f0f0f0; }
