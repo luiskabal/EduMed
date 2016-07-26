@@ -1,4 +1,7 @@
 ion-view(view-title="Mis Pacientes")
+  ion-nav-buttons(side='primary')
+    button.button.button-clear(ng-click="goBack()")
+      i.icon.ion-ios-arrow-left  
   ion-content
     .list
       .item.item-avatar.item-icon-right(ui-sref="app.patient-history")

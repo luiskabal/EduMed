@@ -10220,6 +10220,11 @@ ion-view.ion-view-login {
 .item-select select {
   color: #385356; }
 
+.item p.codigo {
+  font-weight: bold;
+  color: #239BAB;
+  font-size: 16px; }
+
 .block-video {
   position: relative; }
   .block-video:after {
@@ -10786,6 +10791,15 @@ progress[value="3"] {
   border: solid red 3px; }
   progress[value="3"]::-webkit-progress-value {
     background-image: -webkit-linear-gradient(left, #f44) !important; }
+
+.logo-edumed {
+  background: url(../img/icon/icon-app-full.svg);
+  display: block;
+  width: 120px;
+  height: 120px;
+  background-size: 120px;
+  margin: 0 auto;
+  background-repeat: no-repeat; }
 
 .mensaje {
   padding: 10px;

@@ -154,6 +154,16 @@
                         controllerAs: 'patients'
                     }
                 }
+            })
+            .state('app.generate-code', {
+                url: '/generate-code',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'app/patients/generate-code.html',
+                        controller: 'patientsController',
+                        controllerAs: 'patients'
+                    }
+                }
             });
 
         // Each tab has its own nav history stack which is defined in the corresponding module.

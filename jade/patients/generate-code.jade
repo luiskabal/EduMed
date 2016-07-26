@@ -1,0 +1,30 @@
+ion-view(view-title="Generar Código")
+  ion-nav-buttons(side='primary')
+    button.button.button-clear(ng-click="goBack()")
+      i.icon.ion-ios-arrow-left  
+  ion-content
+    .content-app.padding
+      
+      .padding-top
+        .logo-edumed
+        .list
+          label.item.item-input.item-stacked-label
+            span.input-label Nombre:
+            input(type='text', placeholder='Nombre Completo')
+          label.item.item-input.item-stacked-label
+            span.input-label Email:
+            input(type='text', placeholder='nombre@mail.com')
+          label.item.item-input.item-select
+            .input-label
+              | Interes:
+            select
+              option Hospital Sotero del Rio
+              option(selected='') Clinica Las Conde
+          label.item.item-input.item-stacked-label
+            span.input-label Su codigo es:
+            p.codigo 4566 455  6  555
+              
+          .item
+            button.button.button-full.button-energized
+              | Enviar Código   
+            
