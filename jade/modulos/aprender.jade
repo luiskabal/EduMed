@@ -16,7 +16,7 @@ ion-view(view-title="Aprender")
         .col.progress
           .mod(ng-repeat="mod in aprenderCtrl.guide.avance.modulos", ng-class="{ok: mod.completado }")
         .col
-          a.button.button-small.button-positive.icon-left.button-block(href="#/app/modulo")
+          a.button.button-small.button-positive.icon-left.button-block(ng-click="aprenderCtrl.toContent(aprenderCtrl.guide.idGuia)")
             i.icon.ion-ios-play
             | Ver Modulo
       .row.foot-data

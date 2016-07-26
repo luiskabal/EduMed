@@ -1,5 +1,3 @@
-
-
 (function() {
 'use strict';
 
@@ -7,12 +5,29 @@
 		.module('eduMed')
 		.controller('modulosController', modulosController);
 
-	modulosController.$inject = ['$log','$ionicLoading','$sce','$ionicModal','$ionicPopup','$timeout'];
-	function modulosController($log,$ionicLoading,$sce,$ionicModal,$ionicPopup,$timeout) {
+	modulosController.$inject = ['$scope','$rootScope','$state','$stateParams','$ionicHistory','$log','$ionicLoading','$sce','$ionicModal','$ionicPopup','$timeout','commonService','guidesFactory'];
+	function modulosController($scope,$rootScope,$state,$stateParams,$ionicHistory,$log,$ionicLoading,$sce,$ionicModal,$ionicPopup,$timeout,commonService,guidesFactory) {
 		var vm = this;
-		
 
+		//init
 		$log.log('modulosController');
+
+		vm.guide = {};
+		vm.relatedGuides = [];
+
+		$scope.$on('$ionicView.enter',function(e){
+			var idGuide = $stateParams.id;
+			loadGuide(idGuide);
+
+			$rootScope.goBack = commonService.goBack($ionicHistory);
+		});
+
+		// .-
+
+
+		// scope functions
+
+
 		//$scope.setBodyClass('aprender');
        /*
 	    $ionicLoading.show({
@@ -49,10 +64,10 @@
 		vm.starTest = function() {
 			vm.testRun = true;
 			vm.API.stop();
-		}
+		};
 		vm.okTest = function() {
 			vm.testRun = false;
-		}
+		};
 		
 		$ionicModal.fromTemplateUrl('app/modulos/test.html', {
 			//scope: $scope,
@@ -111,9 +126,23 @@
 		vm.openModal = function() {
 			$log.log('comenzar test');
 			vm.modal.show();
+		};
+
+
+
+		// internal functions
+
+		function loadGuide(idGuide){
+			guidesFactory.getGuide(idGuide).then(
+				function(guide){
+					console.log(guide);
+					vm.guide = guide;
+				},
+				function(e){
+					console.error(e);
+				}
+			);
 		}
-		
-		
 		
 		
 		
