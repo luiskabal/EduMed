@@ -54,81 +54,84 @@
 		};
 
 
+///VIDEO GULAR
+
+            vm.state = null;
+            vm.API = null;
+            vm.currentVideo = 0;
+
+            vm.onPlayerReady = function(API) {
+                vm.API = API;
+            };
+
+            vm.onCompleteVideo = function() {
+                vm.isCompleted = true;
+
+                vm.currentVideo++;
+
+                if (vm.currentVideo >= vm.videos.length) vm.currentVideo = 0;
+
+                vm.setVideo(vm.currentVideo);
+            };
+
+            vm.videos = [
+            {
+                sources: [
+                    {src:"https://youtu.be/eutVskbOCUQ "}
+                ]
+            },
+            {
+                sources: [
+                    {src: "https://youtu.be/iTzYDprQY1s"}
+                ]
+            },
+            {
+                sources: [
+                    {src: "https://youtu.be/LTrqi8N_6W8"}
+                ]
+            },
+            {
+                sources: [
+                    {src: "https://youtu.be/bUIyb101ldM"}
+                ]
+            }
+
+        ];
+
+            vm.config = {
+                preload: "none",
+                autoHide: false,
+                autoHideTime: 3000,
+                autoPlay: false,
+                sources: vm.videos[0].sources,
+                theme: {
+                    url: "http://www.videogular.com/styles/themes/default/latest/videogular.css"
+                },
+                plugins: {
+                    poster: "http://www.videogular.com/assets/images/videogular.png"
+                }
+            };
+
+            vm.setVideo = function(index) {
+                vm.API.stop();
+                vm.currentVideo = index;
+                vm.config.sources = vm.videos[index].sources;
+                $timeout(vm.API.play.bind(vm.API), 100);
+            };
+
+
+//FIN VIDEO
 
 
 
-		//$scope.setBodyClass('aprender');
-       /*
-	    $ionicLoading.show({
-            template: '<div class="edumed-loading"></div>'
-        });
-        setTimeout(function(){
-            $ionicLoading.hide();
-        }, 2000);
-		*/
 
 
 
-		// API video
-
-		vm.API = null;
-		vm.config = {
-			preload: "none",
-			sources: [
-				{src: $sce.trustAsResourceUrl("video/La_artritis_psoriasica.mp4"), type: "video/mp4"}
-			],
-			theme: {
-				url: "lib/videogular-themes-default/videogular.css"
-			},
-			plugins: {
-				poster: "video/La_artritis_psoriasica.jpg"
-			}
-		};
-
-		// Events video
-
-		vm.onPlayerReady = function(API) {
-			console.log(API);
-			vm.API = API;
-		};
-
-		vm.onCompleteVideo = function() {
-			console.log("on complete 1");
-			//vm.modal.show();
-			$timeout(function() {
-				vm.showConfirm(); //close the popup after 3 seconds for some reason
-			}, 600);
-
-
-			/*ngDialog.open({
-			 template: 'modules/modulos/templates/modal.html',
-			 className: '',
-			 controller: ['$scope', function($scope) {
-			 // Controller logic here
-
-			 console.log('alla');
-			 $scope.clickToClose = function() {
-			 console.log('jojo');
-			 $scope.closeThisDialog(0);
-			 //$location.path('/calendario');
-			 //Moment.addMoment( { fecha: diaSelect.toISOString(), tipo: 'estudio' } );
-			 };
-
-			 }]
-			 });*/
-		};
-
-		// Test
+	
 		
-		vm.testRun = false;
-		vm.starTest = function() {
-			vm.testRun = true;
-			vm.API.stop();
-		};
-		vm.okTest = function() {
-			vm.testRun = false;
-		};
 
+		
+		
 		// init modal
 		$ionicModal.fromTemplateUrl('app/modulos/test.html', {
 			animation: 'slide-in-up'
@@ -170,10 +173,10 @@
 				}
 			}
 			vm.selectedModule = selectedModule;
-			setVideo(vm.selectedModule);
+			//setVideo(vm.selectedModule);
 		}
 
-		function setVideo(modulo){
+		/*function setVideo(modulo){
 			if(modulo==null){
 				return;
 			}
@@ -182,7 +185,7 @@
 				src: $sce.trustAsResourceUrl(commonService.getFileUrl(modulo.urlVideo)), type: "video/mp4"
 			}];
 			vm.config.plugins.poster = commonService.getFileUrl(modulo.pathImgPreview);
-		}
+		}*/
 		
 		
 	}
