@@ -10074,7 +10074,7 @@ a:hover {
   background: url(../img/icon/spinner-in.svg);
   width: 70px;
   height: 70px;
-  background-size: 50px;
+  background-size: 60px;
   background-position: center center;
   position: relative; }
   .edumed-loading:before {
@@ -10151,6 +10151,9 @@ a:hover {
   100% {
     transform: rotate(360deg); } }
 
+.backdrop.visible.backdrop-loading.active {
+  background-color: rgba(255, 255, 255, 0.8); }
+
 .modal {
   background: #f0f0f0; }
   .modal .bar-header {
@@ -10219,6 +10222,11 @@ ion-view.ion-view-login {
 
 .item-select select {
   color: #385356; }
+
+.item p.codigo {
+  font-weight: bold;
+  color: #239BAB;
+  font-size: 16px; }
 
 .block-video {
   position: relative; }
@@ -10786,6 +10794,15 @@ progress[value="3"] {
   border: solid red 3px; }
   progress[value="3"]::-webkit-progress-value {
     background-image: -webkit-linear-gradient(left, #f44) !important; }
+
+.logo-edumed {
+  background: url(../img/icon/icon-app-full.svg);
+  display: block;
+  width: 120px;
+  height: 120px;
+  background-size: 120px;
+  margin: 0 auto;
+  background-repeat: no-repeat; }
 
 .mensaje {
   padding: 10px;

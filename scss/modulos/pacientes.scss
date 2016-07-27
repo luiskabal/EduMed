@@ -22,7 +22,7 @@
 }
 
 $bg-modulo-actual:   #239bab;
-;
+
 .cont-progress {
   //padding-right: 45px;
   //background-color: $bg-modulo-actual;
@@ -174,3 +174,15 @@ progress[value="3"] {
       background-image: -webkit-linear-gradient(left, #f44)!important;
     }
   }
+
+.logo-edumed {
+   background: url(../img/icon/icon-app-full.svg);
+      //position: absolute;
+      display: block;
+      
+      width: 120px;
+      height: 120px;
+      background-size: 120px;
+      margin: 0 auto;
+      background-repeat: no-repeat;
+}
