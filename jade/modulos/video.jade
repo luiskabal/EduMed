@@ -24,16 +24,9 @@ ion-view(view-title="{{moduleCtrl.guide.titulo}}")
       .padding
         .box-bg
           ul.module-steps
-            li.module-step.step-ok
-              //span Modulo uno
-            li.module-step.active
-              //span Modulo dos
-            li.module-step
-              //span Modulo tres
-            li.module-step
-              //span Modulo cuatro
-            li.module-step
-              //span Modulo cinco
+            li.module-step(ng-repeat="mod in moduleCtrl.guide.modulos",
+                      ng-class="{'step-ok': mod.avance && mod.avance.completado , 'active': mod.avance && !mod.avance.completado }")
+
           h2.title-view(ng-bind="moduleCtrl.guide.titulo",ng-click="moduleCtrl.showConfirm()")
           .item
             button.button.button-full.button-positive(type='submit', ng-click='moduleCtrl.openModal()')

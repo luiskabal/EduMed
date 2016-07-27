@@ -141,7 +141,7 @@
                     'menuContent': {
                         templateUrl: 'app/patients/patients.html',
                         controller: 'patientsController',
-                        controllerAs: 'patients'
+                        controllerAs: 'patientsCtrl'
                     }
                 }
             })
