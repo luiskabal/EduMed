@@ -9,11 +9,7 @@
   function patientsController($log) {
     var vm = this;
     $log.log('patients');
+    
 
-    activate();
-
-    ////////////////
-
-    function activate() { }
   }
 })();

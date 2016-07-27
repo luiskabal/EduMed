@@ -61,24 +61,25 @@ $bg-modulo-actual:   #239bab;
 .collapse {
   padding-top: 10px;
   position: relative;
-  height: 24px;
-  line-height: 24px;
-  h4 {
-    border-bottom: none!important;
-  }
-  + .row {
-    padding: 0;
-    .col {
-      padding: 0;
-    }
-  }
+  //height: 24px;
+  //line-height: 24px;
+  //h4 {
+  //  border-bottom: none!important;
+  //}
+  //+ .row {
+  //  padding: 0;
+  //  .col {
+  //    padding: 0;
+  //  }
+ // }
 }
 .modulo-history {
   .icon-collapse {
     position: absolute;
     right: 10px;
-    top: 10px;
+    top: 20px;
     color: $color-icon;
+    font-size: 18px;
   }
   p {
     font-size: 11px;

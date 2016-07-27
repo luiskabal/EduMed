@@ -1,8 +1,8 @@
 ion-view.myaccount.account-edit(view-title='Mi Cuenta')
-  ion-content(delegate-handle="example-scroller" elastic-header="detalle-header3")
-    .banner-avatar(id="detalle-header3")
+  ion-content(delegate-handle="user-edit" elastic-header="detalle-header4")
+    .banner-avatar(id="detalle-header4")
       .cont-avatar
-        .avatar
+        .avatar(ng-click="user.takePicture()")
           img(src="img/avatar/mike.png")
         h4 Luis Ramos
     .content-app.padding

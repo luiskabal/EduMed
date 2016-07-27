@@ -10173,6 +10173,8 @@ ion-view.ion-view-login {
   background: url(../img/back/back.jpg);
   background-position: center center;
   background-size: cover; }
+  ion-view.ion-view-login .content-app {
+    background: rgba(244, 243, 240, 0.85); }
 
 .content-app .list {
   margin-bottom: 10px; }
@@ -10182,10 +10184,10 @@ ion-view.ion-view-login {
   padding: 10px 0 0 0; }
 
 .content-logo-login {
+  background-image: linear-gradient(180deg, rgba(244, 243, 240, 0.85) 50%, transparent 50%);
   border-radius: 50%;
   width: 100px;
-  height: 100px;
-  background: #f4f3f0; }
+  height: 100px; }
 
 .content-login {
   position: relative;
@@ -10223,7 +10225,7 @@ ion-view.ion-view-login {
 .item-select select {
   color: #385356; }
 
-.item p.codigo {
+.codigo {
   font-weight: bold;
   color: #239BAB;
   font-size: 16px; }
@@ -10715,21 +10717,14 @@ videogular vg-poster img.stop, [videogular] vg-poster img.stop {
 
 .collapse {
   padding-top: 10px;
-  position: relative;
-  height: 24px;
-  line-height: 24px; }
-  .collapse h4 {
-    border-bottom: none !important; }
-  .collapse + .row, .collapse + .module-steps {
-    padding: 0; }
-    .collapse + .row .col, .collapse + .module-steps .col, .collapse + .row .module-steps .module-step, .module-steps .collapse + .row .module-step, .collapse + .module-steps .module-step {
-      padding: 0; }
+  position: relative; }
 
 .modulo-history .icon-collapse {
   position: absolute;
   right: 10px;
-  top: 10px;
-  color: #6A8281; }
+  top: 20px;
+  color: #6A8281;
+  font-size: 18px; }
 
 .modulo-history p {
   font-size: 11px;

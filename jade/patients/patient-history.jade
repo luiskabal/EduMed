@@ -10,16 +10,16 @@ ion-view(view-title="Historial de Paciente")
         h4 Jose Hernandez
     
     .item.modulo-history
-      
-      p Modulo Actual
-      h3 Artritis Psoriasica
-      h4 Introducción
-      //progress(max="5", value="3")
-      .cont-progress
-        span 60%
-        .progress-porcent(style="width:60%")
-        
-      .row.info-history
+      .collapse( ng-click="active = !active") 
+        i.icon-collapse(ng-class="{'ion-chevron-up': active, 'ion-chevron-down': !active}")
+        p Guía Actual
+        h3 Artritis Psoriasica
+        h4 Introducción
+        .cont-progress
+          span 60%
+          .progress-porcent(style="width:60%")
+          
+      .row.info-history(ng-show="active")
         .col
           span Completado
           span.porcent 3
@@ -32,13 +32,11 @@ ion-view(view-title="Historial de Paciente")
           span Tiempo
           span.porcent 1
           small Semana
-      .collapse( ng-click="active = !active")
+      
         h4 Detalle {{detalle}}
-        i.icon-collapse(ng-class="{'ion-chevron-up': active, 'ion-chevron-down': !active}")
-      .row(ng-show="active")
-        .col
-          | mas datos
-    h3.title-bg.tcenter Modulos Completados
+        
+      
+    h3.title-bg.tcenter Guías Completadas
     .item.modulo-history.modulo-history-small      
       h3 Artritis Psoriasica
       h4 Introducción
@@ -53,12 +51,7 @@ ion-view(view-title="Historial de Paciente")
           span 
             strong Fin:  
             | 28/06/2016
-      .collapse( ng-click="active2 = !active2")
-        h4 Detalle {{detalle}}
-        i.icon-collapse(ng-class="{'ion-chevron-up': active2, 'ion-chevron-down': !active2}")
-      .row(ng-show="active2")
-        .col
-          | mas datos
+      
     .item.modulo-history.modulo-history-small      
       h3 Artritis Psoriasica
       h4 Introducción
@@ -73,11 +66,5 @@ ion-view(view-title="Historial de Paciente")
           span 
             strong Fin:  
             | 28/06/2016
-      .collapse( ng-click="active2 = !active2")
-        h4 Detalle {{detalle}}
-        i.icon-collapse(ng-class="{'ion-chevron-up': active2, 'ion-chevron-down': !active2}")
-      .row(ng-show="active2")
-        .col
-          | mas datos
-    
+      
           

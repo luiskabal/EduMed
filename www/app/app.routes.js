@@ -93,7 +93,9 @@
                 url: '/user',
                 views: {
                     'menuContent': {
-                        templateUrl: 'app/user/user.html'
+                        templateUrl: 'app/user/user.html',
+                        controller: 'userController',
+                        controllerAs: 'user'
                     }
                 }
             })
@@ -101,7 +103,9 @@
                 url: '/edit-user',
                 views: {
                     'menuContent': {
-                        templateUrl: 'app/user/user-edit.html'
+                        templateUrl: 'app/user/user-edit.html',
+                        controller: 'userController',
+                        controllerAs: 'user'
                     }
                 }
             })
