@@ -3,31 +3,16 @@ ion-view(view-title="Mis Pacientes")
     button.button.button-clear(ng-click="goBack()")
       i.icon.ion-ios-arrow-left  
   ion-content
+
     ion-list
-      ion-item.item-avatar.item-icon-right(ui-sref="app.patient-history")
-        img(src="img/avatar/jose.jpg")
-        h2 Jose Hernandez
+      ion-item.item-avatar.item-icon-right(ng-repeat="p in patientsCtrl.patients", ui-sref="app.patient-history")
+        img(ng-src="{{ patientsCtrl.getImage(p.avatar) }}")
+        h2(ng-bind="p.nombre")
         p Artritis Psoriasica
         hr
-        p.centro-med Clinica Alemana
+        p.centro-med(ng-bind="p.institucion")
         i.icon.ion-ios-arrow-right
         ion-option-button.button-assertive Eliminar
-      ion-item.item-avatar.item-icon-right(ui-sref="app.patient-history")
-        img(src="img/avatar/chris.jpg")
-        h2 Jose Hernandez
-        p Artritis Psoriasica
-        hr
-        p.centro-med Clinica Alemana
-        i.icon.ion-ios-arrow-right
-        ion-option-button.button-assertive Eliminar
-      ion-item.item-avatar.item-icon-right(ui-sref="app.patient-history")
-        img(src="img/avatar/old.jpg")
-        h2 Jose Hernandez
-        p Artritis Psoriasica
-        hr
-        p.centro-med Clinica Alemana
-        i.icon.ion-ios-arrow-right
-        ion-option-button.button-assertive Eliminar
-          
+
             
     

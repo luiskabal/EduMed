@@ -5,8 +5,8 @@
         .module('eduMed')
         .factory('guidesFactory', guidesFactory);
 
-    guidesFactory.$inject = ['$q','commonService','CANT_GUIDES_HOME'];
-    function guidesFactory($q,commonService,CANT_GUIDES_HOME) {
+    guidesFactory.$inject = ['commonService','CANT_GUIDES_HOME'];
+    function guidesFactory(commonService,CANT_GUIDES_HOME) {
 
         return {
             getGuide : getGuide,
