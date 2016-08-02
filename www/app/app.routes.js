@@ -46,7 +46,8 @@
                 url: '/app',
                 abstract: true,
                 templateUrl: 'app/menu/menu.html',
-                controller: 'homeController'
+                controller: 'homeController',
+                controllerAs: 'homeCtrl'
             })
             .state('app.home', {
                 url: '/home',

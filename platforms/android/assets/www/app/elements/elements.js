@@ -5,12 +5,28 @@
     .module('eduMed')
     .controller('elementsController', elementsController);
 
-  elementsController.$inject = ['$log','$ionicPopup'];
-  function elementsController($log,$ionicPopup) {
+  elementsController.$inject = ['$log','$ionicPopup','$ionicLoading'];
+  function elementsController($log,$ionicPopup,$ionicLoading) {
     var vm = this;
+
+    $scope.$on('$ionicView.beforeEnter', function (event, viewData) {
+        viewData.enableBack = true;
+    }); 
     
     $log.log('elements');
     
+    vm.showLoading = function () {
+      $ionicLoading.show({
+        template: '<div class="edumed-loading"></div>'
+      }).then(function(){
+        console.log("The loading indicator is now displayed");
+      });
+      setTimeout(function() {
+        $ionicLoading.hide().then(function(){
+           console.log("The loading indicator is now hidden");
+        });
+      }, 2000);
+    }
 
     vm.showConfirm = function() {
       var confirmPopup = $ionicPopup.confirm({

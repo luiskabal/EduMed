@@ -11,7 +11,7 @@
         // Add your configuration here
         $ionicConfigProvider.tabs.position('top'); // other values: top
         $ionicConfigProvider.platform.android.navBar.alignTitle('center');
-        $ionicConfigProvider.backButton.text('').icon('ion-chevron-left').previousTitleText(false);
+        $ionicConfigProvider.backButton.text('').icon('ion-ios-arrow-left').previousTitleText(false);
         //$ionicConfigProvider.views.swipeBackEnabled(false);
 
 

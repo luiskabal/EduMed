@@ -1,3 +1,12 @@
+//MEDIA QUERIES
+$xs: "only screen and (min-device-width :320px) and (orientation :portrait)";//iPhone5
+$md: "only screen and (min-device-width :375px) and (orientation :portrait)";//iPhone6
+$lg: "only screen and (min-device-width :414px) and (orientation :portrait)";//iPhone6+
+
+$xlg: "only screen and (min-width:768px) and (orientation : portrait)";//iPad
+$xlgl: "only screen and (min-width:768px) and (orientation :landscape)";
+
+
 body {
    font-family: 'Lato';
 }

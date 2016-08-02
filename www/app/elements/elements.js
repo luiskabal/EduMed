@@ -8,6 +8,10 @@
   elementsController.$inject = ['$log','$ionicPopup','$ionicLoading'];
   function elementsController($log,$ionicPopup,$ionicLoading) {
     var vm = this;
+
+    $scope.$on('$ionicView.beforeEnter', function (event, viewData) {
+        viewData.enableBack = true;
+    }); 
     
     $log.log('elements');
     

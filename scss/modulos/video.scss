@@ -9,3 +9,28 @@ videogular vg-poster img.stop, [videogular] vg-poster img.stop {
      margin: 0;
      height: 100%;
 } 
+
+@media #{$xs} {
+    .content-video {
+        overflow: hidden;
+        videogular, [videogular] {
+            height: 190px;
+        }
+    }
+}
+@media #{$md} {
+    .content-video {
+        overflow: hidden;
+        videogular, [videogular] {
+            height: 215px;
+        }
+    }
+}
+@media #{$lg} {
+    .content-video {
+        overflow: hidden;
+        videogular, [videogular] {
+            height: 240px;
+        }
+    }
+}

@@ -1,11 +1,8 @@
-ion-view(view-title="{{moduleCtrl.guide.titulo}}")
-  ion-nav-buttons(side='primary')
-    button.button.button-clear(ng-click="goBack()")
-      i.icon.ion-ios-arrow-left
+ion-view(view-title="Cáncer Colorrectal")
   ion-content
     .content-video
       videogular(vg-player-ready='moduleCtrl.onPlayerReady($API)', ng-show='!moduleCtrl.testRun', vg-theme='moduleCtrl.config.theme.url', vg-complete='moduleCtrl.onCompleteVideo()')
-        vg-media(vg-src='moduleCtrl.config.sources', vg-tracks="moduleCtrl.config.tracks", vg-youtube="rel=1;showinfo=1", vg-native-controls='false')
+        vg-media(vg-src='moduleCtrl.config.sources', vg-tracks="moduleCtrl.config.tracks", vg-youtube)
         vg-overlay-play
         vg-poster(vg-url='moduleCtrl.config.plugins.poster')
         vg-controls
@@ -23,12 +20,12 @@ ion-view(view-title="{{moduleCtrl.guide.titulo}}")
     div
       .padding
         .box-bg
-          ul.module-steps
+          ul.module-steps(data-module-steps="{{moduleCtrl.moduleStepCurrent}}")
             li.module-step(ng-repeat="mod in moduleCtrl.videos track by $index", ng-click="moduleCtrl.setVideo({{$index}})")
             //li.module-step(ng-repeat="mod in moduleCtrl.guide.modulos",
                       ng-class="{'step-ok': mod.avance && mod.avance.completado , 'active': mod.avance && !mod.avance.completado }")
 
-          h2.title-view(ng-bind="moduleCtrl.guide.titulo",ng-click="moduleCtrl.showConfirm()")
+          h2.title-view(ng-click="moduleCtrl.showConfirm()") Modulo Introduccion
           .item
-            button.button.button-full.button-positive(type='submit', ng-click='moduleCtrl.openModal()')
+            button.button.button-full.button-positive(type='submit', ng-click='openModal()')
               | Comenzar Test

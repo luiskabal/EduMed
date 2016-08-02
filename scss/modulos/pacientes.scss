@@ -61,7 +61,7 @@ $bg-modulo-actual:   #239bab;
 .collapse {
   padding-top: 10px;
   position: relative;
-  height: 24px;
+  //height: 24px;
   line-height: 24px;
   h4 {
     border-bottom: none!important;
@@ -77,8 +77,9 @@ $bg-modulo-actual:   #239bab;
   .icon-collapse {
     position: absolute;
     right: 10px;
-    top: 10px;
+    top: 20px;
     color: $color-icon;
+    font-size: 24px;
   }
   p {
     font-size: 11px;

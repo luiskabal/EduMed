@@ -18,12 +18,15 @@ ion-view.ion-view-login(hide-nav-bar='true')
           label.item.item-input.item-stacked-label
             span.input-label Fecha de Nacimiento:
             input(type='date', placeholder='fecha')
-          .padding
+          .item
+            button.button.button-full.button-assertive(ui-sref='codigo')
+              | Por Codigo
+          //.padding
             p Metodo de Pago
-          .item
-            button.button.button-full.button-positive
+          //.item
+            button.button.button-full.button-positive(ng-disabled)
               | Transaccion
-          hr
-          .item
+          //hr
+          //.item
             button.button.button-full.button-assertive(ui-sref='codigo')
               | Por Codigo

@@ -22,6 +22,13 @@
                 controller: 'LoginController',
                 controllerAs: 'login'
             })
+            .state('recuperar', {
+                url: '/recuperar',
+                //abstract: true,
+                templateUrl: 'app/login/recuperar.html',
+                controller: 'LoginController',
+                controllerAs: 'login'
+            })
             .state('suscribirse', {
                 url: '/suscribirse',
                 //abstract: true,
@@ -39,7 +46,8 @@
                 url: '/app',
                 abstract: true,
                 templateUrl: 'app/menu/menu.html',
-                controller: 'homeController'
+                controller: 'homeController',
+                controllerAs: 'homeCtrl'
             })
             .state('app.home', {
                 url: '/home',
@@ -47,7 +55,7 @@
                     'menuContent': {
                         templateUrl: 'app/home/home.html',
                         controller: 'homeController',
-                        controllerAs: 'home'
+                        controllerAs: 'homeCtrl'
                     }
                 }
             })
@@ -66,9 +74,9 @@
                 url: '/new-guide',
                 views: {
                     'new-guide': {
-                        templateUrl: 'app/home/new-guide.html',
-                        controller: 'homeController',
-                        controllerAs: 'home'
+                        templateUrl: 'app/home/guides.html',
+                        controller: 'guidesController',
+                        controllerAs: 'guidesCtrl'
                     }
                 }
             })
@@ -76,9 +84,9 @@
                 url: '/guides-interest',
                 views: {
                     'guides-interest': {
-                        templateUrl: 'app/home/guides-interest.html',
-                        controller: 'homeController',
-                        controllerAs: 'home'
+                        templateUrl: 'app/home/guides.html',
+                        controller: 'guidesController',
+                        controllerAs: 'guidesCtrl'
                     }
                 }
             })
@@ -109,22 +117,22 @@
                 }
             })
             .state('app.aprender', {
-                url: '/aprender',
+                url: '/aprender/:id',
                 views: {
                     'menuContent': {
                         templateUrl: 'app/modulos/aprender.html',
-                        controller: 'elementsController',
-                        controllerAs: 'elements'
+                        controller: 'aprenderController',
+                        controllerAs: 'aprenderCtrl'
                     }
                 }
             })
             .state('app.modulo', {
-                url: '/modulo',
+                url: '/modulo/:id',
                 views: {
                     'menuContent': {
                         templateUrl: 'app/modulos/video.html',
                         controller: 'modulosController',
-                        controllerAs: 'module'
+                        controllerAs: 'moduleCtrl'
                     }
                 }
             })
@@ -133,6 +141,26 @@
                 views: {
                     'menuContent': {
                         templateUrl: 'app/patients/patients.html',
+                        controller: 'patientsController',
+                        controllerAs: 'patientsCtrl'
+                    }
+                }
+            })
+            .state('app.patient-history', {
+                url: '/patient-history',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'app/patients/patient-history.html',
+                        controller: 'patientsController',
+                        controllerAs: 'patients'
+                    }
+                }
+            })
+            .state('app.generate-code', {
+                url: '/generate-code',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'app/patients/generate-code.html',
                         controller: 'patientsController',
                         controllerAs: 'patients'
                     }

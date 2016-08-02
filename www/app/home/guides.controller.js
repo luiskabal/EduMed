@@ -9,6 +9,11 @@
     function guidesController($scope,$state,$ionicHistory,commonService,$rootScope,guidesFactory) {
         var vm = this;
 
+
+        $scope.$on('$ionicView.beforeEnter', function (event, viewData) {
+            viewData.enableBack = true;
+        }); 
+
         //init
         vm.guides = [];
 

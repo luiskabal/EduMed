@@ -1,39 +1,43 @@
-ion-side-menus(enable-menu-with-back-views='false')
+ion-side-menus(enable-menu-with-back-views='true')
+  
   ion-side-menu-content
     ion-nav-bar.bar-positive
-      ion-nav-buttons(side='right')
+      ion-nav-back-button
+      ion-nav-buttons(side='right')        
         button.button.button-icon.button-clear.ion-navicon(menu-toggle='right')
     ion-nav-view(name='menuContent')
+  
   ion-side-menu(side='right')
     ion-header-bar.bar-dark
       .cont-avatar
         .avatar
-          img(src="img/avatar/mike.png")
+          img(src="img/avatar/mike.png",ng-if="homeCtrl.dr == false")
+          img(src="img/avatar/house.jpg",ng-if="homeCtrl.dr")
       h1.title Hola, 
         strong Luis Ramos
     ion-content.has-header
       ion-list
         ion-item.item-icon-left.item-icon-right(menu-close='',href="#/app/home")
           i.icon.ion-android-home
-          | Inicio
+          | Inicio 
           i.icon.ion-ios-arrow-forward
         ion-item.item-icon-left.item-icon-right(menu-close='',href="#/app/user")
           i.icon.ion-person
           | Mi Perfil
           i.icon.ion-ios-arrow-forward
-        ion-item.item-icon-left.item-icon-right(menu-close='')
+        ion-item.item-icon-left.item-icon-right(menu-close='',ng-if="homeCtrl.dr == false")
           i.icon.ion-ios-paper
           | Historial de Aprendizaje
           i.icon.ion-ios-arrow-forward
-        ion-item.item-icon-left.item-icon-right(menu-close='', href="#/app/patients")
+        ion-item.item-icon-left.item-icon-right(menu-close='', href="#/app/patients", ng-if="homeCtrl.dr")
           i.icon.ion-ios-paper
           | Pacientes
           i.icon.ion-ios-arrow-forward
-        ion-item.item-icon-left.item-icon-right(menu-close='', href="#/app/patients")
+        ion-item.item-icon-left.item-icon-right(menu-close='', href="#/app/generate-code", ng-if="homeCtrl.dr")
           i.icon.ion-pound
           | Generar Código
           i.icon.ion-ios-arrow-forward
-        ion-item.item-icon-left.item-icon-right(menu-close='',href="#/app/elements")
+        //ion-item.item-icon-left.item-icon-right(menu-close='',href="#/app/elements")
           i.icon.ion-beer
           | Elementos
           i.icon.ion-ios-arrow-forward

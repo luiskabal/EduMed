@@ -9,6 +9,10 @@
 	function modulosController($scope,$rootScope,$state,$stateParams,$ionicHistory,$log,$ionicLoading,$sce,$ionicModal,$ionicPopup,$timeout,commonService,guidesFactory) {
 		var vm = this;
 
+		$scope.$on('$ionicView.beforeEnter', function (event, viewData) {
+            viewData.enableBack = true;
+        }); 
+
 		//init
 		vm.guide = {};
 		vm.relatedGuides = [];
@@ -29,10 +33,17 @@
 
 		// scope functions
 
-		vm.openModal = function() {
+		$scope.openModal = function() {
 			$log.log('comenzar test');
-			vm.modal.show();
+			$scope.modal.show();
 			console.log(vm.modal);
+		};
+
+		$scope.closeModal = function() {
+			$log.log('cerrar modal');
+			$scope.modal.hide();
+			vm.moduleStepCurrent = vm.moduleStepCurrent ;
+			vm.setVideo(vm.moduleStepCurrent);
 		};
 
 
@@ -45,7 +56,7 @@
 
 			confirmPopup.then(function(res) {
 				if(res) {
-					vm.modal.show();
+					$scope.modal.show();
 					console.log('llenar form');
 				} else {
 					console.log('You are not sure');
@@ -65,19 +76,21 @@
             };
 
             vm.onCompleteVideo = function() {
-                vm.isCompleted = true;
-
-                vm.currentVideo++;
-
-                if (vm.currentVideo >= vm.videos.length) vm.currentVideo = 0;
-
-                vm.setVideo(vm.currentVideo);
+                //vm.isCompleted = true;
+                //vm.currentVideo++;
+                //if (vm.currentVideo >= vm.videos.length) vm.currentVideo = 0;
+                //vm.setVideo(vm.currentVideo);
+				console.log("on complete 1");
+				//vm.modal.show();
+				$timeout(function() {
+					vm.showConfirm(); //close the popup after 3 seconds for some reason
+				}, 600);
             };
 
             vm.videos = [
             {
                 sources: [
-                    {src:"https://youtu.be/eutVskbOCUQ "}
+                    {src:"https://youtu.be/eutVskbOCUQ"}
                 ]
             },
             {
@@ -105,10 +118,10 @@
                 autoPlay: false,
                 sources: vm.videos[0].sources,
                 theme: {
-                    url: "http://www.videogular.com/styles/themes/default/latest/videogular.css"
+                    url: "lib/videogular-themes-default/videogular.css"
                 },
                 plugins: {
-                    poster: "http://www.videogular.com/assets/images/videogular.png"
+                    poster: "img/video/cancer-colorrectal-modulo-1.png"
                 }
             };
 
@@ -117,12 +130,13 @@
                 vm.currentVideo = index;
                 vm.config.sources = vm.videos[index].sources;
                 $timeout(vm.API.play.bind(vm.API), 100);
+				vm.moduleStepCurrent = index + 1;
             };
 
 
 //FIN VIDEO
 
-
+		vm.moduleStepCurrent = 1;
 
 
 
@@ -134,9 +148,10 @@
 		
 		// init modal
 		$ionicModal.fromTemplateUrl('app/modulos/test.html', {
+			scope: $scope,
 			animation: 'slide-in-up'
 		}).then(function(modal) {
-			vm.modal = modal;
+			$scope.modal = modal;
 		});
 
 		vm.clickToSave = function(){

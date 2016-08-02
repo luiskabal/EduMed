@@ -9,6 +9,10 @@
     function aprenderController($scope,$state,$stateParams,$ionicHistory,commonService,$rootScope,guidesFactory) {
         var vm = this;
 
+        $scope.$on('$ionicView.beforeEnter', function (event, viewData) {
+            viewData.enableBack = true;
+        }); 
+
         //init
         vm.guide = {};
         vm.relatedGuides = [];

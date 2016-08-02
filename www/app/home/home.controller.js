@@ -8,7 +8,13 @@
     homeController.$inject = ['$scope','$state','$ionicHistory','commonService','$rootScope','guidesFactory'];
     function homeController($scope,$state,$ionicHistory,commonService,$rootScope,guidesFactory) {
         var vm = this;
-        
+
+        vm.dr = true;
+
+        $scope.toggleLeft = function() {
+            $ionicSideMenuDelegate.toggleLeft();
+        };
+
         //init
         vm.guides = [];
         loadNewGuides();

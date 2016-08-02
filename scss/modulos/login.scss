@@ -1,7 +1,11 @@
 ion-view.ion-view-login {
   background: url(../img/back/back.jpg);
   background-position: center center;
-  background-size: cover; }
+  background-size: cover; 
+  .content-app {
+    background: rgba(244, 243, 240, 0.85); 
+  }
+}
 
 .content-app {
   //background: rgba(244, 243, 240, 0.85); 
@@ -19,11 +23,11 @@ ion-view.ion-view-login {
 
 
 .content-logo-login {
-  //background-image: linear-gradient(180deg, rgba(244, 243, 240, 0.85) 50.5%, transparent 50%);
+  background-image: linear-gradient(180deg, rgba(244, 243, 240, 0.85) 50%, transparent 50%);
   border-radius: 50%;
   width: 100px;
   height: 100px;
-  background: #f4f3f0;
+  //background: #f4f3f0;
 }
 
 .content-login {

@@ -5,9 +5,13 @@
       .module('eduMed')
       .controller('patientsController', patientsController);
 
-  patientsController.$inject = ['$scope','$rootScope','$ionicHistory','profileFactory','commonService'];
-  function patientsController($scope,$rootScope,$ionicHistory,profileFactory,commonService) {
+  patientsController.$inject = ['$scope','$rootScope','$ionicHistory','profileFactory','commonService','$log', '$ionicPopup'];
+  function patientsController($scope,$rootScope,$ionicHistory,profileFactory,commonService,$log,$ionicPopup) {
     var vm = this;
+
+    $scope.$on('$ionicView.beforeEnter', function (event, viewData) {
+        viewData.enableBack = true;
+    }); 
 
     //init
     console.log('patients');
@@ -38,6 +42,22 @@
           function(e){ console.error(e); }
       );
     }
+
+    vm.enviarCodigo = function() {
+      $log.log('enviarCodigo');
+      var confirmPopup = $ionicPopup.confirm({
+        title: '<i class="icon ion-ios-checkmark-outline"></i>',
+        template: '<p>Codigo Enviado</p><h3 class="codigo">4545211554545</h3> '
+      });
+
+      confirmPopup.then(function(res) {
+        if(res) {
+          console.log('You are sure');
+        } else {
+          console.log('You are not sure');
+        }
+      });
+    };
 
   }
 })();
