@@ -178,8 +178,9 @@
 				return;
 			}
 			//video/La_artritis_psoriasica.mp4
+			var videoUrl = modulo.urlVideo.substring(0,4)==='http' ? modulo.urlVideo : commonService.getFileUrl(modulo.urlVideo);
 			vm.config.sources = [{
-				src: $sce.trustAsResourceUrl(commonService.getFileUrl(modulo.urlVideo)), type: "video/mp4"
+				src: $sce.trustAsResourceUrl(videoUrl), type: "video/mp4"
 			}];
 			vm.config.plugins.poster = commonService.getFileUrl(modulo.pathImgPreview);
 		}
