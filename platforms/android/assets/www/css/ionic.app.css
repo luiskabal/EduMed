@@ -10225,7 +10225,7 @@ ion-view.ion-view-login {
 .item-select select {
   color: #385356; }
 
-.item p.codigo {
+.codigo {
   font-weight: bold;
   color: #239BAB;
   font-size: 16px; }
@@ -10405,6 +10405,19 @@ ion-side-menu.menu {
     padding-top: 60px;
     background: url("../img/back/back-edumed.svg");
     background-size: cover; }
+    ion-side-menu.menu .bar-dark.bar.bar-header:before {
+      content: "";
+      display: block;
+      height: 3px;
+      width: 100%;
+      bottom: 0;
+      left: 0;
+      position: absolute;
+      background: #dc955d;
+      background: -moz-linear-gradient(-45deg, #dc955d 0%, #dc955d 33%, #edd559 33%, #edd559 66%, #73b9cf 66%);
+      background: -webkit-linear-gradient(-45deg, #dc955d 0%, #dc955d 33%, #edd559 33%, #edd559 66%, #73b9cf 66%);
+      background: linear-gradient(135deg, #dc955d 0%, #dc955d 33%, #edd559 33%, #edd559 66%, #73b9cf 66%);
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#dc955d', endColorstr='#73b9cf',GradientType=1 ); }
     ion-side-menu.menu .bar-dark.bar.bar-header .title {
       position: static;
       font-size: 16px; }
@@ -10417,6 +10430,8 @@ ion-side-menu.menu {
     position: absolute;
     top: 10px;
     left: 10px; }
+    ion-side-menu.menu .avatar:after {
+      display: none; }
     ion-side-menu.menu .avatar:before {
       display: none; }
     ion-side-menu.menu .avatar img {
@@ -10439,7 +10454,6 @@ ion-side-menu.menu {
   border-radius: 50%;
   background: url("../img/icon/user.svg");
   margin: 0 auto;
-  border: 3px solid #fff;
   position: relative; }
   .avatar:before {
     content: "\f2d3";
@@ -10450,9 +10464,24 @@ ion-side-menu.menu {
     color: #fff;
     bottom: -3px;
     right: 0; }
+  .avatar:after {
+    background: url("../img/icon/spinner.svg");
+    display: block;
+    content: "";
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    top: 0;
+    left: 0;
+    /* margin-left: -65px; */
+    /* margin-top: -65px; */
+    background-position: center center;
+    background-size: 130px;
+    overflow: hidden;
+    border-radius: 50%; }
   .avatar img {
-    width: 94px;
-    height: 94px;
+    width: 100px;
+    height: 100px;
     border-radius: 50%; }
 
 .banner-avatar {
@@ -10717,21 +10746,14 @@ videogular vg-poster img.stop, [videogular] vg-poster img.stop {
 
 .collapse {
   padding-top: 10px;
-  position: relative;
-  height: 24px;
-  line-height: 24px; }
-  .collapse h4 {
-    border-bottom: none !important; }
-  .collapse + .row, .collapse + .module-steps {
-    padding: 0; }
-    .collapse + .row .col, .collapse + .module-steps .col, .collapse + .row .module-steps .module-step, .module-steps .collapse + .row .module-step, .collapse + .module-steps .module-step {
-      padding: 0; }
+  position: relative; }
 
 .modulo-history .icon-collapse {
   position: absolute;
   right: 10px;
-  top: 10px;
-  color: #6A8281; }
+  top: 20px;
+  color: #6A8281;
+  font-size: 18px; }
 
 .modulo-history p {
   font-size: 11px;

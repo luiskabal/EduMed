@@ -109,6 +109,16 @@
                     }
                 }
             })
+            .state('app.history-user', {
+                url: '/history-user',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'app/user/history-user.html',
+                        controller: 'userController',
+                        controllerAs: 'user'
+                    }
+                }
+            })
             .state('app.elements', {
                 url: '/elements',
                 views: {
@@ -145,7 +155,7 @@
                     'menuContent': {
                         templateUrl: 'app/patients/patients.html',
                         controller: 'patientsController',
-                        controllerAs: 'patients'
+                        controllerAs: 'patientsCtrl'
                     }
                 }
             })

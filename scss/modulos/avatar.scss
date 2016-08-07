@@ -5,7 +5,7 @@
   border-radius: 50%;
   background: url('../img/icon/user.svg');
   margin: 0 auto;
-  border:3px solid #fff;
+  //border:3px solid #fff;
   position: relative;
   &:before {
     content: "\f2d3";
@@ -17,9 +17,25 @@
     bottom: -3px;
     right:0;
   }
+  &:after {
+    background: url("../img/icon/spinner.svg");
+    display: block;
+    content: "";
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    top: 0;
+    left: 0;
+    /* margin-left: -65px; */
+    /* margin-top: -65px; */
+    background-position: center center;
+    background-size: 130px;
+    overflow: hidden;
+    border-radius: 50%;
+  }
   img {
-    width: 94px;
-    height: 94px;
+    width: 100px;
+    height: 100px;
     border-radius: 50%;
   }
 }
