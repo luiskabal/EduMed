@@ -10076,7 +10076,8 @@ a:hover {
   height: 70px;
   background-size: 60px;
   background-position: center center;
-  position: relative; }
+  position: relative;
+  margin: 0 auto; }
   .edumed-loading:before {
     background: url(../img/icon/spinner.svg);
     content: "";
@@ -10168,6 +10169,17 @@ a:hover {
   background-color: #239bab;
   background-image: linear-gradient(0deg, #239bab, #239bab 50%, transparent 50%);
   color: #fff; }
+
+.spinner-cont {
+  text-align: center; }
+  .spinner-cont ion-spinner {
+    display: inline-block; }
+
+.spinner svg {
+  width: 40px;
+  height: 40px;
+  stroke: #239bab;
+  fill: #239bab; }
 
 ion-view.ion-view-login {
   background: url(../img/back/back.jpg);
