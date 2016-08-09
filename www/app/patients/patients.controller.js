@@ -6,8 +6,8 @@
       .controller('patientsController', patientsController);
 
 
-  patientsController.$inject = ['$scope','$rootScope','$ionicHistory','profileFactory','commonService'];
-  function patientsController($scope,$rootScope,$ionicHistory,profileFactory,commonService) {
+  patientsController.$inject = ['$scope','$rootScope','$state','$ionicHistory','profileFactory','commonService'];
+  function patientsController($scope,$rootScope,$state,$ionicHistory,profileFactory,commonService) {
     var vm = this;
 
     vm.enviarCodigo = function() {
@@ -37,6 +37,15 @@
     // scope functions
     vm.getImage = function(pathImg){
       return commonService.getFileUrl(pathImg);
+    };
+
+    vm.goHistory = function(patient){
+        $state.go(
+            'app.history',
+            {
+                id: patient.nombre
+            }
+        );
     };
 
 

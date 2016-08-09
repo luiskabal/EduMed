@@ -5,7 +5,7 @@ ion-view(view-title="Mis Pacientes")
   ion-content
 
     ion-list
-      ion-item.item-avatar.item-icon-right(ng-repeat="p in patientsCtrl.patients", ui-sref="app.patient-history")
+      ion-item.item-avatar.item-icon-right(ng-repeat="p in patientsCtrl.patients", ng-click="patientsCtrl.goHistory(p)")
         img(ng-src="{{ patientsCtrl.getImage(p.avatar) }}")
         h2(ng-bind="p.nombre")
         p Artritis Psoriasica

@@ -149,13 +149,13 @@
                     }
                 }
             })
-            .state('app.patient-history', {
-                url: '/patient-history',
+            .state('app.history', {
+                url: '/history/:id',
                 views: {
                     'menuContent': {
-                        templateUrl: 'app/patients/patient-history.html',
-                        controller: 'patientsController',
-                        controllerAs: 'patients'
+                        templateUrl: 'app/history/history.html',
+                        controller: 'historyController',
+                        controllerAs: 'historyCtrl'
                     }
                 }
             })

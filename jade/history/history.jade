@@ -1,0 +1,70 @@
+ion-view(view-title="Historial de Paciente")
+  ion-nav-buttons(side='primary')
+    button.button.button-clear(ng-click="goBack()")
+      i.icon.ion-ios-arrow-left
+  ion-content
+    .banner-avatar(id="detalle-header3")
+      .cont-avatar
+        .avatar
+          img(src="img/avatar/old.jpg")
+        h4 Jose Hernandez
+    
+    .item.modulo-history
+      .collapse( ng-click="active = !active") 
+        i.icon-collapse(ng-class="{'ion-chevron-up': active, 'ion-chevron-down': !active}")
+        p Guía Actual
+        h3 Artritis Psoriasica
+        h4 Introducción
+        .cont-progress
+          span 60%
+          .progress-porcent(style="width:60%")
+          
+      .row.info-history(ng-show="active")
+        .col
+          span Completado
+          span.porcent 3
+          small Modulos
+        .col
+          span Reitentos
+          span.porcent 4
+          small Intentos
+        .col
+          span Tiempo
+          span.porcent 1
+          small Semana
+      
+        h4 Detalle {{detalle}}
+        
+      
+    h3.title-bg.tcenter Guías Completadas
+    .item.modulo-history.modulo-history-small      
+      h3 Artritis Psoriasica
+      h4 Introducción
+      .row.foot-data
+        .col
+          i.icon.ion-android-calendar
+        .col
+          span 
+            strong Inicio: 
+            | 24/06/2016 
+        
+          span 
+            strong Fin:  
+            | 28/06/2016
+      
+    .item.modulo-history.modulo-history-small      
+      h3 Artritis Psoriasica
+      h4 Introducción
+      .row.foot-data
+        .col
+          i.icon.ion-android-calendar
+        .col
+          span 
+            strong Inicio: 
+            | 24/06/2016 
+        
+          span 
+            strong Fin:  
+            | 28/06/2016
+      
+          
