@@ -2,11 +2,12 @@ ion-view.myaccount.account-edit(view-title='Mi Cuenta')
   ion-content(delegate-handle="user-edit" elastic-header="detalle-header4")
     .banner-avatar(id="detalle-header4")
       .cont-avatar
-        .avatar(ng-click="user.takePicture()")
-          img(src="img/avatar/mike.png")
+        .avatar(ng-click="user.showPopup()")
+          img(ng-src="{{user.picture}}")
         h4 Luis Ramos
     .content-app.padding
       //elasticHeader
+      //img(ng-src="{{user.picture}}")
       .padding-top
         .list
           label.item.item-input.item-stacked-label

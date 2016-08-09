@@ -6,8 +6,8 @@
       .controller('patientsController', patientsController);
 
 
-  patientsController.$inject = ['$scope','$rootScope','$state','$ionicHistory','profileFactory','commonService'];
-  function patientsController($scope,$rootScope,$state,$ionicHistory,profileFactory,commonService) {
+  patientsController.$inject = ['$scope','$rootScope','$log','$ionicHistory','profileFactory','commonService','$ionicPopup','$state'];
+  function patientsController($scope,$rootScope,$log,$ionicHistory,profileFactory,commonService,$ionicPopup,$state) {
     var vm = this;
 
     vm.enviarCodigo = function() {

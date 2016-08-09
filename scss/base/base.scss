@@ -188,6 +188,7 @@ a {
     background-size: 60px;
     background-position: center center;
     position: relative;
+    margin: 0 auto;
     &:before {
         background: url(../img/icon/spinner.svg);
         content: "";
@@ -312,4 +313,16 @@ ion-view {
     background-color: #239bab;
     background-image: linear-gradient(0deg, #239bab, #239bab 50%, transparent 50%);
     color: #fff;
+}
+.spinner-cont {
+  text-align: center;
+  ion-spinner {
+    display: inline-block;
+  }
+}
+.spinner svg {
+  width: 40px;
+  height: 40px;
+  stroke: #239bab;
+  fill: #239bab;
 }

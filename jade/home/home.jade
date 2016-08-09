@@ -10,8 +10,10 @@ ion-view(view-title='EduMed')
     
 
     .padding
-      .row(ng-repeat="guide in homeCtrl.guides")
-        .col.state-module
+      .padding.spinner-cont(ng-if="!homeCtrl.guidesLoaded")
+        ion-spinner(icon="dots")
+      .row
+        .col.state-module(ng-repeat="guide in homeCtrl.guides")
           p.module-title(ng-bind="guide.titulo")
           .icon
             .estado

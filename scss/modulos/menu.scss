@@ -8,7 +8,21 @@ ion-side-menu.menu {
     //background: -o-linear-gradient(right, #99ABAB, #142C37);
     //background: linear-gradient(to left, #99ABAB, #142C37); /* Chrome 10-25, Safari 5.1-6 */ /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     background: url('../img/back/back-edumed.svg');
-        background-size: cover;    
+        background-size: cover;
+    &:before {
+        content: "";
+        display: block;
+        height: 3px;
+        width: 100%;
+        bottom: 0;
+        left: 0;
+        position: absolute;
+        background: #dc955d;
+        background: -moz-linear-gradient(-45deg, #dc955d 0%, #dc955d 33%, #edd559 33%, #edd559 66%, #73b9cf 66%);
+        background: -webkit-linear-gradient(-45deg, #dc955d 0%,#dc955d 33%,#edd559 33%,#edd559 66%,#73b9cf 66%);
+        background: linear-gradient(135deg, #dc955d 0%,#dc955d 33%,#edd559 33%,#edd559 66%,#73b9cf 66%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#dc955d', endColorstr='#73b9cf',GradientType=1 );
+    }
     .title {
       position: static;
       font-size: 16px;
@@ -25,6 +39,9 @@ ion-side-menu.menu {
       top: 10px;
       left: 10px;
       
+      &:after {
+        display: none;
+      }
       &:before {
         display: none;
       }

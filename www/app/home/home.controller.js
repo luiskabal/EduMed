@@ -9,6 +9,9 @@
     function homeController($scope,$state,$ionicHistory,commonService,$rootScope,guidesFactory) {
         var vm = this;
         
+        vm.guidesLoaded = false;
+
+
         //init
         vm.guides = [];
         loadNewGuides();
@@ -40,6 +43,7 @@
                     guides = _.concat(guides,l1,l2);
                     */
                     vm.guides = guides;
+                    vm.guidesLoaded = true;
                 },
                 function(e){
                     console.error(e);
