@@ -72,7 +72,9 @@
 		vm.API = null;
 		vm.config = {
 			preload: "none",
-			sources: [],
+			sources: [{
+				src: "https://youtu.be/eutVskbOCUQ"
+			}],
 			theme: {
 				url: "lib/videogular-themes-default/videogular.css"
 			},
@@ -141,12 +143,15 @@
 			if(modulo==null){
 				return;
 			}
-			//video/La_artritis_psoriasica.mp4
+			/*
+			TODO: uncomment
 			var videoUrl = modulo.urlVideo.substring(0,4)==='http' ? modulo.urlVideo : commonService.getFileUrl(modulo.urlVideo);
+
 			vm.config.sources = [{
 				src: videoUrl
 			}];
 			vm.config.plugins.poster = commonService.getFileUrl(modulo.pathImgPreview);
+			 */
 		}
 		
 		

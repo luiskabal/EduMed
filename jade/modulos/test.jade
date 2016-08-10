@@ -4,12 +4,12 @@ ion-modal-view
   ion-content.has-header
     .padding
       .list
-        .item.item-radio(ng-repeat="pregunta in selectedModule.preguntas")
-          span.input-label(ng-bind="pregunta.pregunta")
-          .circleRadioWrap(ng-repeat="respuesta in pregunta.respuestas")
-            input#p1r1.circleRadio(type='radio', name='radio1')
-            label.circleRadioLabel(for='p1r1')
-            label.label-radio(for='p1r1',ng-bind="respuesta.respuesta")
+        .item.item-radio(ng-repeat="p in selectedModule.preguntas")
+          span.input-label(ng-bind="p.pregunta")
+          .circleRadioWrap(ng-repeat="r in p.respuestas")
+            input.circleRadio(ng-attr-id="'p'+p.idPregunta+'r'+r.idRespuesta",type='radio', name='radio1')
+            label.circleRadioLabel(for="'p'+p.idPregunta+'r'+r.idRespuesta")
+            label.label-radio(for="'p'+p.idPregunta+'r'+r.idRespuesta",ng-bind="r.respuesta")
         .item
           button.button.button-full.button-positive(type='submit', ng-click='closeModal()')
             | Finalizar
