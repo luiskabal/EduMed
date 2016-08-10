@@ -22,7 +22,7 @@
       });
     };
     //init
-    console.log('patients');
+    console.log('patients ctrl');
     vm.patients = [];
 
     loadPatients();
@@ -43,7 +43,7 @@
         $state.go(
             'app.history',
             {
-                id: patient.nombre
+                id: patient.id
             }
         );
     };

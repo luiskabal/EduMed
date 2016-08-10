@@ -74,9 +74,7 @@
 		vm.API = null;
 		vm.config = {
 			preload: "none",
-			sources: [
-				{src: $sce.trustAsResourceUrl("video/La_artritis_psoriasica.mp4"), type: "video/mp4"}
-			],
+			sources: [],
 			theme: {
 				url: "lib/videogular-themes-default/videogular.css"
 			},
@@ -180,7 +178,7 @@
 			//video/La_artritis_psoriasica.mp4
 			var videoUrl = modulo.urlVideo.substring(0,4)==='http' ? modulo.urlVideo : commonService.getFileUrl(modulo.urlVideo);
 			vm.config.sources = [{
-				src: $sce.trustAsResourceUrl(videoUrl), type: "video/mp4"
+				src: videoUrl
 			}];
 			vm.config.plugins.poster = commonService.getFileUrl(modulo.pathImgPreview);
 		}
