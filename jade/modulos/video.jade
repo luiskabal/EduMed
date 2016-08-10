@@ -4,7 +4,7 @@ ion-view(view-title="{{moduleCtrl.guide.titulo}}")
       i.icon.ion-ios-arrow-left
   ion-content
     .content-video
-      videogular(vg-player-ready='moduleCtrl.onPlayerReady($API)', ng-show='!moduleCtrl.testRun', vg-theme='moduleCtrl.config.theme.url', vg-complete='moduleCtrl.onCompleteVideo()')
+      videogular(vg-player-ready='moduleCtrl.onPlayerReady($API)', vg-theme='moduleCtrl.config.theme.url', vg-complete='moduleCtrl.onCompleteVideo()')
         vg-media(vg-src='moduleCtrl.config.sources', vg-native-controls='false', vg-youtube)
         vg-overlay-play
         vg-poster(vg-url='moduleCtrl.config.plugins.poster')
@@ -29,5 +29,5 @@ ion-view(view-title="{{moduleCtrl.guide.titulo}}")
 
           h2.title-view(ng-bind="moduleCtrl.guide.titulo",ng-click="moduleCtrl.showConfirm()")
           .item
-            button.button.button-full.button-positive(type='submit', ng-click='moduleCtrl.openModal()')
+            button.button.button-full.button-positive(type='submit', ng-click='openModal()')
               | Comenzar Test

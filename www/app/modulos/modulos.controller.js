@@ -10,6 +10,7 @@
 		var vm = this;
 
 		//init
+		vm.idGuide = null;
 		vm.guide = {};
 		vm.relatedGuides = [];
 		vm.selectedModule = null;
@@ -18,8 +19,8 @@
 
 
 		$scope.$on('$ionicView.enter',function(e){
-			var idGuide = $stateParams.id;
-			loadGuide(idGuide);
+			vm.idGuide = $stateParams.id;
+			loadGuide(vm.idGuide);
 
 			$rootScope.goBack = commonService.goBack($ionicHistory);
 		});
@@ -29,10 +30,16 @@
 
 		// scope functions
 
-		vm.openModal = function() {
+		$scope.openModal = function() {
 			$log.log('comenzar test');
-			vm.modal.show();
-			console.log(vm.modal);
+			$scope.modal.show();
+			console.log($scope.modal);
+		};
+
+		$scope.closeModal = function() {
+			$log.log('finalizar test');
+			$scope.modal.hide();
+			loadGuide(vm.idGuide);
 		};
 
 
@@ -55,17 +62,6 @@
 
 
 
-
-
-		//$scope.setBodyClass('aprender');
-       /*
-	    $ionicLoading.show({
-            template: '<div class="edumed-loading"></div>'
-        });
-        setTimeout(function(){
-            $ionicLoading.hide();
-        }, 2000);
-		*/
 
 
 
@@ -97,46 +93,14 @@
 				vm.showConfirm(); //close the popup after 3 seconds for some reason
 			}, 600);
 
-
-			/*ngDialog.open({
-			 template: 'modules/modulos/templates/modal.html',
-			 className: '',
-			 controller: ['$scope', function($scope) {
-			 // Controller logic here
-
-			 console.log('alla');
-			 $scope.clickToClose = function() {
-			 console.log('jojo');
-			 $scope.closeThisDialog(0);
-			 //$location.path('/calendario');
-			 //Moment.addMoment( { fecha: diaSelect.toISOString(), tipo: 'estudio' } );
-			 };
-
-			 }]
-			 });*/
-		};
-
-		// Test
-		
-		vm.testRun = false;
-		vm.starTest = function() {
-			vm.testRun = true;
-			vm.API.stop();
-		};
-		vm.okTest = function() {
-			vm.testRun = false;
 		};
 
 		// init modal
 		$ionicModal.fromTemplateUrl('app/modulos/test.html', {
-			animation: 'slide-in-up'
+			animation: 'slide-in-up', scope: $scope
 		}).then(function(modal) {
-			vm.modal = modal;
+			$scope.modal = modal;
 		});
-
-		vm.clickToSave = function(){
-			console.log(123);
-		};
 
 
 
