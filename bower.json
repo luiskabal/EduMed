@@ -12,6 +12,7 @@
     "videogular-poster": "^1.4.3",
     "videogular-overlay-play": "^1.4.3",
     "videogular-themes-default": "^1.4.3",
-    "lodash": "~4.13.1"
+    "lodash": "~4.13.1",
+    "bower-videogular-youtube": "videogular-youtube#^2.0.6"
   }
 }
