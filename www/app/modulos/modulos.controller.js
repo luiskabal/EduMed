@@ -32,6 +32,8 @@
 
 		$scope.openModal = function() {
 			$log.log('comenzar test');
+			$scope.selectedModule = vm.selectedModule;
+			console.log($scope.selectedModule);
 			$scope.modal.show();
 			console.log($scope.modal);
 		};

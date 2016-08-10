@@ -1,37 +1,15 @@
 ion-modal-view
   ion-header-bar
-    h2.title Artritis Psoriásica test 
+    h2.title {{selectedModule.titulo}} test
   ion-content.has-header
     .padding
       .list
-        .item.item-radio
-          span.input-label ¿Lorem ipsum dolor sit amet, consectetur adipisicing elit.?
-          .circleRadioWrap
+        .item.item-radio(ng-repeat="pregunta in selectedModule.preguntas")
+          span.input-label(ng-bind="pregunta.pregunta")
+          .circleRadioWrap(ng-repeat="respuesta in pregunta.respuestas")
             input#p1r1.circleRadio(type='radio', name='radio1')
-            label.circleRadioLabel(for='p1r2')
-            label.label-radio(for='p1r1') Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-          .circleRadioWrap
-            input#p1r2.circleRadio(type='radio', name='radio1')
-            label.circleRadioLabel(for='p1r2')
-            label.label-radio(for='p1r2') Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-          .circleRadioWrap
-            input#p1r3.circleRadio(type='radio', name='radio1')
-            label.circleRadioLabel(for='p1r3')
-            label.label-radio(for='p1r3') Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-        .item.item-radio
-          span.input-label ¿Lorem ipsum dolor sit amet, consectetur adipisicing elit.?
-          .circleRadioWrap
-            input#p1r4.circleRadio(type='radio', name='radio2')
-            label.circleRadioLabel(for='p1r4')
-            label.label-radio(for='p1r4') Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-          .circleRadioWrap
-            input#p1r5.circleRadio(type='radio', name='radio2')
-            label.circleRadioLabel(for='p1r5')
-            label.label-radio(for='p1r5') Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-          .circleRadioWrap
-            input#p1r6.circleRadio(type='radio', name='radio2')
-            label.circleRadioLabel(for='p1r6')
-            label.label-radio(for='p1r6') Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+            label.circleRadioLabel(for='p1r1')
+            label.label-radio(for='p1r1',ng-bind="respuesta.respuesta")
         .item
           button.button.button-full.button-positive(type='submit', ng-click='closeModal()')
             | Finalizar
