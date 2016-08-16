@@ -12,7 +12,8 @@
         return {
             getFileUrl : getFileUrl,
             goBack : goBack,
-            getResource : getResource
+            getResource : getResource,
+            post : post
         };
 
         //impl
@@ -35,6 +36,26 @@
             $http({
                 url: URL_API + restUrl,
                 method: "GET",
+                headers: {'Content-Type': 'application/json'}
+            }).then(function(result){
+
+                var data = result.data;
+
+                deferred.resolve(data);
+
+            }, function(){
+                deferred.reject();
+            });
+
+            return deferred.promise;
+        }
+
+        function post(restUrl,payload){
+            var deferred = $q.defer();
+            $http({
+                url: URL_API + restUrl,
+                method: "POST",
+                data: payload,
                 headers: {'Content-Type': 'application/json'}
             }).then(function(result){
 

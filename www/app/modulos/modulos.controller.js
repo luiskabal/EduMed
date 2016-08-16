@@ -5,8 +5,8 @@
 		.module('eduMed')
 		.controller('modulosController', modulosController);
 
-	modulosController.$inject = ['$scope','$rootScope','$state','$stateParams','$ionicHistory','$log','$ionicLoading','$sce','$ionicModal','$ionicPopup','$timeout','commonService','guidesFactory'];
-	function modulosController($scope,$rootScope,$state,$stateParams,$ionicHistory,$log,$ionicLoading,$sce,$ionicModal,$ionicPopup,$timeout,commonService,guidesFactory) {
+	modulosController.$inject = ['$scope','$rootScope','$state','$stateParams','$ionicHistory','$log','$ionicLoading','$sce','$ionicModal','$ionicPopup','$timeout','commonService','guidesFactory','modulosFactory'];
+	function modulosController($scope,$rootScope,$state,$stateParams,$ionicHistory,$log,$ionicLoading,$sce,$ionicModal,$ionicPopup,$timeout,commonService,guidesFactory,modulosFactory) {
 		var vm = this;
 
 		//init
@@ -40,6 +40,11 @@
 
 		$scope.closeModal = function() {
 			$log.log('finalizar test');
+			modulosFactory.postAnswers(
+				vm.idGuide,
+				vm.selectedModule.id,
+				[]
+			);
 			$scope.modal.hide();
 			loadGuide(vm.idGuide);
 		};
@@ -143,15 +148,14 @@
 			if(modulo==null){
 				return;
 			}
-			/*
-			TODO: uncomment
+
 			var videoUrl = modulo.urlVideo.substring(0,4)==='http' ? modulo.urlVideo : commonService.getFileUrl(modulo.urlVideo);
 
 			vm.config.sources = [{
 				src: videoUrl
 			}];
 			vm.config.plugins.poster = commonService.getFileUrl(modulo.pathImgPreview);
-			 */
+
 		}
 		
 		
