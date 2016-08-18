@@ -37,11 +37,6 @@
         function loadNewGuides(){
             guidesFactory.getNewGuides().then(
                 function(guides){
-                    /*
-                    var l1 ={"idGuia":"12312321","titulo":"Resfrio Introducción","subtitulo":"Como cuidarse ","descripcion":"guai de prueba","pathImgPreview":"pathImagenGuia1","fechaCreacion":"2016-06-28","idEnfermedad":"5781554676b0bf7d7cba1c9f","tags":["prevenir","resfrio","test"],"avance":{"completado":false,"porcentaje":33,"modulos":[{"completado":false,"porcentaje":66},{"completado":false,"porcentaje":0}]}};
-                    var l2 ={"idGuia":"12312321","titulo":"Resfrio Introducción","subtitulo":"Como cuidarse ","descripcion":"guai de prueba","pathImgPreview":"pathImagenGuia1","fechaCreacion":"2016-06-28","idEnfermedad":"5781554676b0bf7d7cba1c9f","tags":["prevenir","resfrio","test"],"avance":{"completado":false,"porcentaje":33,"modulos":[{"completado":false,"porcentaje":66},{"completado":false,"porcentaje":0}]}};
-                    guides = _.concat(guides,l1,l2);
-                    */
                     vm.guides = guides;
                     vm.guidesLoaded = true;
                 },

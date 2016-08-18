@@ -5,8 +5,8 @@
 		.module('eduMed')
 		.controller('modulosController', modulosController);
 
-	modulosController.$inject = ['$scope','$rootScope','$state','$stateParams','$ionicHistory','$log','$ionicLoading','$sce','$ionicModal','$ionicPopup','$timeout','commonService','guidesFactory','modulosFactory'];
-	function modulosController($scope,$rootScope,$state,$stateParams,$ionicHistory,$log,$ionicLoading,$sce,$ionicModal,$ionicPopup,$timeout,commonService,guidesFactory,modulosFactory) {
+	modulosController.$inject = ['$scope','$rootScope','$state','$stateParams','$ionicHistory','$log','$ionicLoading','$sce','$ionicModal','$ionicPopup','$timeout','commonService','guidesFactory','avancesFactory'];
+	function modulosController($scope,$rootScope,$state,$stateParams,$ionicHistory,$log,$ionicLoading,$sce,$ionicModal,$ionicPopup,$timeout,commonService,guidesFactory,avancesFactory) {
 		var vm = this;
 
 		//init
@@ -40,7 +40,7 @@
 
 		$scope.closeModal = function() {
 			$log.log('finalizar test');
-			modulosFactory.postAnswers(
+			avancesFactory.postAnswers(
 				vm.idGuide,
 				vm.selectedModule.id,
 				[]

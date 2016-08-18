@@ -3,13 +3,14 @@
 
     angular
         .module('eduMed')
-        .factory('modulosFactory', modulosFactory);
+        .factory('avancesFactory', avancesFactory);
 
-    modulosFactory.$inject = ['commonService'];
-    function modulosFactory(commonService) {
+    avancesFactory.$inject = ['commonService'];
+    function avancesFactory(commonService) {
 
         return {
-            postAnswers : postAnswers
+            postAnswers : postAnswers,
+            getAvance: getAvance
         };
 
 
@@ -19,6 +20,10 @@
                 "idModulo": idModule,
                 "detalleAvances": details
             });
+        }
+
+        function getAvance(idPacient){
+            return commonService.getResource('avance/'+idPacient);
         }
 
 

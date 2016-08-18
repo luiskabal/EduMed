@@ -3,10 +3,10 @@
 
   angular
     .module('eduMed')
-    .controller('patientsController', patientsController);
+    .controller('patientsController2', patientsController2);
 
-  patientsController.$inject = ['$log','$ionicPopup'];
-  function patientsController($log,$ionicPopup) {
+  patientsController2.$inject = ['$log','$ionicPopup'];
+  function patientsController2($log,$ionicPopup) {
     var vm = this;
     $log.log('patients');
 

@@ -6,18 +6,18 @@ ion-view(view-title="Historial de Paciente")
     .banner-avatar(id="detalle-header3")
       .cont-avatar
         .avatar
-          img(src="img/avatar/old.jpg")
-        h4 Jose Hernandez
+          img(ng-src="{{ historyCtrl.getImage(historyCtrl.user.avatar) }}")
+        h4(ng-bind="historyCtrl.user.nombre")
     
-    .item.modulo-history
+    .item.modulo-history(ng-repeat="h in historyCtrl.hist.active")
       .collapse( ng-click="active = !active") 
         i.icon-collapse(ng-class="{'ion-chevron-up': active, 'ion-chevron-down': !active}")
         p Guía Actual
-        h3 Artritis Psoriasica
-        h4 Introducción
+        h3(ng-bind="h.nombreGuia")
+        h4(ng-bind="h.nombreModulo")
         .cont-progress
-          span 60%
-          .progress-porcent(style="width:60%")
+          span {{h.porcentaje}}%
+          .progress-porcent(ng-style="{ 'width': h.porcentaje + '%' }")
           
       .row.info-history(ng-show="active")
         .col
@@ -25,7 +25,7 @@ ion-view(view-title="Historial de Paciente")
           span.porcent 3
           small Modulos
         .col
-          span Reitentos
+          span Reintentos
           span.porcent 4
           small Intentos
         .col
@@ -37,9 +37,9 @@ ion-view(view-title="Historial de Paciente")
         
       
     h3.title-bg.tcenter Guías Completadas
-    .item.modulo-history.modulo-history-small      
-      h3 Artritis Psoriasica
-      h4 Introducción
+    .item.modulo-history.modulo-history-small(ng-repeat="h in historyCtrl.hist.completed")
+      h3(ng-bind="h.nombreGuia")
+      h4(ng-bind="h.nombreModulo")
       .row.foot-data
         .col
           i.icon.ion-android-calendar
@@ -52,19 +52,3 @@ ion-view(view-title="Historial de Paciente")
             strong Fin:  
             | 28/06/2016
       
-    .item.modulo-history.modulo-history-small      
-      h3 Artritis Psoriasica
-      h4 Introducción
-      .row.foot-data
-        .col
-          i.icon.ion-android-calendar
-        .col
-          span 
-            strong Inicio: 
-            | 24/06/2016 
-        
-          span 
-            strong Fin:  
-            | 28/06/2016
-      
-          
