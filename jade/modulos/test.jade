@@ -7,9 +7,9 @@ ion-modal-view
         .item.item-radio(ng-repeat="p in selectedModule.preguntas")
           span.input-label(ng-bind="p.pregunta")
           .circleRadioWrap(ng-repeat="r in p.respuestas")
-            input.circleRadio(ng-attr-id="'p'+p.idPregunta+'r'+r.idRespuesta",type='radio', name='radio1')
-            label.circleRadioLabel(for="'p'+p.idPregunta+'r'+r.idRespuesta")
-            label.label-radio(for="'p'+p.idPregunta+'r'+r.idRespuesta",ng-bind="r.respuesta")
+            input.circleRadio(id="{{r.idRadio}}",type='radio',name='p{{p.idPregunta}}',ng-click="clickRadio(p,r)")
+            label.circleRadioLabel(for="{{r.idRadio}}")
+            label.label-radio(for="{{r.idRadio}}",ng-bind="r.respuesta")
         .item
           button.button.button-full.button-positive(type='submit', ng-click='closeModal()')
             | Finalizar

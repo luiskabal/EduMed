@@ -31,22 +31,48 @@
 		// scope functions
 
 		$scope.openModal = function() {
-			$log.log('comenzar test');
+			console.log('comenzar test');
 			$scope.selectedModule = vm.selectedModule;
-			console.log($scope.selectedModule);
 			$scope.modal.show();
-			console.log($scope.modal);
+			$scope.selectedAnswers = {};
+			_.forEach(vm.selectedModule.preguntas,function(p){
+				console.log(p);
+				$scope.selectedAnswers[p.idPregunta] = null;
+			});
+
 		};
 
 		$scope.closeModal = function() {
+			console.log($scope);
 			$log.log('finalizar test');
-			avancesFactory.postAnswers(
-				vm.idGuide,
-				vm.selectedModule.id,
-				[]
-			);
+			console.log($scope.selectedAnswers);
+			var answers = [];
+			var invalidAnswer = false;
+			_.forEach(vm.selectedModule.preguntas,function(p){
+				if($scope.selectedAnswers[p.idPregunta]==null){
+					invalidAnswer = true;
+				}
+				answers.push({
+					"idPregunta":p.idPregunta,
+					"idRespuesta": $scope.selectedAnswers[p.idPregunta]
+				});
+			});
+			if(invalidAnswer){
+				console.error("invalid do validation!");
+			}else{
+				avancesFactory.postAnswers(
+					vm.idGuide,
+					vm.selectedModule.idModulo,
+					answers
+				);
+			}
+
 			$scope.modal.hide();
 			loadGuide(vm.idGuide);
+		};
+
+		$scope.clickRadio = function(p,r){
+			$scope.selectedAnswers[p.idPregunta] = r.idRespuesta;
 		};
 
 
@@ -139,6 +165,11 @@
 				if(selectedModule==null && guide.modulos.length>0){
 					selectedModule = guide.modulos[0];
 				}
+				_.forEach(selectedModule.preguntas,function(p){
+					_.forEach(p.respuestas,function(r){
+						r.idRadio = 'p'+p.idPregunta+'r'+r.idRespuesta;
+					})
+				});
 			}
 			vm.selectedModule = selectedModule;
 			setVideo(vm.selectedModule);
