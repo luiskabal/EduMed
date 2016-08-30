@@ -186,7 +186,13 @@
 				src: videoUrl
 			}];
 			vm.config.plugins.poster = commonService.getFileUrl(modulo.pathImgPreview);
-
+			setTimeout(function(){
+				try{
+					vm.API.play();
+				}catch(e){
+					console.log(e)
+				};
+			},2500);
 		}
 		
 		
