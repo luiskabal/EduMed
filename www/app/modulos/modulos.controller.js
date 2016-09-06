@@ -16,6 +16,9 @@
 		vm.selectedModule = null;
 
 
+		vm.sendedVideo= null;
+
+
 
 
 		$scope.$on('$ionicView.enter',function(e){
@@ -54,25 +57,42 @@
 				}
 				answers.push({
 					"idPregunta":p.idPregunta,
-					"idRespuesta": $scope.selectedAnswers[p.idPregunta]
+					"idRespuestaSeleccionada": $scope.selectedAnswers[p.idPregunta]
 				});
 			});
 			if(invalidAnswer){
 				console.error("invalid do validation!");
 			}else{
+				vm.sendedVideo = vm.selectedModule.idModulo;
 				avancesFactory.postAnswers(
 					vm.idGuide,
 					vm.selectedModule.idModulo,
 					answers
 				);
+				$scope.modal.hide();
+				loadGuide(vm.idGuide);
 			}
 
-			$scope.modal.hide();
-			loadGuide(vm.idGuide);
+
 		};
 
 		$scope.clickRadio = function(p,r){
 			$scope.selectedAnswers[p.idPregunta] = r.idRespuesta;
+		};
+
+		$scope.moduleIsComplete = function(id){
+			var modulo = vm.guide.avance.modulos[id-1];
+			return modulo && modulo.completado;
+		};
+
+		$scope.moduleIsActive = function(id){
+			var modulo = vm.guide.avance.modulos[id-1];
+			return modulo && !modulo.completado;
+		};
+
+		$scope.setSelectedModule = function(id){
+			vm.selectedModule = vm.guide.modulos[id-1];
+			setVideo(vm.selectedModule);
 		};
 
 
@@ -103,9 +123,6 @@
 		vm.API = null;
 		vm.config = {
 			preload: "none",
-			sources: [{
-				src: "https://youtu.be/eutVskbOCUQ"
-			}],
 			theme: {
 				url: "lib/videogular-themes-default/videogular.css"
 			},
@@ -156,24 +173,35 @@
 
 		function loadActiveModule(guide){
 			var selectedModule = null;
-			if(guide.modulos){
-				_.forEach(guide.modulos,function(mod){
-					if(mod.avance && !mod.avance.completado){
-						selectedModule = mod;
+			if(vm.guide.modulos){
+				//selecciona el modulo
+				var lastComplete = 0;
+				_.forEach(vm.guide.modulos,function(mod){
+					var modulo = vm.guide.avance.modulos[mod.idModulo-1];
+					console.log(modulo && modulo.completado);
+					if(modulo && modulo.completado){
+						lastComplete++;
 					}
 				});
-				if(selectedModule==null && guide.modulos.length>0){
-					selectedModule = guide.modulos[0];
+				selectedModule = vm.guide.modulos[lastComplete];
+				if(vm.sendedVideo!=null){
+					selectedModule = vm.guide.modulos[vm.sendedVideo+1];
 				}
+
+				//id para las preguntas
 				_.forEach(selectedModule.preguntas,function(p){
 					_.forEach(p.respuestas,function(r){
 						r.idRadio = 'p'+p.idPregunta+'r'+r.idRespuesta;
 					})
 				});
+
+				console.log(selectedModule);
 			}
 			vm.selectedModule = selectedModule;
 			setVideo(vm.selectedModule);
 		}
+
+
 
 		function setVideo(modulo){
 			if(modulo==null){
@@ -191,7 +219,7 @@
 					vm.API.play();
 				}catch(e){
 					console.log(e)
-				};
+				}
 			},2500);
 		}
 		

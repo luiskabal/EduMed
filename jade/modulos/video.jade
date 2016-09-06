@@ -26,8 +26,8 @@ ion-view(view-title="{{moduleCtrl.guide.titulo}}")
       .padding
         .box-bg
           ul.module-steps
-            li.module-step(ng-repeat="mod in moduleCtrl.guide.modulos",
-                      ng-class="{'step-ok': mod.avance && mod.avance.completado , 'active': mod.avance && !mod.avance.completado }")
+            li.module-step(ng-repeat="mod in moduleCtrl.guide.modulos", ng-click="setSelectedModule(mod.idModulo)",
+                      ng-class="{'step-ok': moduleIsComplete(mod.idModulo) , 'active': moduleIsActive(mod.idModulo) }")
 
           h2.title-view(ng-bind="moduleCtrl.guide.titulo",ng-click="moduleCtrl.showConfirm()")
           .item
