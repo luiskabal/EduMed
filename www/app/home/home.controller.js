@@ -45,6 +45,17 @@
                 }
             );
         }
+        
+        //slide
+        $scope.helpState = 'help-state-one';
+        $scope.slideHasChanged = function(index) {
+            console.log(index);
+            if(index === 0) {
+                $scope.helpState = 'help-state-one';
+            } else {
+                $scope.helpState = 'help-state-two';
+            }
+        };
 
     }
 })();

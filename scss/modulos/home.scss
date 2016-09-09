@@ -245,3 +245,176 @@ ion-list {
     } 
   } 
 }
+
+ion-slide.first {
+  padding: 10px;
+  .help-home {
+    position: relative;
+    padding: 20px 0 0 0; 
+    .help-home-inter {
+        background-color: #b5dcf9;
+        background-color: #b5dcf9;
+        background: #b5dcf9; /* Old browsers */
+        background: -moz-linear-gradient(-65deg,  #b5dcf9 50%, #7db9e8 50%, #cce6f9 50%); /* FF3.6-15 */
+        background: -webkit-linear-gradient(-65deg,  #b5dcf9 50%,#7db9e8 50%,#cce6f9 50%); /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(160deg,  #b5dcf9 50%,#7db9e8 50%,#cce6f9 50%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        
+        padding: 10px;
+        border-radius: 10px;
+        padding-left:110px;
+        &:before {
+          position: absolute;
+          top: 0;
+          left: 20%;
+          width: 0;
+          height: 0;
+          content: "";
+          display: block;
+          border-bottom: 20px solid #b5dcf9;
+          border-top: 0 solid transparent;
+          border-left: 15px solid transparent;
+          border-right: 15px solid transparent;
+
+        }
+        h3,
+        p {
+          color: #666;
+        }
+        h3 {
+          margin: 0;
+          font-weight: bold;
+        }
+        p {
+          margin: 0;
+          span {
+            font-weight: bold;
+            font-size: 16x;
+          }
+          &.subtitle {
+            margin-bottom: 10px;
+            font-size: 14px;
+          }
+        }
+        .block-img {
+          position: absolute;
+          left: 10px;
+          background: url("../img/back/doctor-help.png");
+          background-size: contain;
+          background-repeat: no-repeat;
+          width: 90px;
+          height: 200px;
+        }
+      
+    }
+  }
+}
+
+ion-slide.last {
+  padding: 10px;
+  .help-home {
+    position: relative;
+    padding: 20px 0 0 0; 
+    .help-home-inter {
+        background-color: #b5dcf9;
+        background: #b5dcf9; /* Old browsers */
+        background: -moz-linear-gradient(20deg,  #b5dcf9 50%, #7db9e8 50%, #cce6f9 50%); /* FF3.6-15 */
+        background: -webkit-linear-gradient(20deg,  #b5dcf9 50%,#7db9e8 50%,#cce6f9 50%); /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(20deg,  #b5dcf9 50%,#7db9e8 50%,#cce6f9 50%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        
+        padding: 10px;
+        border-radius: 10px;
+        padding-right:110px;
+        &:before {
+          position: absolute;
+          top: 0;
+          right: 20%;
+          width: 0;
+          height: 0;
+          content: "";
+          display: block;
+          border-bottom: 20px solid #cce6f9;
+          border-top: 0 solid transparent;
+          border-left: 15px solid transparent;
+          border-right: 15px solid transparent;
+
+        }
+        h3,
+        p {
+          color: #666;
+        }
+        h3 {
+          margin: 0;
+          font-weight: bold;
+        }
+        p {
+          margin: 0;
+          font-size: 14px;
+          span {
+            font-weight: bold;
+            font-size: 16px;
+          }
+          &.subtitle {
+            margin-bottom: 10px;
+            font-size: 14px;
+          }
+        }
+        .block-img {
+          position: absolute;
+          right: 10px;
+          background: url("../img/back/user-help.png");
+          background-size: contain;
+          background-repeat: no-repeat;
+          width: 90px;
+          height: 200px;
+        }
+      
+    }
+  }
+}
+
+.tab-home {
+  .tabs {
+    .tab-item {
+      color: #fff;
+    }
+  }
+  &.help-state-one {
+    .tabs {
+      background: #b5dcf9; /* Old browsers */
+      background: -moz-linear-gradient(left,  #24b7d3 50%, #219cac 50%); /* FF3.6-15 */
+      background: -webkit-linear-gradient(left,  #24b7d3 50%,#219cac 50%); /* Chrome10-25,Safari5.1-6 */
+      background: linear-gradient(to right,  #24b7d3 50%,#219cac 50%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    }
+  }
+  &.help-state-two {
+    .tabs {
+      background: #b5dcf9; /* Old browsers */
+      background: -moz-linear-gradient(left,  #219cac 50%, #24b7d3 50%); /* FF3.6-15 */
+      background: -webkit-linear-gradient(left,  #219cac 50%,#24b7d3 50%); /* Chrome10-25,Safari5.1-6 */
+      background: linear-gradient(to right,  #219cac 50%,#24b7d3 50%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    }
+  }
+}
+button.button.button-icon.button-clear {
+      color: #219cac;
+}
+.bar-royal .button.button-clear {
+  color: #219cac;
+}
+.logo-bar-home {
+      background: url(../img/icon/icon-app-full.svg);
+      background-repeat: no-repeat;
+      background-position: center center;
+      width: 100%;
+      height: 100%;
+      display: block;
+          background-size: auto 50px;
+}
+.tab-item.tab-item-active,
+.tab-item.active,
+.tab-item.activated {
+    background-color: #f39659;
+}
+.tab-item {
+  max-width: 100%;
+}
