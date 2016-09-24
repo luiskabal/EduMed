@@ -6,17 +6,20 @@ ion-view.ion-view-login(hide-nav-bar='true')
         .content-logo-login
           .logo-login
         .list
-          label.item.item-input.item-stacked-label.error
-            span.input-label E-mail:
-            input(type='text', placeholder='mail@mail.com')
-            span.msj-error Error mensaje
-          label.item.item-input.item-stacked-label
-            span.input-label Contraseña:
-            input(type='password', placeholder='•••••••')
-            
-          .item
-            button.button.button-full.button-positive(ng-click="login.login()")
-              | Iniciar Sesion
+          form(name='form')
+            label.item.item-input.item-stacked-label(ng-class="{'error':(form.inputUser.$error.required && form.inputUser.$touched) || (!form.inputUser.$error.required && form.inputUser.$touched && form.inputUser.$error.email) }")
+              span.input-label E-mail:
+              input(type='email', placeholder='mail@mail.com',name='inputUser',ng-model='login.user', required='')
+              span.msj-error(ng-show='form.inputUser.$error.required && form.inputUser.$touched') Ingrese un E-mail
+              span.msj-error(ng-show='!form.inputUser.$error.required && form.inputUser.$touched && form.inputUser.$error.email') E-mail no valido
+            label.item.item-input.item-stacked-label(ng-class="{'error':(form.inputPassword.$error.required && form.inputPassword.$touched) || (!form.inputPassword.$error.required && login.errorLogin)}")
+              span.input-label Contraseña:
+              input(type='password', placeholder='•••••••',name='inputPassword',ng-model='login.password',required='')
+              span.msj-error(ng-show='form.inputPassword.$error.required && form.inputPassword.$touched') Ingrese una Contraseña
+              span.msj-error(ng-show='!form.inputPassword.$error.required && login.errorLogin') E-mail o Contraseña no es válida
+            .item
+              button.button.button-full.button-positive(ng-click="login.login()", ng-disabled='form.inputUser.$error.required || form.inputUser.$error.email || form.inputPassword.$error.required')
+                | Iniciar Sesion
         hr
         .item
           button.button.button-full.button-energized(ui-sref='suscribirse')
