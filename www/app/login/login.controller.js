@@ -5,8 +5,8 @@
         .module('eduMed')
         .controller('LoginController', LoginController);
 
-    LoginController.$inject = ['$scope','$log','$location','loginFactory','storageService','profileFactory','$rootScope','$ionicPopup','$ionicLoading'];
-    function LoginController($scope,$log,$location,loginFactory,storageService,profileFactory,$rootScope,$ionicPopup,$ionicLoading) {
+    LoginController.$inject = ['$scope','$log','$location','loginFactory','storageService','profileFactory','$rootScope','$ionicPopup','$ionicLoading','commonService'];
+    function LoginController($scope,$log,$location,loginFactory,storageService,profileFactory,$rootScope,$ionicPopup,$ionicLoading,commonService) {
         var vm = this;
 
         vm.errorLogin = false;
@@ -16,6 +16,7 @@
                 callPerfil.then(
                     function (data) {
                         $rootScope.perfil = data;
+                        $rootScope.perfil.avatarPerfil = commonService.getFileUrl(data.avatar);
                         hideLoading();
                         $location.path('/app/home');
                     },
@@ -39,6 +40,7 @@
             response.then(
                 function(data){
                     $rootScope.perfil = data.perfilUsuario;
+                    $rootScope.perfil.avatarPerfil = commonService.getFileUrl(data.avatar);
                     storageService.setToken(data.tokenSesion);
                     hideLoading()
                     $location.path('/app/home');
