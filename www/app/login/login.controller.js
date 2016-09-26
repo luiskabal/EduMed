@@ -3,9 +3,11 @@
 
     angular
         .module('eduMed')
-        .controller('LoginController', LoginController);
+        .controller('LoginController', LoginController)
+        .controller('RegistrarController',RegistrarController);
 
     LoginController.$inject = ['$scope','$log','$location','loginFactory','storageService','profileFactory','$rootScope','$ionicPopup','$ionicLoading','commonService'];
+    RegistrarController.$inject =['$scope','$log','$location','loginFactory','$rootScope','$ionicPopup','$ionicLoading','commonService','$filter','utilsFactory'];
     function LoginController($scope,$log,$location,loginFactory,storageService,profileFactory,$rootScope,$ionicPopup,$ionicLoading,commonService) {
         var vm = this;
 
@@ -77,4 +79,63 @@
 
         function activate() { }
     }
+    function RegistrarController($scope,$log,$location,loginFactory,$rootScope,$ionicPopup,$ionicLoading,commonService,$filter,utilsFactory){
+        var vm = this;
+        console.log($rootScope.registro);
+        vm.instituciones = [];
+
+        var traeInstituciones = utilsFactory.getInstituciones();
+        traeInstituciones.then(
+            function(data){
+                vm.instituciones = data._embedded.institucions;
+                console.log(vm.instituciones);
+            },
+            function(e){
+                console.error(e);
+            }
+        );
+        vm.paso1 = function(){
+            $rootScope.registro = {};
+            $rootScope.registro.nombre = vm.nombre;
+            $rootScope.registro.email = vm.email;
+            $rootScope.registro.password = vm.password;
+            $rootScope.registro.fechaNacimiento = $filter('date')(vm.fechaNacimiento, 'yyyy-MM-dd')+'T00:00:00.000Z';
+            $location.path('/codigo');
+        };
+
+        vm.paso2 = function(){
+            $rootScope.registro.idInstitucion = vm.institucion.id;
+            $rootScope.registro.codigoAcceso = vm.codigoAcceso;
+            $rootScope.registro.tipoUsuario = 'ROLE_PACIENTE';
+            $rootScope.registro.genero = " ";
+            $rootScope.registro.especialidad = " ";
+            $rootScope.registro.intereses = [];
+            $rootScope.registro.isapre = " ";
+
+            console.log($filter('json')($rootScope.registro));
+            var registrar = loginFactory.suscribirse($rootScope.registro);
+            registrar.then(
+                function(data){
+                    var alertPopup = $ionicPopup.alert({
+                        title: '<i class="icon ion-ios-checkmark-outline"></i>',
+                        template: '<p>El registro a terminado con éxito</p>'
+                    });
+                    alertPopup.then(function(res) {
+                        $location.path('/login');
+                    });
+
+                },
+                function(e){
+                    var alertPopup = $ionicPopup.alert({
+                        title: '<i class="icon ion-ios-close-outline"></i>',
+                        template: '<p>Código no válido</p>'
+                    });
+                    alertPopup.then(function(res) {
+                    });
+
+                }
+            );
+        };
+    }
+
 })();

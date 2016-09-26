@@ -7,21 +7,20 @@ ion-view.ion-view-login(hide-nav-bar='true')
           .logo-login
         .block-msj
           p
-            | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, amet, dolor velit, iure mollitia similique quaerat delectus.
+            //| Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, amet, dolor velit, iure mollitia similique quaerat delectus.
         .list
-          label.item.item-input.item-select.error
-            .input-label
-              | Institución:
-            select
-              option Hospital Sotero del Rio
-              option(selected='') Clinica Las Condes
-        
-          label.item.item-input.item-stacked-label
-            span.input-label Codigo:
-            input(type='text', placeholder='XXXXXXXXXXXX')
-          
-        
-          .item
-            button.button.button-full.button-positive
-              | Enviar
+          form(name='form')
+            label.item.item-input.item-select(ng-class="{'error':(form.selectInstitucion.$error.required && form.selectInstitucion.$touched)}")
+              .input-label
+                | Institución:
+              select(ng-model="registrar.institucion",ng-options="option.nombre for option in registrar.instituciones track by option.id",name="selectInstitucion",required='')
+              span.msj-error(ng-show='form.selectInstitucion.$error.required && form.selectInstitucion.$touched') Seleccione una Institución
+            label.item.item-input.item-stacked-label(ng-class="{'error':(form.inputCodigo.$error.required && form.inputCodigo.$touched)}")
+              span.input-label Codigo:
+              input(type='text', placeholder='XXXXXXXXXXXX',ng-model="registrar.codigoAcceso",name="inputCodigo",required='')
+              span.msj-error(ng-show='form.inputCodigo.$error.required && form.inputCodigo.$touched') Seleccione una Institución
+
+            .item
+              button.button.button-full.button-positive(ng-click="registrar.paso2()",ng-disabled='form.selectInstitucion.$error.required || form.inputCodigo.$error.required')
+                | Enviar
       
