@@ -33,14 +33,15 @@
                 url: '/suscribirse',
                 //abstract: true,
                 templateUrl: 'app/login/suscribirse.html',
-                controller: 'LoginController',
-                controllerAs: 'login'
+                controller: 'RegistrarController',
+                controllerAs: 'registrar'
             })
             .state('codigo', {
                 url: '/codigo',
                 //abstract: true,
                 templateUrl: 'app/login/ingresar-codigo.html',
-                controller: 'LoginController'
+                controller: 'RegistrarController',
+                controllerAs: 'registrar'
             })
             .state('app', {
                 url: '/app',

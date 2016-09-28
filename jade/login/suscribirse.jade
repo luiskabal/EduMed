@@ -6,21 +6,27 @@ ion-view.ion-view-login(hide-nav-bar='true')
         .content-logo-login
           .logo-login
         .list
-          label.item.item-input.item-stacked-label
-            span.input-label Nombre:
-            input(type='text', placeholder='Nombre')
-          label.item.item-input.item-stacked-label
-            span.input-label E-mail:
-            input(type='text', placeholder='mail@mail.com')
-          label.item.item-input.item-stacked-label
-            span.input-label Contraseña:
-            input(type='password', placeholder='•••••••')
-          label.item.item-input.item-stacked-label
-            span.input-label Fecha de Nacimiento:
-            input(type='date', placeholder='fecha')
-          .item
-            button.button.button-full.button-assertive(ui-sref='codigo')
-              | Por Codigo
+          form(name='form')
+            label.item.item-input.item-stacked-label(ng-class="{'error':(form.inputNombre.$error.required && form.inputNombre.$touched)}")
+              span.input-label Nombre:
+              input(type='text', placeholder='Nombre',name="inputNombre",ng-model="registrar.nombre", required='')
+              span.msj-error(ng-show='form.inputNombre.$error.required && form.inputNombre.$touched') Ingrese un Nombre
+            label.item.item-input.item-stacked-label(ng-class="{'error':(form.inputMail.$error.required && form.inputMail.$touched) || (!form.inputMail.$error.required && form.inputMail.$touched && form.inputMail.$error.email) }")
+              span.input-label E-mail:
+              input(type='email', placeholder='mail@mail.com',name="inputMail",ng-model="registrar.email", required='')
+              span.msj-error(ng-show='form.inputMail.$error.required && form.inputMail.$touched') Ingrese un E-mail
+              span.msj-error(ng-show='!form.inputMail.$error.required && form.inputMail.$touched && form.inputMail.$error.email') E-mail no valido
+            label.item.item-input.item-stacked-label(ng-class="{'error':(form.inputPassword.$error.required && form.inputPassword.$touched)}")
+              span.input-label Contraseña:
+              input(type='password', placeholder='•••••••',name="inputPassword",ng-model="registrar.password", required='')
+              span.msj-error(ng-show='form.inputPassword.$error.required && form.inputPassword.$touched') Ingrese una Contraseña
+            label.item.item-input.item-stacked-label(ng-class="{'error':(form.inputFechaNac.$error.required && form.inputFechaNac.$touched)}")
+              span.input-label Fecha de Nacimiento:
+              input(type='date', placeholder='fecha',name="inputFechaNac",ng-model="registrar.fechaNacimiento", required='')
+              span.msj-error(ng-show='form.inputFechaNac.$error.required && form.inputFechaNac.$touched') Ingrese Fecha de Nacimiento
+            .item
+              button.button.button-full.button-assertive(ng-click='registrar.paso1()',ng-disabled='form.inputMail.$error.required || form.inputMail.$error.email || form.inputPassword.$error.required || form.inputNombre.$error.required || form.inputFechaNac.$error.required')
+                | Por Codigo
           //.padding
             p Metodo de Pago
           //.item

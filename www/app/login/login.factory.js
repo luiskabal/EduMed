@@ -12,8 +12,13 @@
     function loginFactory(commonService) {
 
         return {
-            login : login
+            login : login,
+            suscribirse : suscribirse
         };
+
+        function suscribirse(params){
+            return commonService.post('signup/',params);
+        }
 
         function login(user,password){
             return commonService.post('auth/',{
