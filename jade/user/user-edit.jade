@@ -3,22 +3,13 @@ ion-view.myaccount.account-edit(view-title='Mi Cuenta')
     .banner-avatar(id="detalle-header4")
       .cont-avatar
         .avatar(ng-click="user.showPopup()")
-          img(ng-src="{{user.picture}}")
+          img(ng-src="{{user.perfil.avatarPerfil}}",on-error-src="")
         h4 Luis Ramos
     .content-app.padding
       //elasticHeader
       //img(ng-src="{{user.picture}}")
       .padding-top
         .list
-          label.item.item-input.item-stacked-label
-            span.input-label Nombre:
-            input(type='text', placeholder='Nombre Completo')
-          label.item.item-input.item-stacked-label
-            span.input-label Email:
-            input(type='text', placeholder='nombre@mail.com')
-          label.item.item-input.item-stacked-label
-            span.input-label fecha de Nacimiento:
-            input(type='date')
           //label.item.item-input.item-stacked-label
             span.input-label Interes:
             input(type='text', placeholder='Añadir Interes')
