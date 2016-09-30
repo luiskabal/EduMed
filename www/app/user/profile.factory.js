@@ -11,7 +11,8 @@
         return {
             getProfile : getProfile,
             getPatients : getPatients,
-            getAvance : getAvance
+            getAvance : getAvance,
+            getCode : getCode
         };
 
 
@@ -26,6 +27,10 @@
 
         function getAvance(){
             return commonService.getResource('resource/avance');
+        }
+
+        function getCode(params){
+                return commonService.post('codigo-acceso',params);
         }
 
 
