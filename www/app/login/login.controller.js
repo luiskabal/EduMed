@@ -94,12 +94,33 @@
                 console.error(e);
             }
         );
+
+        var traeIsapres = utilsFactory.getIsapres();
+        traeIsapres.then(
+            function(data){
+                vm.isapres = data._embedded.isapres;
+                console.log(vm.isapres);
+            },
+            function(e){
+                console.error(e);
+            }
+        );
+
+        vm.generos= [{
+                        "id" : "MASCULINO",
+                        "nombre": "Masculino"
+                    },{
+                        "id" : "FEMENINO",
+                        "nombre": "Femenino"
+                    }];
+
         vm.paso1 = function(){
             $rootScope.registro = {};
             $rootScope.registro.nombre = vm.nombre;
             $rootScope.registro.email = vm.email;
             $rootScope.registro.password = vm.password;
             $rootScope.registro.fechaNacimiento = $filter('date')(vm.fechaNacimiento, 'yyyy-MM-dd')+'T00:00:00.000Z';
+            $rootScope.registro.genero = vm.genero.id;
             $location.path('/codigo');
         };
 
@@ -107,10 +128,9 @@
             $rootScope.registro.idInstitucion = vm.institucion.id;
             $rootScope.registro.codigoAcceso = vm.codigoAcceso;
             $rootScope.registro.tipoUsuario = 'ROLE_PACIENTE';
-            $rootScope.registro.genero = " ";
             $rootScope.registro.especialidad = " ";
             $rootScope.registro.intereses = [];
-            $rootScope.registro.isapre = " ";
+            $rootScope.registro.isapre = vm.institucion.id;
 
             console.log($filter('json')($rootScope.registro));
             var registrar = loginFactory.suscribirse($rootScope.registro);
