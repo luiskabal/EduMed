@@ -3,48 +3,23 @@ ion-view(view-title="Historial de Aprendizaje")
     button.button.button-clear(ng-click="goBack()")
       i.icon.ion-ios-arrow-left
   ion-content
-    .item.modulo-history
-      .collapse( ng-click="active = !active") 
-        i.icon-collapse(ng-class="{'ion-chevron-up': active, 'ion-chevron-down': !active}")
-        p Guía Actual
-        h3 Artritis Psoriasica
-        h4 Introducción
+    .item.modulo-history(ng-repeat="current in historial.avances")
+      //.collapse( ng-click="active = !active")-//
+      .collapse
+        //i.icon-collapse(ng-class="{'ion-chevron-up': active, 'ion-chevron-down': !active}")
+        i.icon-collapse
+        //p Guía Actual
+        h3(ng-bind="current.titulo")
+        h4(ng-bind="current.subtitulo")
         .cont-progress
-          span 80%
-          .progress-porcent(style="width:80%")
+          span{{current.porcentaje}}%
+          .progress-porcent(style="width:{{current.porcentaje}}%")
           
-      .row.info-history(ng-show="active")
+      //.row.info-history(ng-show="active")
         .col
           span Completado
           span.porcent 3
           small Modulos
-        .col
-          span Reitentos
-          span.porcent 4
-          small Intentos
-        .col
-          span Tiempo
-          span.porcent 1
-          small Semana
-    .item.modulo-history
-      .collapse( ng-click="active2 = !active2") 
-        i.icon-collapse(ng-class="{'ion-chevron-up': active2, 'ion-chevron-down': !active2}")
-        p Guía Completada
-        h3 Artritis Psoriasica
-        h4 Introducción
-        .cont-progress
-          span 60%
-          .progress-porcent(style="width:60%")
-          
-      .row.info-history(ng-show="active2")
-        .col
-          span Completado
-          span.porcent 3
-          small Modulos
-        .col
-          span Reitentos
-          span.porcent 4
-          small Intentos
         .col
           span Tiempo
           span.porcent 1

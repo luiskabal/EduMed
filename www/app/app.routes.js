@@ -115,8 +115,8 @@
                 views: {
                     'menuContent': {
                         templateUrl: 'app/user/history-user.html',
-                        controller: 'userController',
-                        controllerAs: 'user'
+                        controller: 'historialController',
+                        controllerAs: 'historial'
                     }
                 }
             })

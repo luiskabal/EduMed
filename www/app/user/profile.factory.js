@@ -10,7 +10,8 @@
 
         return {
             getProfile : getProfile,
-            getPatients : getPatients
+            getPatients : getPatients,
+            getAvance : getAvance
         };
 
 
@@ -23,7 +24,9 @@
             return commonService.getResource('doctor/pacientes');
         }
 
-
+        function getAvance(){
+            return commonService.getResource('resource/avance');
+        }
 
 
 
