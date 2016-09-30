@@ -10,11 +10,22 @@
   function patientsController($scope,$rootScope,$log,$ionicHistory,profileFactory,commonService,$ionicPopup,$state) {
     var vm = this;
 
+    var traerIntereses = commonService.getResource("resource/enfermedad");
+    traerIntereses.then(
+            function(int){
+                vm.enfermedades = int._embedded.enfermedades;
+                console.log(vm.enfermedades);
+            },
+            function(e){
+                console.error(e);
+            }
+    );
+
     vm.enviarCodigo = function() {
       $log.log('enviarCodigo');
       var alertPopup = $ionicPopup.alert({
         title: '<i class="icon ion-ios-checkmark-outline"></i>',
-        template: '<p>Codigo Enviado a Jose Hernandez</p><h3 class="codigo">4545211554545</h3> '
+        template: '<p>Codigo Enviado a '+vm.nombre+'</p><h3 class="codigo">4545211554545</h3> '
       });
 
       alertPopup.then(function(res) {
