@@ -13,10 +13,28 @@
             getFileUrl : getFileUrl,
             goBack : goBack,
             getResource : getResource,
-            post : post
+            post : post,
+            uploadFile : uploadFile
         };
 
         //impl
+        function uploadFile(params){
+                var fd = new FormData();
+                fd.append("file", params.file);
+                return $http({
+                    url: URL_API+'file',
+                    method: "POST",
+                    data: fd,
+                    transformRequest: angular.identity,
+                    headers :{ 'Content-Type': undefined}
+                }).then(function(response){
+                    return response.data;
+                },function(response){
+
+                });
+        }
+
+
 
         function getFileUrl(id){
             return URL_API + 'file/' + id;

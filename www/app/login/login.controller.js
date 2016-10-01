@@ -18,7 +18,11 @@
                 callPerfil.then(
                     function (data) {
                         $rootScope.perfil = data;
-                        $rootScope.perfil.avatarPerfil = commonService.getFileUrl(data.avatar);
+                        /*if (!angular.isUndefined(storageService.getAvatar())) {
+                            $rootScope.perfil.avatarPerfil = storageService.getAvatar();
+                        }else {*/
+                            $rootScope.perfil.avatarPerfil = commonService.getFileUrl(data.avatar);
+                        /*}*/
                         hideLoading();
                         $location.path('/app/home');
                     },
@@ -44,7 +48,8 @@
                     $rootScope.perfil = data.perfilUsuario;
                     $rootScope.perfil.avatarPerfil = commonService.getFileUrl(data.avatar);
                     storageService.setToken(data.tokenSesion);
-                    hideLoading()
+                    //storageService.setAvatar($rootScope.perfil.avatarPerfil);
+                    hideLoading();
                     $location.path('/app/home');
                 },
                 function(e){

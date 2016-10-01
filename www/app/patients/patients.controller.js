@@ -26,13 +26,19 @@
             "perfilGenerador":"idGenerador",
             "emailPaciente": vm.email,
             "estado": "",
-            "guiasSugeridas": [{
-                                    "descripcion": vm.interes.descripcion,
-                                    "id": vm.interes.id,
-                                    "nombre": vm.interes.nombre
-                                }],
+            "guiasSugeridas": [],
             "nombrePaciente": vm.nombre
         };
+        /*{
+         "$ref": "enfermedad",
+         "$id": vm.interes.id
+         }
+        "guiasSugeridas": [{
+            "descripcion": vm.interes.descripcion,
+            "id": vm.interes.id,
+            "nombre": vm.interes.nombre
+        }],*/
+
         var generarCodigo = profileFactory.getCode(params);
         generarCodigo.then(
             function(data){

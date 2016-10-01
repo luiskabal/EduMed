@@ -3,8 +3,8 @@ ion-view.myaccount.account-edit(view-title='Mi Cuenta')
     .banner-avatar(id="detalle-header4")
       .cont-avatar
         .avatar(ng-click="user.showPopup()")
-          img(ng-src="{{user.perfil.avatarPerfil}}",on-error-src="")
-        h4 Luis Ramos
+          img(ng-src="{{perfil.avatarPerfil}}",on-error-src="")
+        h4 {{perfil.nombre}}
     .content-app.padding
       //elasticHeader
       //img(ng-src="{{user.picture}}")
@@ -13,20 +13,23 @@ ion-view.myaccount.account-edit(view-title='Mi Cuenta')
           //label.item.item-input.item-stacked-label
             span.input-label Interes:
             input(type='text', placeholder='Añadir Interes')
-          label.item.item-input.item-select
+          label.item.item-input.item-select(ng-class="{'error':(form.selectInteres.$error.required && form.selectInteres.$touched)}")
             .input-label
               | Interes:
-            select
-              option Hospital Sotero del Rio
-              option(selected='') Clinica Las Condes
-          label.item.item-input.item-select
+            select(ng-model="user.enfermedad",ng-options="option.nombre for option in user.enfermedades track by option.id",name="selectInteres",required='')
+            span.msj-error(ng-show='form.selectInteres.$error.required && form.selectInteres.$touched') Seleccione un Interes
+          label.item.item-input.item-select(ng-class="{'error':(form.selectInstitucion.$error.required && form.selectInstitucion.$touched)}")
             .input-label
               | Institución:
-            select
-              option Hospital Sotero del Rio
-              option(selected='') Clinica Las Condes
-              
+            select(ng-model="user.institucion",ng-options="option.nombre for option in user.instituciones track by option.id",name="selectInstitucion",required='')
+            span.msj-error(ng-show='form.selectInstitucion.$error.required && form.selectInstitucion.$touched') Seleccione una Institución
+          label.item.item-input.item-select(ng-class="{'error':(form.selectIsapre.$error.required && form.selectIsapre.$touched)}")
+            .input-label
+              | Isapre:
+            select(ng-model="user.isapre",ng-options="option.nombre for option in user.isapres track by option.id",name="selectIsapre",required='')
+            span.msj-error(ng-show='form.selectIsapre.$error.required && form.selectIsapre.$touched') Seleccione una Isapre
+
           .item
-            button.button.button-full.button-energized
+            button.button.button-full.button-energized(ng-click="user.save()")
               | Guardar     
       

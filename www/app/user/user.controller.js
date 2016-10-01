@@ -6,10 +6,11 @@
     .controller('userController', userController)
     .controller('historialController',historialController);
 
-  userController.$inject = ['Camera','$log','$ionicPopup','profileFactory','commonService'];
+  userController.$inject = ['Camera','$log','$ionicPopup','profileFactory','commonService','$rootScope','storageService','utilsFactory','$state'];
   historialController.$inject = ['profileFactory','guidesFactory']
-  function userController(Camera,$log,$ionicPopup,profileFactory,commonService) {
+  function userController(Camera,$log,$ionicPopup,profileFactory,commonService,$rootScope,storageService,utilsFactory,$state) {
     var vm = this;
+
     $log.log('user');
       var callPerfil = profileFactory.getProfile();
       callPerfil.then(
@@ -39,8 +40,52 @@
           function (e) {
               console.error(e);
           }
-      )
+      );
+      var traeInstituciones = utilsFactory.getInstituciones();
+      traeInstituciones.then(
+          function(data){
+              vm.instituciones = data._embedded.institucions;
+              angular.forEach(vm.instituciones, function(current) {
+                if(vm.perfil.idInstitucion == current.id){
+                    vm.institucion = current;
+                }
+              });
 
+              console.log(vm.instituciones);
+          },
+          function(e){
+              console.error(e);
+          }
+      );
+      var traeIsapres = utilsFactory.getIsapres();
+      traeIsapres.then(
+          function(data){
+              vm.isapres = data._embedded.isapres;
+              /*angular.forEach(vm.isapres, function(current) {
+                  if(vm.perfil.isapre == current.id){
+                      vm.institucion = current;
+                  }
+              });*/
+          },
+          function(e){
+              console.error(e);
+          }
+      );
+
+      var traerEnfermedad = commonService.getResource("resource/enfermedad");
+      traerEnfermedad.then(
+          function(int){
+              vm.enfermedades = int._embedded.enfermedades;
+              console.log(vm.enfermedades);
+          },
+          function(e){
+              console.error(e);
+          }
+      );
+
+    vm.save = function(){
+        $state.go('app.home');
+    };
     //select cam
     // Triggered on a button click, or some other target
     vm.showPopup = function() {
@@ -96,7 +141,9 @@
       };
 
       Camera.getPicture(options).then(function(imageData) {
-          vm.picture = imageData;;
+          vm.perfil.avatarPerfil = imageData;
+          $rootScope.perfil.avatarPerfil = imageData;
+          storageService.setToken($rootScope.perfil.avatarPerfil);
       }, function(err) {
           console.log(err);
       });
@@ -113,7 +160,9 @@
       };
 
       Camera.getPicture(options).then(function(imageData) {
-         vm.picture = "data:image/jpeg;base64," + imageData;
+         vm.perfil.avatarPerfil = "data:image/jpeg;base64," + imageData;
+         $rootScope.perfil.avatarPerfil = "data:image/jpeg;base64," + imageData;
+         storageService.setToken($rootScope.perfil.avatarPerfil);
       }, function(err) {
          console.log(err);
       });
