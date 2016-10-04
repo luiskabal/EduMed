@@ -15,12 +15,17 @@ ion-view.ion-view-login(hide-nav-bar='true')
                 | Institución:
               select(ng-model="registrar.institucion",ng-options="option.nombre for option in registrar.instituciones track by option.id",name="selectInstitucion",required='')
               span.msj-error(ng-show='form.selectInstitucion.$error.required && form.selectInstitucion.$touched') Seleccione una Institución
+            label.item.item-input.item-select(ng-class="{'error':(form.selectIsapre.$error.required && form.selectIsapre.$touched)}")
+              .input-label
+                | Isapre:
+              select(ng-model="registrar.isapre",ng-options="option.nombre for option in registrar.isapres track by option.id",name="selectIsapre",required='')
+              span.msj-error(ng-show='form.selectIsapre.$error.required && form.selectIsapre.$touched') Seleccione una Isapre
             label.item.item-input.item-stacked-label(ng-class="{'error':(form.inputCodigo.$error.required && form.inputCodigo.$touched)}")
               span.input-label Codigo:
               input(type='text', placeholder='XXXXXXXXXXXX',ng-model="registrar.codigoAcceso",name="inputCodigo",required='')
               span.msj-error(ng-show='form.inputCodigo.$error.required && form.inputCodigo.$touched') Seleccione una Institución
 
             .item
-              button.button.button-full.button-positive(ng-click="registrar.paso2()",ng-disabled='form.selectInstitucion.$error.required || form.inputCodigo.$error.required')
+              button.button.button-full.button-positive(ng-click="registrar.paso2()",ng-disabled='form.selectIsapre.$error.required || form.selectInstitucion.$error.required || form.inputCodigo.$error.required')
                 | Enviar
       

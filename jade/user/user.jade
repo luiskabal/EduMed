@@ -3,8 +3,8 @@ ion-view.myaccount(view-title='Mi Cuenta')
     .banner-avatar(id="detalle-header3")
       .cont-avatar
         .avatar
-          img(src="img/avatar/mike.png")
-        h4 Luis Ramos
+          img(ng-src="{{perfil.avatarPerfil}}",on-error-src="")
+        h4 {{user.perfil.nombre}}
     .content-app.padding
       //elasticHeader
       
@@ -12,23 +12,29 @@ ion-view.myaccount(view-title='Mi Cuenta')
         .datos-user       
           .row.row-top
             .col.col-33 Nombre: 
-            .col Luis Ramos              
+            .col {{user.perfil.nombre}}
           .row.row-top
-            .col.col-33 Edad: 
-            .col 34 Años
+            .col.col-33 Genero:
+            .col {{user.perfil.genero | lowercase}}
+          .row.row-top
+            .col.col-33 Fecha de Nacimiento:
+            .col {{user.perfil.fechaNacimiento | date :"dd-MM-yyyy"}}
+          .row.row-top
+            .col.col-33 Isapre:
+            .col {{user.perfil.isapre}}
           .row.row-top
             .col.col-33 Email: 
-            .col luis.ramos@gmail.com
+            .col {{user.perfil.email}}
           .row.row-top
             .col.col-33 Institución de Salud: 
-            .col Hospital Sotero del Rio
+            .col {{user.perfil.institucionDescripcion}}
           .row.row-top
             .col.col-33 Interes: 
             .col 
-              | Gastro enterologia
-              br 
-              | Cancer Colon Rectal       
-                
+              .span(ng-repeat="inte in user.perfil.intereses")
+                |{{inte.nombre}}
+                br
+
       .item
         a.button.button-full.button-energized(href="#/app/edit-user")
           | Editar   

@@ -10,7 +10,9 @@
 
         return {
             getProfile : getProfile,
-            getPatients : getPatients
+            getPatients : getPatients,
+            getAvance : getAvance,
+            getCode : getCode
         };
 
 
@@ -23,7 +25,13 @@
             return commonService.getResource('doctor/pacientes');
         }
 
+        function getAvance(){
+            return commonService.getResource('resource/avance');
+        }
 
+        function getCode(params){
+                return commonService.post('codigo-acceso',params);
+        }
 
 
 

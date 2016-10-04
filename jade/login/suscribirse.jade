@@ -24,8 +24,13 @@ ion-view.ion-view-login(hide-nav-bar='true')
               span.input-label Fecha de Nacimiento:
               input(type='date', placeholder='fecha',name="inputFechaNac",ng-model="registrar.fechaNacimiento", required='')
               span.msj-error(ng-show='form.inputFechaNac.$error.required && form.inputFechaNac.$touched') Ingrese Fecha de Nacimiento
+            label.item.item-input.item-select(ng-class="{'error':(form.selectGenero.$error.required && form.selectGenero.$touched)}")
+              .input-label
+                | Genero:
+              select(ng-model="registrar.genero",ng-options="option.nombre for option in registrar.generos track by option.id",name="selectGenero",required='')
+              span.msj-error(ng-show='form.selectGenero.$error.required && form.selectGenero.$touched') Seleccione Genero
             .item
-              button.button.button-full.button-assertive(ng-click='registrar.paso1()',ng-disabled='form.inputMail.$error.required || form.inputMail.$error.email || form.inputPassword.$error.required || form.inputNombre.$error.required || form.inputFechaNac.$error.required')
+              button.button.button-full.button-assertive(ng-click='registrar.paso1()',ng-disabled='form.inputMail.$error.required || form.inputMail.$error.email || form.inputPassword.$error.required || form.inputNombre.$error.required || form.inputFechaNac.$error.required || form.selectGenero.$error.required')
                 | Por Codigo
           //.padding
             p Metodo de Pago

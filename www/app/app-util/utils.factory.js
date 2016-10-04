@@ -11,10 +11,15 @@
     utilsFactory.$inject = ['commonService'];
     function utilsFactory(commonService) {
         return {
-            getInstituciones : getInstituciones
+            getInstituciones : getInstituciones,
+            getIsapres:getIsapres
         };
         function getInstituciones() {
             return commonService.getResource('resource/institucion');
+        }
+
+        function getIsapres(){
+            return commonService.getResource('resource/isapre');
         }
     }
 

@@ -13,9 +13,19 @@
 
         return {
             getToken : getToken,
-            setToken : setToken
+            setToken : setToken,
+            setAvatar :setAvatar,
+            getAvatar :getAvatar
         };
 
+        function setAvatar(avatar){
+            $window.localStorage['avatar'] = avatar;
+            return true
+        }
+
+        function getAvatar(){
+            return $window.localStorage['avatar'];
+        }
 
 
         function getToken(){
