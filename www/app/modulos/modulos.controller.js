@@ -125,10 +125,10 @@
 			preload: "none",
 			theme: {
 				url: "lib/videogular-themes-default/videogular.css"
-			},
-			plugins: {
-				poster: "video/La_artritis_psoriasica.jpg"
 			}
+			//,plugins: {
+			//	poster: "video/La_artritis_psoriasica.jpg"
+			//}
 		};
 
 		// Events video

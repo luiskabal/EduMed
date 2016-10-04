@@ -6,7 +6,7 @@ ion-view(view-title='<span class="logo-bar-home"></span>')
       a.tab-item(href="#/app/search/guides-interest")
         | Guías de Mi Interes 
   ion-content.has-subheader 
-    ion-slide-box(on-slide-changed="slideHasChanged($index)",auto-play="true",slide-interval="6000",show-pager="false")
+    ion-slide-box(on-slide-changed="slideHasChanged($index)",auto-play="true",slide-interval="6000",show-pager="false", does-continue="true")
       ion-slide.first
         .help-home
           .help-home-inter
@@ -42,11 +42,11 @@ ion-view(view-title='<span class="logo-bar-home"></span>')
     .padding
       .padding.spinner-cont(ng-if="!homeCtrl.guidesLoaded")
         ion-spinner(icon="dots")
-      .row
+      .row.modules-list
         .col.state-module(ng-repeat="guide in homeCtrl.guides")
           p.module-title(ng-bind="guide.titulo")
-          .icon
-            .estado
+          .icon(ng-class="homeCtrl.iconEnfermedad(guide.idEnfermedad)")
+          .estado
           p progreso
           .progress-flag(data-progress="{{homeCtrl.drawProgress(guide)}}")
             span

@@ -10001,7 +10001,7 @@ a:hover {
   vertical-align: top;
   text-rendering: auto; }
 
-.flex-row, .item-module.module-big .module.row, .item-module.module-big .module.module-steps {
+.flex-row, .row.modules-list, .modules-list.module-steps, .item-module.module-big .module.row, .item-module.module-big .module.module-steps {
   flex-wrap: wrap;
   -webkit-flex-direction: row;
   -moz-flex-direction: row;
@@ -10310,6 +10310,21 @@ ion-view.ion-view-login {
     position: relative; }
     .state-module .icon span {
       color: #fff; }
+    .state-module .icon.cancer-colorrectal {
+      background: url(../img/icon/cancer-colorrectal.svg);
+      background-size: 100%;
+      background-repeat: no-repeat;
+      background-position: center center; }
+    .state-module .icon.ostomizados {
+      background: url(../img/icon/ostomias.svg);
+      background-size: 100%;
+      background-repeat: no-repeat;
+      background-position: center center; }
+    .state-module .icon.cancer-gastrico {
+      background: url(../img/icon/cancer-gastrico.svg);
+      background-size: 100%;
+      background-repeat: no-repeat;
+      background-position: center center; }
     .state-module .icon .estado {
       position: absolute;
       bottom: 0;
@@ -10323,11 +10338,6 @@ ion-view.ion-view-login {
       background-position: center center;
       background-repeat: no-repeat;
       display: none; }
-  .state-module + .state-module .icon {
-    background: #ff5722 url(../img/icon/pills.svg);
-    background-size: 30px;
-    background-repeat: no-repeat;
-    background-position: center center; }
   .state-module.completo .icon .estado {
     display: block; }
 
@@ -10564,6 +10574,15 @@ button.button.button-icon.button-clear {
 .tab-item {
   max-width: 100%; }
 
+.row.modules-list .col, .modules-list.module-steps .col, .row.modules-list .module-steps .module-step, .module-steps .row.modules-list .module-step, .modules-list.module-steps .module-step {
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 50%;
+  -moz-box-flex: 0;
+  -moz-flex: 0 0 50%;
+  -ms-flex: 0 0 50%;
+  flex: 0 0 50%;
+  max-width: 50%; }
+
 ion-side-menu.menu {
   background: #eceff1; }
   ion-side-menu.menu .bar-dark.bar.bar-header {
@@ -10736,11 +10755,12 @@ ion-side-menu.menu {
 
 .item-module .progress .mod {
   color: #DC955D;
-  width: 25%; }
+  width: 20%; }
   .item-module .progress .mod:before {
     font-family: "Ionicons";
     content: "\f463";
-    font-size: 25px; }
+    font-size: 20px;
+    line-height: 38px; }
   .item-module .progress .mod.ok {
     color: #239BAB; }
     .item-module .progress .mod.ok:before {

@@ -73,11 +73,12 @@
     .mod{
       @extend .col-block;
       color:#DC955D;
-      width: 25%;
+      width: 20%;
       &:before {
         font-family: "Ionicons";
         content: "\f463";
-        font-size: 25px;
+        font-size: 20px;
+				line-height: 38px;
       }
       &.ok {
         color:#239BAB;

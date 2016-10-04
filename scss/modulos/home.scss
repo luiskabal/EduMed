@@ -49,6 +49,26 @@
     span {
       color: #fff;
     }
+    &.cancer-colorrectal {
+      background: url(../img/icon/cancer-colorrectal.svg);
+      background-size: 100%;
+      background-repeat: no-repeat;
+      background-position: center center;
+    }
+    &.ostomizados {
+      background: url(../img/icon/ostomias.svg);
+      background-size: 100%;
+      background-repeat: no-repeat;
+      background-position: center center;
+      
+    }
+    &.cancer-gastrico {
+      background: url(../img/icon/cancer-gastrico.svg);
+      background-size: 100%;
+      background-repeat: no-repeat;
+      background-position: center center;
+      
+    }
     .estado {
       position: absolute;
       bottom: 0;
@@ -65,15 +85,7 @@
       
     }
   }
-  & + .state-module {
-    .icon {
-      background: #ff5722 url(../img/icon/pills.svg);
-      background-size: 30px;
-    background-repeat: no-repeat;
-    background-position: center center;
-
-    }
-  }
+  
   &.completo {
     .icon {
       .estado {
@@ -417,4 +429,10 @@ button.button.button-icon.button-clear {
 }
 .tab-item {
   max-width: 100%;
+}
+.row.modules-list {
+  @extend .flex-row;
+  .col {
+    @include col-w(50%);
+  }
 }

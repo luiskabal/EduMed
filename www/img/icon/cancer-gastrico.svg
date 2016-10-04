@@ -4,8 +4,8 @@
 <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 width="300px" height="300px" viewBox="0 0 300 300" enable-background="new 0 0 300 300" xml:space="preserve">
 <g>
-	<circle id="XMLID_39_" fill="#A73936" stroke="#FFFFFF" stroke-miterlimit="10" cx="150.11" cy="150.365" r="147.5"/>
-	<path id="XMLID_37_" fill="#727171" d="M149.856,2.865v295.001c81.461,0,147.5-66.038,147.5-147.501
+	<circle id="XMLID_39_" fill="#cc3333" stroke="#FFFFFF" stroke-miterlimit="10" cx="150.11" cy="150.365" r="147.5"/>
+	<path id="XMLID_37_" fill="#727171" opacity="0.5" d="M149.856,2.865v295.001c81.461,0,147.5-66.038,147.5-147.501
 		C297.355,68.905,231.317,2.865,149.856,2.865z"/>
 	<g id="XMLID_34_" opacity="0.1">
 		<path fill="#030104" d="M244.658,119.106c-12.845-13.733-31.23-14.629-42.341-13.625c-1.02-1.039-2.396-2.096-4.127-3.601

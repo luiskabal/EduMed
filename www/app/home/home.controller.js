@@ -57,5 +57,21 @@
             }
         };
 
+        vm.iconEnfermedad = function(id) {
+            switch (id) {
+                case '5781554676b0bf7d7cba1d9f':
+                    return 'cancer-colorrectal';
+                    break;
+                case '5781554676b0bf7d7cba1c9f':
+                    return 'ostomizados';
+                    break;
+                case '578154900364274901210aeb':
+                    return 'cancer-gastrico';
+                    break;
+                default:
+            }
+            
+        }
+
     }
 })();
