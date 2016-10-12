@@ -9,6 +9,10 @@ ion-view(view-title="Historial de Paciente")
           img(src="img/avatar/old.jpg")
         h4 Jose Hernandez
     
+    .padding
+      .mensaje.error
+        .icono
+        p El Paciente no ha visto ningun contenido
     .item.modulo-history
       .collapse( ng-click="active = !active") 
         i.icon-collapse(ng-class="{'ion-chevron-up': active, 'ion-chevron-down': !active}")
