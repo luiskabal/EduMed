@@ -21,7 +21,7 @@ ion-side-menus(enable-menu-with-back-views='false')
           i.icon.ion-person
           | Mi Perfil
           i.icon.ion-ios-arrow-forward
-        ion-item.item-icon-left.item-icon-right(menu-close='',href="#/app/history-user")
+        ion-item.item-icon-left.item-icon-right(menu-close='',href="#/app/history-user",ng-show='perfil.tipoUsuario == "ROLE_PACIENTE"')
           i.icon.ion-ios-paper
           | Historial de Aprendizaje
           i.icon.ion-ios-arrow-forward
