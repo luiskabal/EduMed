@@ -8,6 +8,12 @@
 
   patientsController.$inject = ['$scope','$rootScope','$log','$ionicHistory','profileFactory','commonService','$ionicPopup','$state'];
   function patientsController($scope,$rootScope,$log,$ionicHistory,profileFactory,commonService,$ionicPopup,$state) {
+     //forzar salida backbutton
+    $scope.$on('$ionicView.beforeEnter', function (event, viewData) {
+        viewData.enableBack = true;
+    });
+
+    
     var vm = this;
 
     var traerIntereses = commonService.getResource("resource/enfermedad");

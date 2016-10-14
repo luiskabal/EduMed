@@ -7,6 +7,11 @@
 
     guidesController.$inject = ['$scope','$state','$ionicHistory','commonService','$rootScope','guidesFactory'];
     function guidesController($scope,$state,$ionicHistory,commonService,$rootScope,guidesFactory) {
+        //forzar salida backbutton
+        $scope.$on('$ionicView.beforeEnter', function (event, viewData) {
+            viewData.enableBack = true;
+        });
+        
         var vm = this;
 
         //init

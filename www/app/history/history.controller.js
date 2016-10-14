@@ -8,6 +8,11 @@
 
     historyController.$inject = ['$scope','$rootScope','$stateParams','$ionicHistory','profileFactory','commonService','avancesFactory'];
     function historyController($scope,$rootScope,$stateParams,$ionicHistory,profileFactory,commonService,avancesFactory) {
+         //forzar salida backbutton
+        $scope.$on('$ionicView.beforeEnter', function (event, viewData) {
+            viewData.enableBack = true;
+        });
+        
         var vm = this;
 
         //init

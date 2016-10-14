@@ -5,8 +5,47 @@
         .module('eduMed')
         .controller('homeController', homeController);
 
-    homeController.$inject = ['$scope','$state','$ionicHistory','commonService','$rootScope','guidesFactory'];
-    function homeController($scope,$state,$ionicHistory,commonService,$rootScope,guidesFactory) {
+    homeController.$inject = ['$scope','$state','$ionicHistory','commonService','$rootScope','guidesFactory','$ionicPlatform'];
+    function homeController($scope,$state,$ionicHistory,commonService,$rootScope,guidesFactory,$ionicPlatform) {
+        
+        
+        // run this function when either hard or soft back button is pressed
+        var doCustomBack = function() {
+            console.log("custom BACK");
+            $ionicHistory.goBack();
+            
+        };
+
+        // override soft back
+        // framework calls $rootScope.$ionicGoBack when soft back button is pressed
+        var oldSoftBack = $rootScope.$ionicGoBack;
+        $rootScope.$ionicGoBack = function() {
+            doCustomBack();
+        };
+        var deregisterSoftBack = function() {
+            $rootScope.$ionicGoBack = oldSoftBack;
+        };
+
+        // override hard back
+        // registerBackButtonAction() returns a function which can be used to deregister it
+        var deregisterHardBack = $ionicPlatform.registerBackButtonAction(
+            doCustomBack, 101
+        );
+
+        // cancel custom back behaviour
+        $scope.$on('$destroy', function() {
+            deregisterHardBack();
+            deregisterSoftBack();
+        });
+        
+        
+        
+        
+        
+        
+        
+        
+        
         var vm = this;
         
         vm.guidesLoaded = false;

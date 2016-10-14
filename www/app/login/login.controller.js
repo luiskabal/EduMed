@@ -11,6 +11,11 @@
     function LoginController($scope,$log,$location,loginFactory,storageService,profileFactory,$rootScope,$ionicPopup,$ionicLoading,commonService) {
         var vm = this;
 
+
+
+
+        
+
         vm.errorLogin = false;
             if (!angular.isUndefined(storageService.getToken())) {
                 showLoading();

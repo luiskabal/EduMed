@@ -6,9 +6,13 @@
     .controller('userController', userController)
     .controller('historialController',historialController);
 
-  userController.$inject = ['Camera','$log','$ionicPopup','profileFactory','commonService','$rootScope','storageService','utilsFactory','$state'];
+  userController.$inject = ['$scope','Camera','$log','$ionicPopup','profileFactory','commonService','$rootScope','storageService','utilsFactory','$state'];
   historialController.$inject = ['profileFactory','guidesFactory']
-  function userController(Camera,$log,$ionicPopup,profileFactory,commonService,$rootScope,storageService,utilsFactory,$state) {
+  function userController($scope,Camera,$log,$ionicPopup,profileFactory,commonService,$rootScope,storageService,utilsFactory,$state) {
+    //forzar salida backbutton
+    $scope.$on('$ionicView.beforeEnter', function (event, viewData) {
+        viewData.enableBack = true;
+    });
     var vm = this;
 
     $log.log('user');

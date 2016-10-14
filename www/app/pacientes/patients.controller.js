@@ -5,8 +5,13 @@
     .module('eduMed')
     .controller('patientsController2', patientsController2);
 
-  patientsController2.$inject = ['$log','$ionicPopup'];
-  function patientsController2($log,$ionicPopup) {
+  patientsController2.$inject = ['$scope','$log','$ionicPopup'];
+  function patientsController2($scope,$log,$ionicPopup) {
+    //forzar salida backbutton
+    $scope.$on('$ionicView.beforeEnter', function (event, viewData) {
+        viewData.enableBack = true;
+    });
+
     var vm = this;
     $log.log('patients');
 
