@@ -4,14 +4,18 @@ ion-view(view-title="Historial de Aprendizaje")
       .mensaje.error
         .icono
         p Aun no viste ningun contenido de Aprendizaje
-    .item.modulo-history(ng-repeat="current in historial.avances")
+    .item.item-module.modulo-history(ng-repeat="current in historial.avances")
+      .module.row
+        .col
+          img.full-image(ng-src="http://ec2-107-21-84-195.compute-1.amazonaws.com:8080/api/file/8fdeb17fdf1eea9f7a01")
+        .col
+          h3(ng-bind="current.titulo")
+          h4(ng-bind="current.subtitulo")
       //.collapse( ng-click="active = !active")-//
       .collapse
         //i.icon-collapse(ng-class="{'ion-chevron-up': active, 'ion-chevron-down': !active}")
         i.icon-collapse
         //p Guía Actual
-        h3(ng-bind="current.titulo")
-        h4(ng-bind="current.subtitulo")
         .cont-progress
           span{{current.porcentaje}}%
           .progress-porcent(style="width:{{current.porcentaje}}%")

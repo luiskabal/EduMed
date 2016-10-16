@@ -7,7 +7,7 @@
     .controller('historialController',historialController);
 
   userController.$inject = ['$scope','Camera','$log','$ionicPopup','profileFactory','commonService','$rootScope','storageService','utilsFactory','$state'];
-  historialController.$inject = ['profileFactory','guidesFactory']
+  historialController.$inject = ['$scope','profileFactory','guidesFactory']
   function userController($scope,Camera,$log,$ionicPopup,profileFactory,commonService,$rootScope,storageService,utilsFactory,$state) {
     //forzar salida backbutton
     $scope.$on('$ionicView.beforeEnter', function (event, viewData) {
@@ -174,8 +174,13 @@
    };
   }
 
-  function historialController(profileFactory,guidesFactory){
+  function historialController($scope,profileFactory,guidesFactory){
       var vm = this;
+       //forzar salida backbutton
+        $scope.$on('$ionicView.beforeEnter', function (event, viewData) {
+            viewData.enableBack = true;
+        });
+        
       var traeAvance = profileFactory.getAvance();
       traeAvance.then(
           function(data){

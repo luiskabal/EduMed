@@ -7,14 +7,9 @@
         .controller('RegistrarController',RegistrarController);
 
     LoginController.$inject = ['$scope','$log','$location','loginFactory','storageService','profileFactory','$rootScope','$ionicPopup','$ionicLoading','commonService'];
-    RegistrarController.$inject =['$scope','$log','$location','loginFactory','$rootScope','$ionicPopup','$ionicLoading','commonService','$filter','utilsFactory'];
+    RegistrarController.$inject =['$scope','$ionicModal','$log','$location','loginFactory','$rootScope','$ionicPopup','$ionicLoading','commonService','$filter','utilsFactory'];
     function LoginController($scope,$log,$location,loginFactory,storageService,profileFactory,$rootScope,$ionicPopup,$ionicLoading,commonService) {
         var vm = this;
-
-
-
-
-        
 
         vm.errorLogin = false;
             if (!angular.isUndefined(storageService.getToken())) {
@@ -89,8 +84,24 @@
 
         function activate() { }
     }
-    function RegistrarController($scope,$log,$location,loginFactory,$rootScope,$ionicPopup,$ionicLoading,commonService,$filter,utilsFactory){
+    function RegistrarController($scope,$ionicModal,$log,$location,loginFactory,$rootScope,$ionicPopup,$ionicLoading,commonService,$filter,utilsFactory){
         var vm = this;
+        
+        //CONDICIONES
+        $ionicModal.fromTemplateUrl('app/login/condiciones.html', {
+            scope: $scope,
+            animation: 'slide-in-up'
+        }).then(function(modal) {
+            $scope.modal = modal;
+        });
+        $scope.showCondiciones = function() {
+            $scope.modal.show();
+        };
+        $scope.closeModal = function() {
+            $scope.modal.hide();
+        };
+        //end CONDICIONES
+        
         console.log($rootScope.registro);
         vm.instituciones = [];
 

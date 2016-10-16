@@ -1,0 +1,135 @@
+.condiciones {
+  a {
+    position: relative;
+    z-index: 9;
+  }
+}
+.box-condiciones {
+  color: #536374;
+  font-size: 14px;
+  border: none;
+  position: relative;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  ul,
+  li {
+    overflow: visible;
+    text-overflow: initial;
+    white-space: normal;
+    color: #536374;
+  }
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: #536374;
+    font-weight: bold;
+    line-height: 120%;
+    margin: 0px;
+    text-align: left;
+    margin: 0 0 0.5rem 0;
+  }
+  h2 {
+    font-size: 16px;
+    margin: 0.5rem 0 0.625rem 0;
+	}
+  h3 {
+    font-size: 14px;
+  }
+  h4 {
+    font-size: 12px;
+  }
+  p {
+    color: #536374;
+    font-size: 13px;
+    line-height: 0.9375rem;
+    margin-bottom: 0.625rem;
+  }
+  small {
+    font-size: 13px;
+    font-weight: 300;
+  }
+  strong,
+  b {
+    font-weight: bold;
+  }
+  i {
+    font-size: 13px;
+    line-height: 0.9375rem;
+    margin-bottom: 0.1875rem;
+    font-style: italic;
+  }
+  hr {
+    border-top: 1px dashed #D1D8E1;
+    background: none;
+    margin: 0.625rem 0;
+  }
+  ul {
+    margin-left: 0.8125rem;
+    font-size: 13px;
+    margin-bottom: 0.625rem;
+    color: #536374;
+    li {
+      position: relative;
+      color: #536374;
+      margin-bottom: 0.3125rem;
+      line-height: 0.9375rem;
+      list-style: disc;
+    }
+    &.lista_punto {
+      li {
+        &:before {
+          content: "\2022";
+          font-size: 15px;
+          position: absolute;
+          color: #2BB5B9;
+          left: -1rem;
+        }
+      }
+    }
+    &.lista_guion {
+      li {
+        &:before {
+          content: "-";
+          position: absolute;
+          left: -1rem;
+        }
+      }
+    }
+    &.lista_letra {
+      li {
+        list-style-type: lower-alpha;
+      }
+    }
+  }
+  ol {
+    margin-left: 0.8125rem;
+    font-size: 13px;
+    margin-bottom: 0.625rem;
+    li {
+      position: relative;
+      margin-bottom: 0.3125rem;
+      line-height: 0.9375rem;
+      list-style-type: decimal;
+    }
+  }
+  &.no-margin{
+    p{
+      margin: 0;
+      text-align: justify;
+    }
+  }
+  &.justify{
+    ol{
+      li{
+        text-align: justify;
+      }
+    }
+  }
+}

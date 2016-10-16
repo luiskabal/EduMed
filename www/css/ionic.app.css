@@ -10421,10 +10421,10 @@ ion-list .item-module.item.item-complex .item-content {
   padding: 16px; }
 
 ion-slide.first {
-  padding: 10px; }
+  padding: 10px 10px 0 10px; }
   ion-slide.first .help-home {
     position: relative;
-    padding: 20px 0 0 0; }
+    padding: 20px 0 30px 0; }
     ion-slide.first .help-home .help-home-inter {
       background-color: #b5dcf9;
       background-color: #b5dcf9;
@@ -10475,10 +10475,10 @@ ion-slide.first {
         height: 200px; }
 
 ion-slide.last {
-  padding: 10px; }
+  padding: 10px 10px 0 10px; }
   ion-slide.last .help-home {
     position: relative;
-    padding: 20px 0 0 0; }
+    padding: 20px 0 30px 0; }
     ion-slide.last .help-home .help-home-inter {
       background-color: #b5dcf9;
       background: #b5dcf9;
@@ -10527,6 +10527,11 @@ ion-slide.last {
         background-repeat: no-repeat;
         width: 90px;
         height: 200px; }
+
+.slider-pager {
+  bottom: 10px; }
+  .slider-pager .slider-pager-page {
+    color: #219cac; }
 
 .tab-home .tabs .tab-item {
   color: #fff; }
@@ -10877,9 +10882,16 @@ ion-side-menu.menu {
       flex: 0 0 30px;
       max-width: 30px; }
 
+.content-video {
+  height: 50%;
+  height: 50vh;
+  overflow: hidden; }
+
 .videogular-container {
   width: 100%;
   height: 320px;
+  height: 50%;
+  height: 50vh;
   margin: auto;
   overflow: hidden; }
 
@@ -10931,7 +10943,6 @@ videogular vg-poster img.stop, [videogular] vg-poster img.stop {
     margin-left: -16px; }
 
 .collapse {
-  padding-top: 10px;
   position: relative; }
 
 .modulo-history .icon-collapse {
@@ -11037,6 +11048,104 @@ progress[value="3"] {
     color: #DC955D; }
   .mensaje.error h3 {
     color: #DC955D; }
+
+.condiciones a {
+  position: relative;
+  z-index: 9; }
+
+.box-condiciones {
+  color: #536374;
+  font-size: 14px;
+  border: none;
+  position: relative; }
+  .box-condiciones h1,
+  .box-condiciones h2,
+  .box-condiciones h3,
+  .box-condiciones h4,
+  .box-condiciones h5,
+  .box-condiciones h6,
+  .box-condiciones p,
+  .box-condiciones ul,
+  .box-condiciones li {
+    overflow: visible;
+    text-overflow: initial;
+    white-space: normal;
+    color: #536374; }
+  .box-condiciones h2,
+  .box-condiciones h3,
+  .box-condiciones h4,
+  .box-condiciones h5,
+  .box-condiciones h6 {
+    color: #536374;
+    font-weight: bold;
+    line-height: 120%;
+    margin: 0px;
+    text-align: left;
+    margin: 0 0 0.5rem 0; }
+  .box-condiciones h2 {
+    font-size: 16px;
+    margin: 0.5rem 0 0.625rem 0; }
+  .box-condiciones h3 {
+    font-size: 14px; }
+  .box-condiciones h4 {
+    font-size: 12px; }
+  .box-condiciones p {
+    color: #536374;
+    font-size: 13px;
+    line-height: 0.9375rem;
+    margin-bottom: 0.625rem; }
+  .box-condiciones small {
+    font-size: 13px;
+    font-weight: 300; }
+  .box-condiciones strong,
+  .box-condiciones b {
+    font-weight: bold; }
+  .box-condiciones i {
+    font-size: 13px;
+    line-height: 0.9375rem;
+    margin-bottom: 0.1875rem;
+    font-style: italic; }
+  .box-condiciones hr {
+    border-top: 1px dashed #D1D8E1;
+    background: none;
+    margin: 0.625rem 0; }
+  .box-condiciones ul {
+    margin-left: 0.8125rem;
+    font-size: 13px;
+    margin-bottom: 0.625rem;
+    color: #536374; }
+    .box-condiciones ul li {
+      position: relative;
+      color: #536374;
+      margin-bottom: 0.3125rem;
+      line-height: 0.9375rem;
+      list-style: disc; }
+    .box-condiciones ul.lista_punto li:before {
+      content: "\2022";
+      font-size: 15px;
+      position: absolute;
+      color: #2BB5B9;
+      left: -1rem; }
+    .box-condiciones ul.lista_guion li:before {
+      content: "-";
+      position: absolute;
+      left: -1rem; }
+    .box-condiciones ul.lista_letra li {
+      list-style-type: lower-alpha; }
+  .box-condiciones ol {
+    margin-left: 0.8125rem;
+    font-size: 13px;
+    margin-bottom: 0.625rem; }
+    .box-condiciones ol li {
+      position: relative;
+      margin-bottom: 0.3125rem;
+      line-height: 0.9375rem;
+      list-style-type: decimal; }
+  .box-condiciones.no-margin p {
+    margin: 0;
+    text-align: justify; }
+  .box-condiciones.justify ol li {
+    text-align: justify; }
 
 /*.item-stacked-label {
   &.item-select {

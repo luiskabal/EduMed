@@ -6,37 +6,39 @@ ion-view(view-title='<span class="logo-bar-home"></span>')
       a.tab-item(href="#/app/search/guides-interest")
         | Guías de Mi Interes 
   ion-content.has-subheader 
-    ion-slide-box(on-slide-changed="slideHasChanged($index)",auto-play="true",slide-interval="6000",show-pager="false", does-continue="true")
+    ion-slide-box(on-slide-changed="slideHasChanged(index)",auto-play="true",slide-interval="6000",show-pager="true")
       ion-slide.first
-        .help-home
-          .help-home-inter
-            .block-img
-            h3 Bienvenido!
-            p.subtitle a tú espacio de educación médica
-            p 
-              | Presiona 
-              span acá 
-              | y podrás ver 
-            p 
-              |las 
-              span nuevas guías 
-              | de 
-            p educación médica.
+        a(href="#/app/search/new-guide")
+          .help-home
+            .help-home-inter
+              .block-img
+              h3 Bienvenido!
+              p.subtitle a tú espacio de educación médica
+              p 
+                | Presiona 
+                span acá 
+                | y podrás ver 
+              p 
+                |las 
+                span nuevas guías 
+                | de 
+              p educación médica.
       ion-slide.last
-        .help-home
-          .help-home-inter
-            .block-img
-            h3 Bienvenido!
-            p.subtitle a tú espacio de educación médica
-            p 
-              | Presiona 
-              span acá  
-            p
-              | y podrás ver  
-              span guías 
-            p 
-              | médicas de 
-              span tu interés
+        a(href="#/app/search/guides-interest")
+          .help-home
+            .help-home-inter
+              .block-img
+              h3 Bienvenido!
+              p.subtitle a tú espacio de educación médica
+              p 
+                | Presiona 
+                span acá  
+              p
+                | y podrás ver  
+                span guías 
+              p 
+                | médicas de 
+                span tu interés
               
            
     .padding

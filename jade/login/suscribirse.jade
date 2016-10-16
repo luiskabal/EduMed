@@ -29,6 +29,11 @@ ion-view.ion-view-login(hide-nav-bar='true')
                 | Genero:
               select(ng-model="registrar.genero",ng-options="option.nombre for option in registrar.generos track by option.id",name="selectGenero",required='')
               span.msj-error(ng-show='form.selectGenero.$error.required && form.selectGenero.$touched') Seleccione Genero
+            .item.BoxForm.item-checkbox
+              label.checkbox
+                input(type='checkbox', checked='')
+              p.condiciones
+                a(href='javascript:;', ng-click='showCondiciones()') Aceptar terminos y condiciones
             .item
               button.button.button-full.button-assertive(ng-click='registrar.paso1()',ng-disabled='form.inputMail.$error.required || form.inputMail.$error.email || form.inputPassword.$error.required || form.inputNombre.$error.required || form.inputFechaNac.$error.required || form.selectGenero.$error.required')
                 | Por Codigo

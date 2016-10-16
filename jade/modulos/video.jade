@@ -4,7 +4,7 @@ ion-view(view-title="{{moduleCtrl.guide.titulo}}")
       videogular(vg-player-ready='moduleCtrl.onPlayerReady($API)',
               vg-theme='moduleCtrl.config.theme.url',
               vg-complete='moduleCtrl.onCompleteVideo()')
-        vg-media(vg-src='moduleCtrl.config.sources', vg-native-controls='false', vg-youtube)
+        vg-media(vg-src='moduleCtrl.config.sources', vg-native-controls='false')
         vg-overlay-play
         vg-poster(vg-url='moduleCtrl.config.plugins.poster')
         vg-controls
