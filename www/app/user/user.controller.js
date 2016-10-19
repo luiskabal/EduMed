@@ -181,7 +181,7 @@
           var traeAvance = profileFactory.getAvance();
           traeAvance.then(
               function(data){
-                  vm.avances = data._embedded.avances;
+                  vm.avances = data;
                   console.log(vm.avances);
                   angular.forEach(vm.avances, function(current) {
                       guidesFactory.getGuide(current.idGuia).then(
