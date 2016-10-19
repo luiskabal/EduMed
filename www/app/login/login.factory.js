@@ -13,7 +13,8 @@
 
         return {
             login : login,
-            suscribirse : suscribirse
+            suscribirse : suscribirse,
+            recuperar: recuperar
         };
 
         function suscribirse(params){
@@ -25,6 +26,10 @@
                 "username": user,
                 "password": password
             });
+        }
+
+        function recuperar(email){
+            return commonService.getResource('recupera-clave?email='+email);
         }
     }
 })();

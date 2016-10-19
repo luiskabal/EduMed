@@ -43,7 +43,7 @@
             function(data){
                 var alertPopup = $ionicPopup.alert({
                     title: '<i class="icon ion-ios-checkmark-outline"></i>',
-                    template: '<p>Codigo Enviado a '+ vm.email+'</p>'//<h3 class="codigo">4545211554545</h3>
+                    template: '<p>Codigo Enviado a '+ vm.email+'</p><h3 class="codigo">'+data.text+'</h3>'
                 });
                 alertPopup.then(function(res) {
                     $state.go('app.home');

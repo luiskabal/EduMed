@@ -26,7 +26,8 @@
         }
 
         function getAvance(){
-            return commonService.getResource('resource/avance');
+            //return commonService.getResource('resource/avance');
+            return commonService.getResource('avance');
         }
 
         function getCode(params){

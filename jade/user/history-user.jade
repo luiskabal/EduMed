@@ -1,7 +1,7 @@
 ion-view(view-title="Historial de Aprendizaje")
   ion-content
     .padding
-      .mensaje.error
+      .mensaje.error(ng-show="historial.avances.length == 0")
         .icono
         p Aun no viste ningun contenido de Aprendizaje
     .item.modulo-history(ng-repeat="current in historial.avances")

@@ -5,12 +5,12 @@ ion-view(view-title="Mis Pacientes")
   ion-content
 
     ion-list
-      ion-item.item-avatar.item-icon-right(ng-repeat="p in patientsCtrl.patients", ng-click="patientsCtrl.goHistory(p)")
-        img(ng-src="{{ patientsCtrl.getImage(p.avatar) }}")
-        h2(ng-bind="p.nombre")
-        p Artritis Psoriasica
+      ion-item.item-avatar.item-icon-right(ng-repeat="p in patientsCtrl.patients", ng-click="patientsCtrl.goHistory(p.paciente)")
+        img(ng-src="{{ patientsCtrl.getImage(p.paciente.avatar) }}")
+        h2(ng-bind="p.paciente.nombre")
+        p {{p.enfermedad}}
         hr
-        p.centro-med(ng-bind="p.institucion")
+        p.centro-med(ng-bind="p.paciente.institucion")
         i.icon.ion-ios-arrow-right
         ion-option-button.button-assertive Eliminar
 
