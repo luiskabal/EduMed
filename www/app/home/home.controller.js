@@ -5,8 +5,8 @@
         .module('eduMed')
         .controller('homeController', homeController);
 
-    homeController.$inject = ['$scope','$state','$ionicHistory','commonService','$rootScope','guidesFactory','$ionicPlatform'];
-    function homeController($scope,$state,$ionicHistory,commonService,$rootScope,guidesFactory,$ionicPlatform) {
+    homeController.$inject = ['$scope','$state','$ionicHistory','commonService','$rootScope','guidesFactory','$ionicPlatform','$location','storageService'];
+    function homeController($scope,$state,$ionicHistory,commonService,$rootScope,guidesFactory,$ionicPlatform,$location,storageService) {
         
         
         // run this function when either hard or soft back button is pressed
@@ -69,6 +69,10 @@
             return Math.floor((percentage*5)/100);
         };
 
+        $scope.cerrarSession = function(){
+            storageService.setToken("");
+            $location.path('/login');
+        };
 
         // internal functions
 

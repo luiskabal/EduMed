@@ -5,8 +5,8 @@
         .module('eduMed')
         .factory('profileFactory', profileFactory);
 
-    profileFactory.$inject = ['commonService'];
-    function profileFactory(commonService) {
+    profileFactory.$inject = ['commonService','$http','$q','URL_API'];
+    function profileFactory(commonService,$http,$q,URL_API) {
 
         return {
             getProfile : getProfile,
@@ -30,7 +30,7 @@
         }
 
         function getCode(params){
-                return commonService.post('codigo-acceso',params);
+            return commonService.post('codigo-acceso',params);
         }
 
 

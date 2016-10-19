@@ -35,22 +35,15 @@
             "guiasSugeridas": [],
             "nombrePaciente": vm.nombre
         };
-        /*{
-         "$ref": "enfermedad",
-         "$id": vm.interes.id
-         }
-        "guiasSugeridas": [{
-            "descripcion": vm.interes.descripcion,
-            "id": vm.interes.id,
-            "nombre": vm.interes.nombre
-        }],*/
+
+        params.guiasSugeridas.push(vm.interes._links.enfermedad.href);
 
         var generarCodigo = profileFactory.getCode(params);
         generarCodigo.then(
             function(data){
                 var alertPopup = $ionicPopup.alert({
                     title: '<i class="icon ion-ios-checkmark-outline"></i>',
-                    template: '<p>Codigo Enviado a '+vm.nombre+'</p>'//<h3 class="codigo">4545211554545</h3>
+                    template: '<p>Codigo Enviado a '+ vm.email+'</p>'//<h3 class="codigo">4545211554545</h3>
                 });
                 alertPopup.then(function(res) {
                     $state.go('app.home');
