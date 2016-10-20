@@ -202,6 +202,7 @@ input[type="radio"].circleRadioRadiance {
 		}
 	}
 }
+
 .circleRadioLabel,
 .squareRadioLabel,
 .squareRadioRadianceLabel,
@@ -330,5 +331,14 @@ input[type="radio"].circleRadioRadiance {
 				}
 			}
 		}
+	}
+}
+
+input[type="radio"].circleRadio + label.labelAbsolute {
+	position: absolute;
+	+ .label-radio {
+		display: block;
+		padding-left: 35px;
+		
 	}
 }

@@ -215,18 +215,17 @@
 			}
 
 			var videoUrl = modulo.urlVideo.substring(0,4)==='http' ? modulo.urlVideo : commonService.getFileUrl(modulo.urlVideo);
-
+			var videoPoster = commonService.getFileUrl(modulo.pathImgPreview);
+			console.log(videoPoster);
 			vm.config.sources = [{
 				src: videoUrl
 			}];
-			vm.config.plugins.poster = commonService.getFileUrl(modulo.pathImgPreview);
-			setTimeout(function(){
-				try{
-					vm.API.play();
-				}catch(e){
-					console.log(e)
+			vm.config.plugins = [{
+				poster : {
+				 	url: videoPoster
 				}
-			},2500);
+			}];
+			
 		}
 		
 		

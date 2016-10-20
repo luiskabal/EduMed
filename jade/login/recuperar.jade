@@ -8,18 +8,20 @@ ion-view.ion-view-login(hide-nav-bar='true')
         .block-msj(ng-show="!recover")
           p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam inventore unde, asperiores porro laborum magnam at provident, natus, qui laudantium hic blanditiis vero nostrum eligendi obcaecati sapiente recusandae temporibus repudiandae.
         .list(ng-show="!recover")
-          label.item.item-input.item-stacked-label.error
-            span.input-label E-mail:
-            input(type='text', placeholder='mail@mail.com')
-            span.msj-error Error mensaje
-          .item
-            button.button.button-full.button-positive(ng-click="recover=!recover")
-              | Recuperar Password
+          form(name='form')
+            label.item.item-input.item-stacked-label(ng-class="{'error':(form.inputMail.$error.required && form.inputMail.$touched) || (!form.inputMail.$error.required && form.inputMail.$touched && form.inputMail.$error.email) }")
+              span.input-label E-mail:
+              input(type='email', placeholder='mail@mail.com',ng-model="login.recuperarEmail",name="inputMail",required='')
+              span.msj-error(ng-show='form.inputMail.$error.required && form.inputMail.$touched') Ingrese un E-mail
+              span.msj-error(ng-show='!form.inputMail.$error.required && form.inputMail.$touched && form.inputMail.$error.email') E-mail no valido
+            .item
+              button.button.button-full.button-positive(ng-click="recover=!recover; login.recuperar()",ng-disabled='form.inputMail.$error.required || form.inputMail.$error.email')
+                | Recuperar Password
         .padding-top(ng-show="recover")
           .mensaje.info
             .icono
             h3 lorem  ipsum dolor sit
             p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem amet cum temporibus est dolorum.
           .padding
-            button.button.button-full.button-positive(ng-click="recover=!recover")
+            button.button.button-full.button-positive(ng-click="recover=!recover;login.volverLogin()")
               | Volver a logearme

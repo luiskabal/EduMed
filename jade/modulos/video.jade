@@ -4,10 +4,9 @@ ion-view(view-title="{{moduleCtrl.guide.titulo}}")
       videogular(vg-player-ready='moduleCtrl.onPlayerReady($API)',
               vg-theme='moduleCtrl.config.theme.url',
               vg-complete='moduleCtrl.onCompleteVideo()')
-        vg-media(vg-src='moduleCtrl.config.sources', vg-native-controls='false')
+        vg-media(vg-src='moduleCtrl.config.sources',vg-youtube="rel=1;showinfo=1", vg-native-controls='false')
         vg-overlay-play
-        vg-poster(vg-url='moduleCtrl.config.plugins.poster')
-        vg-controls
+        vg-controls( vg-autohide="config.autoHide", vg-autohide-time="config.autoHideTime")
           vg-play-pause-button
           vg-time-display {{ currentTime | date:'mm:ss':'+0000' }}
           vg-scrub-bar
@@ -18,6 +17,7 @@ ion-view(view-title="{{moduleCtrl.guide.titulo}}")
             vg-mute-button
             vg-volume-bar
           vg-fullscreen-button
+        vg-poster-image(vg-url='moduleCtrl.config.plugins.poster.url')
         vg-buffering
     div
       .padding

@@ -39,6 +39,10 @@
             }
         });
 
+        vm.volverLogin = function(){
+            $location.path('/login');
+        };
+
         vm.login = function() {
             vm.errorLogin = false;
             showLoading();
@@ -60,6 +64,20 @@
             );
 
             //$state.go("/app/home"); 
+        };
+
+        vm.recuperar = function () {
+            var response = loginFactory.recuperar(vm.recuperarEmail);
+            response.then(
+                function(data){
+
+                },
+                function(e){
+                    vm.errorLogin = true;
+                    hideLoading();
+                    console.error(e);
+                }
+            );
         };
 
         function showLoading() {

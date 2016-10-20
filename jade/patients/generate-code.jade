@@ -6,10 +6,9 @@ ion-view(view-title="Generar Código")
         .logo-edumed
         .list
           form(name='form')
-            label.item.item-input.item-stacked-label(ng-class="{'error':(form.inputNombre.$error.required && form.inputNombre.$touched)}")
+            label.item.item-input.item-stacked-label
               span.input-label Nombre:
-              input(type='text', placeholder='Nombre',name="inputNombre",ng-model="patients.nombre", required='')
-              span.msj-error(ng-show='form.inputNombre.$error.required && form.inputNombre.$touched') Ingrese un Nombre
+              input(type='text', placeholder='Nombre',name="inputNombre",ng-model="patients.nombre")
             label.item.item-input.item-stacked-label(ng-class="{'error':(form.inputMail.$error.required && form.inputMail.$touched) || (!form.inputMail.$error.required && form.inputMail.$touched && form.inputMail.$error.email) }")
               span.input-label Email:
               input(type='email', placeholder='mail@mail.com',name="inputMail",ng-model="patients.email", required='')
@@ -22,6 +21,6 @@ ion-view(view-title="Generar Código")
               span.msj-error(ng-show='form.selectInteres.$error.required && form.selectInteres.$touched') Seleccione un Interes
 
             .item
-              button.button.button-full.button-energized(ng-click='patients.enviarCodigo()',ng-disabled='form.inputMail.$error.required || form.inputMail.$error.email || form.inputNombre.$error.required || form.selectInteres.$error.required')
+              button.button.button-full.button-energized(ng-click='patients.enviarCodigo()',ng-disabled='form.inputMail.$error.required || form.inputMail.$error.email || form.selectInteres.$error.required')
                 | Enviar Código
             

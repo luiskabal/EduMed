@@ -176,33 +176,38 @@
 
   function historialController($scope,profileFactory,guidesFactory){
       var vm = this;
+
        //forzar salida backbutton
         $scope.$on('$ionicView.beforeEnter', function (event, viewData) {
             viewData.enableBack = true;
         });
-        
-      var traeAvance = profileFactory.getAvance();
-      traeAvance.then(
-          function(data){
-              vm.avances = data._embedded.avances;
-              console.log(vm.avances);
-              angular.forEach(vm.avances, function(current) {
-                  guidesFactory.getGuide(current.idGuia).then(
-                      function(guide){
-                          console.log(guide);
-                          current.titulo = guide.titulo;
-                          current.subtitulo = guide.subtitulo;
-                      },
-                      function(e){
-                          console.error(e);
-                      }
-                  );
-              });
 
-          },
-          function(e){
-              console.error(e);
-          }
-      );
+
+
+        var traeAvance = profileFactory.getAvance();
+        traeAvance.then(
+            function(data){
+                vm.avances = data;
+                console.log(vm.avances);
+                angular.forEach(vm.avances, function(current) {
+                    guidesFactory.getGuide(current.idGuia).then(
+                        function(guide){
+                            console.log(guide);
+                            current.titulo = guide.titulo;
+                            current.subtitulo = guide.subtitulo;
+                        },
+                        function(e){
+                            console.error(e);
+                        }
+                    );
+                });
+
+            },
+            function(e){
+                console.error(e);
+            }
+        );
+
+
   }
 })();
