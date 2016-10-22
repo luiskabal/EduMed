@@ -7,7 +7,7 @@
     .controller('historialController',historialController);
 
   userController.$inject = ['$scope','Camera','$log','$ionicPopup','profileFactory','commonService','$rootScope','storageService','utilsFactory','$state'];
-  historialController.$inject = ['$scope','profileFactory','guidesFactory']
+  historialController.$inject = ['$scope','profileFactory','guidesFactory','commonService','$state']
   function userController($scope,Camera,$log,$ionicPopup,profileFactory,commonService,$rootScope,storageService,utilsFactory,$state) {
     //forzar salida backbutton
     $scope.$on('$ionicView.beforeEnter', function (event, viewData) {
@@ -174,7 +174,7 @@
    };
   }
 
-  function historialController($scope,profileFactory,guidesFactory){
+  function historialController($scope,profileFactory,guidesFactory,commonService,$state){
       var vm = this;
 
        //forzar salida backbutton
@@ -182,24 +182,44 @@
             viewData.enableBack = true;
         });
 
+      vm.getImage = function(img){
+          return commonService.getFileUrl(img);
+      };
 
+      vm.toLearn = function(idGuide) {
+          console.log('toLearn: ' + idGuide);
+          $state.go(
+              'app.aprender',
+              {
+                  id: idGuide
+              }
+          );
+      };
 
-        var traeAvance = profileFactory.getAvance();
+      var traeAvance = profileFactory.getAvance();
         traeAvance.then(
             function(data){
                 vm.avances = data;
                 console.log(vm.avances);
                 angular.forEach(vm.avances, function(current) {
-                    guidesFactory.getGuide(current.idGuia).then(
-                        function(guide){
-                            console.log(guide);
-                            current.titulo = guide.titulo;
-                            current.subtitulo = guide.subtitulo;
+                    console.log(current);
+                    guidesFactory.getNewGuides().then(
+                        function(guides){
+                            angular.forEach(guides, function(current2) {
+                                if(current.idGuia === current2.idGuia){
+                                    console.log(current2);
+                                    current.titulo = current2.titulo;
+                                    current.subtitulo = current2.subtitulo;
+                                    current.porcentaje = current2.avance.porcentaje;
+                                    current.pathImgPreview = current2.pathImgPreview;
+                                }
+                            });
                         },
                         function(e){
                             console.error(e);
                         }
                     );
+
                 });
 
             },

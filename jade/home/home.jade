@@ -45,7 +45,7 @@ ion-view(view-title='<span class="logo-bar-home"></span>')
       .padding.spinner-cont(ng-if="!homeCtrl.guidesLoaded")
         ion-spinner(icon="dots")
       .row.modules-list
-        .col.state-module(ng-repeat="guide in homeCtrl.guides")
+        .col.state-module(ng-repeat="guide in homeCtrl.guides", ng-click="homeCtrl.toLearn(guide.idGuia)")
           p.module-title(ng-bind="guide.titulo")
           .icon(ng-class="homeCtrl.iconEnfermedad(guide.idEnfermedad)")
           .estado
