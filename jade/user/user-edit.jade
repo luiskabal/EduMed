@@ -13,21 +13,28 @@ ion-view.myaccount.account-edit(view-title='Mi Cuenta')
           //label.item.item-input.item-stacked-label
             span.input-label Interes:
             input(type='text', placeholder='Añadir Interes')
-          label.item.item-input.item-select(ng-class="{'error':(form.selectInteres.$error.required && form.selectInteres.$touched)}")
+          label.item.item-input.item-stacked-label
+            span.input-label Nombre:
+            input(type='text', placeholder='Nombre',name="inputNombre",ng-model="user.nombre")
+          label.item.item-input.item-stacked-label
+            span.input-label Fecha de Nacimiento:
+            input(type='date', placeholder='fecha',name="inputFechaNac",ng-model="user.fechaNacimiento")
+          label.item.item-input.item-select
+            .input-label
+              | Genero:
+            select(ng-model="user.genero",ng-options="option.nombre for option in user.generos track by option.id",name="selectGenero")
+          label.item.item-input.item-select
             .input-label
               | Interes:
-            select(ng-model="user.enfermedad",ng-options="option.nombre for option in user.enfermedades track by option.id",name="selectInteres",required='')
-            span.msj-error(ng-show='form.selectInteres.$error.required && form.selectInteres.$touched') Seleccione un Interes
-          label.item.item-input.item-select(ng-class="{'error':(form.selectInstitucion.$error.required && form.selectInstitucion.$touched)}")
+            select(ng-model="user.enfermedad",ng-options="option.nombre for option in user.enfermedades track by option.id",name="selectInteres")
+          label.item.item-input.item-select
             .input-label
               | Institución:
-            select(ng-model="user.institucion",ng-options="option.nombre for option in user.instituciones track by option.id",name="selectInstitucion",required='')
-            span.msj-error(ng-show='form.selectInstitucion.$error.required && form.selectInstitucion.$touched') Seleccione una Institución
-          label.item.item-input.item-select(ng-class="{'error':(form.selectIsapre.$error.required && form.selectIsapre.$touched)}")
+            select(ng-model="user.institucion",ng-options="option.nombre for option in user.instituciones track by option.id",name="selectInstitucion")
+          label.item.item-input.item-select
             .input-label
               | Isapre:
-            select(ng-model="user.isapre",ng-options="option.nombre for option in user.isapres track by option.id",name="selectIsapre",required='')
-            span.msj-error(ng-show='form.selectIsapre.$error.required && form.selectIsapre.$touched') Seleccione una Isapre
+            select(ng-model="user.isapre",ng-options="option.nombre for option in user.isapres track by option.id",name="selectIsapre")
 
           .item
             button.button.button-full.button-energized(ng-click="user.save()")

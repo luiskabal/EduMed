@@ -14,7 +14,8 @@
             goBack : goBack,
             getResource : getResource,
             post : post,
-            uploadFile : uploadFile
+            uploadFile : uploadFile,
+            patch: patch
         };
 
         //impl
@@ -73,6 +74,26 @@
             $http({
                 url: URL_API + restUrl,
                 method: "POST",
+                data: payload,
+                headers: {'Content-Type': 'application/json'}
+            }).then(function(result){
+
+                var data = result.data;
+
+                deferred.resolve(data);
+
+            }, function(){
+                deferred.reject();
+            });
+
+            return deferred.promise;
+        }
+
+        function patch(restUrl,payload){
+            var deferred = $q.defer();
+            $http({
+                url: URL_API + restUrl,
+                method: "PATCH",
                 data: payload,
                 headers: {'Content-Type': 'application/json'}
             }).then(function(result){

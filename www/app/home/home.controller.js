@@ -60,7 +60,15 @@
         });
 
 
-
+        vm.toLearn = function(idGuide) {
+            console.log('toLearn: ' + idGuide);
+            $state.go(
+                'app.aprender',
+                {
+                    id: idGuide
+                }
+            );
+        };
 
         // scope functions
 
