@@ -13,38 +13,38 @@ ion-side-menus(enable-menu-with-back-views='true')
   ion-side-menu(side='right')
     ion-header-bar.bar-dark
       .cont-avatar
-        a(href="#/app/user",menu-close='')
+        a(href="#/app/user",menu-close-keep-history)
           .avatar
             img(ng-src="{{perfil.avatarPerfil}}",on-error-src="")
       h1.title Hola, 
         strong(ng-bind='perfil.nombre')
     ion-content.has-header
       ion-list
-        ion-item.item-icon-left.item-icon-right(menu-close='',href="#/app/home")
+        ion-item.item-icon-left.item-icon-right(menu-close-keep-history,href="#/app/home")
           i.icon.ion-android-home
           | Inicio
           i.icon.ion-ios-arrow-forward
-        ion-item.item-icon-left.item-icon-right(menu-close='',href="#/app/user")
+        ion-item.item-icon-left.item-icon-right(menu-close-keep-history,href="#/app/user")
           i.icon.ion-person
           | Mi Perfil
           i.icon.ion-ios-arrow-forward
-        ion-item.item-icon-left.item-icon-right(menu-close='',href="#/app/history-user",ng-show='perfil.tipoUsuario == "ROLE_PACIENTE"')
+        ion-item.item-icon-left.item-icon-right(menu-close-keep-history,href="#/app/history-user",ng-show='perfil.tipoUsuario == "ROLE_PACIENTE"')
           i.icon.ion-ios-paper
           | Historial de Aprendizaje
           i.icon.ion-ios-arrow-forward
-        ion-item.item-icon-left.item-icon-right(menu-close='', href="#/app/patients",ng-show='perfil.tipoUsuario != "ROLE_PACIENTE"')
+        ion-item.item-icon-left.item-icon-right(menu-close-keep-history, href="#/app/patients",ng-show='perfil.tipoUsuario != "ROLE_PACIENTE"')
           i.icon.ion-ios-paper
           | Pacientes
           i.icon.ion-ios-arrow-forward
-        ion-item.item-icon-left.item-icon-right(menu-close='', href="#/app/generate-code",ng-show='perfil.tipoUsuario != "ROLE_PACIENTE"')
+        ion-item.item-icon-left.item-icon-right(menu-close-keep-history, href="#/app/generate-code",ng-show='perfil.tipoUsuario != "ROLE_PACIENTE"')
           i.icon.ion-pound
           | Generar Código
           i.icon.ion-ios-arrow-forward
-        ion-item.item-icon-left.item-icon-right(menu-close='', href="javascript:void(0);", ng-click="cerrarSession()")
+        ion-item.item-icon-left.item-icon-right(menu-close-keep-history, href="javascript:void(0);", ng-click="cerrarSession()")
           i.icon.ion-log-out
           | Cerrar Sesion
           i.icon.ion-ios-arrow-forward
-      //ion-item.item-icon-left.item-icon-right(menu-close='',href="#/app/elements")
+      //ion-item.item-icon-left.item-icon-right(menu-close-keep-history,href="#/app/elements")
           i.icon.ion-beer
           | Elementos
           i.icon.ion-ios-arrow-forward
