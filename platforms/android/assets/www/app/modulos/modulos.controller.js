@@ -5,21 +5,31 @@
 		.module('eduMed')
 		.controller('modulosController', modulosController);
 
-	modulosController.$inject = ['$scope','$rootScope','$state','$stateParams','$ionicHistory','$log','$ionicLoading','$sce','$ionicModal','$ionicPopup','$timeout','commonService','guidesFactory'];
-	function modulosController($scope,$rootScope,$state,$stateParams,$ionicHistory,$log,$ionicLoading,$sce,$ionicModal,$ionicPopup,$timeout,commonService,guidesFactory) {
+	modulosController.$inject = ['$scope','$rootScope','$state','$stateParams','$ionicHistory','$log','$ionicLoading','$sce','$ionicModal','$ionicPopup','$timeout','commonService','guidesFactory','avancesFactory'];
+	function modulosController($scope,$rootScope,$state,$stateParams,$ionicHistory,$log,$ionicLoading,$sce,$ionicModal,$ionicPopup,$timeout,commonService,guidesFactory,avancesFactory) {
+		//forzar salida backbutton
+        $scope.$on('$ionicView.beforeEnter', function (event, viewData) {
+            viewData.enableBack = true;
+        });
+
+
 		var vm = this;
 
 		//init
+		vm.idGuide = null;
 		vm.guide = {};
 		vm.relatedGuides = [];
 		vm.selectedModule = null;
 
 
+		vm.sendedVideo= null;
+
+
 
 
 		$scope.$on('$ionicView.enter',function(e){
-			var idGuide = $stateParams.id;
-			loadGuide(idGuide);
+			vm.idGuide = $stateParams.id;
+			loadGuide(vm.idGuide);
 
 			$rootScope.goBack = commonService.goBack($ionicHistory);
 		});
@@ -29,10 +39,66 @@
 
 		// scope functions
 
-		vm.openModal = function() {
-			$log.log('comenzar test');
-			vm.modal.show();
-			console.log(vm.modal);
+		$scope.openModal = function() {
+			console.log('comenzar test');
+			$scope.selectedModule = vm.selectedModule;
+			$scope.modal.show();
+			$scope.selectedAnswers = {};
+			_.forEach(vm.selectedModule.preguntas,function(p){
+				console.log(p);
+				$scope.selectedAnswers[p.idPregunta] = null;
+			});
+
+		};
+
+		$scope.closeModal = function() {
+			console.log($scope);
+			$log.log('finalizar test');
+			console.log($scope.selectedAnswers);
+			var answers = [];
+			var invalidAnswer = false;
+			_.forEach(vm.selectedModule.preguntas,function(p){
+				if($scope.selectedAnswers[p.idPregunta]==null){
+					invalidAnswer = true;
+				}
+				answers.push({
+					"idPregunta":p.idPregunta,
+					"idRespuestaSeleccionada": $scope.selectedAnswers[p.idPregunta]
+				});
+			});
+			if(invalidAnswer){
+				console.error("invalid do validation!");
+			}else{
+				vm.sendedVideo = vm.selectedModule.idModulo;
+				avancesFactory.postAnswers(
+					vm.idGuide,
+					vm.selectedModule.idModulo,
+					answers
+				);
+				$scope.modal.hide();
+				loadGuide(vm.idGuide);
+			}
+
+
+		};
+
+		$scope.clickRadio = function(p,r){
+			$scope.selectedAnswers[p.idPregunta] = r.idRespuesta;
+		};
+
+		$scope.moduleIsComplete = function(id){
+			var modulo = vm.guide.avance.modulos[id-1];
+			return modulo && modulo.completado;
+		};
+
+		$scope.moduleIsActive = function(id){
+			var modulo = vm.guide.avance.modulos[id-1];
+			return modulo && !modulo.completado;
+		};
+
+		$scope.setSelectedModule = function(id){
+			vm.selectedModule = vm.guide.modulos[id-1];
+			setVideo(vm.selectedModule);
 		};
 
 
@@ -57,32 +123,18 @@
 
 
 
-		//$scope.setBodyClass('aprender');
-       /*
-	    $ionicLoading.show({
-            template: '<div class="edumed-loading"></div>'
-        });
-        setTimeout(function(){
-            $ionicLoading.hide();
-        }, 2000);
-		*/
-
-
 
 		// API video
 
 		vm.API = null;
 		vm.config = {
 			preload: "none",
-			sources: [
-				{src: $sce.trustAsResourceUrl("video/La_artritis_psoriasica.mp4"), type: "video/mp4"}
-			],
 			theme: {
 				url: "lib/videogular-themes-default/videogular.css"
-			},
-			plugins: {
-				poster: "video/La_artritis_psoriasica.jpg"
 			}
+			//,plugins: {
+			//	poster: "video/La_artritis_psoriasica.jpg"
+			//}
 		};
 
 		// Events video
@@ -99,46 +151,14 @@
 				vm.showConfirm(); //close the popup after 3 seconds for some reason
 			}, 600);
 
-
-			/*ngDialog.open({
-			 template: 'modules/modulos/templates/modal.html',
-			 className: '',
-			 controller: ['$scope', function($scope) {
-			 // Controller logic here
-
-			 console.log('alla');
-			 $scope.clickToClose = function() {
-			 console.log('jojo');
-			 $scope.closeThisDialog(0);
-			 //$location.path('/calendario');
-			 //Moment.addMoment( { fecha: diaSelect.toISOString(), tipo: 'estudio' } );
-			 };
-
-			 }]
-			 });*/
-		};
-
-		// Test
-		
-		vm.testRun = false;
-		vm.starTest = function() {
-			vm.testRun = true;
-			vm.API.stop();
-		};
-		vm.okTest = function() {
-			vm.testRun = false;
 		};
 
 		// init modal
 		$ionicModal.fromTemplateUrl('app/modulos/test.html', {
-			animation: 'slide-in-up'
+			animation: 'slide-in-up', scope: $scope
 		}).then(function(modal) {
-			vm.modal = modal;
+			$scope.modal = modal;
 		});
-
-		vm.clickToSave = function(){
-			console.log(123);
-		};
 
 
 
@@ -159,30 +179,56 @@
 
 		function loadActiveModule(guide){
 			var selectedModule = null;
-			if(guide.modulos){
-				_.forEach(guide.modulos,function(mod){
-					if(mod.avance && !mod.avance.completado){
-						selectedModule = mod;
+			if(vm.guide.modulos){
+				//selecciona el modulo
+				var lastComplete = 0;
+				_.forEach(vm.guide.modulos,function(mod){
+					var modulo = vm.guide.avance.modulos[mod.idModulo-1];
+					console.log(modulo && modulo.completado);
+					if(modulo && modulo.completado){
+						lastComplete++;
 					}
 				});
-				if(selectedModule==null && guide.modulos.length>0){
-					selectedModule = guide.modulos[0];
+				selectedModule = vm.guide.modulos[lastComplete];
+				if(vm.sendedVideo!=null){
+					selectedModule = vm.guide.modulos[vm.sendedVideo+1];
 				}
+
+				//id para las preguntas
+				_.forEach(selectedModule.preguntas,function(p){
+					_.forEach(p.respuestas,function(r){
+						r.idRadio = 'p'+p.idPregunta+'r'+r.idRespuesta;
+					})
+				});
+
+				console.log(selectedModule);
 			}
 			vm.selectedModule = selectedModule;
 			setVideo(vm.selectedModule);
 		}
 
+
+
 		function setVideo(modulo){
 			if(modulo==null){
 				return;
 			}
-			//video/La_artritis_psoriasica.mp4
-			var videoUrl = modulo.urlVideo.substring(0,4)==='http' ? modulo.urlVideo : commonService.getFileUrl(modulo.urlVideo);
+
+			//https://player.vimeo.com/external/190002635.sd.mp4?s=5ebff57b349ee84e07ffaa7f001009d77c96c9d9&profile_id=164
+			//var videoUrl = modulo.urlVideo.substring(0,4)==='http' ? modulo.urlVideo : commonService.getFileUrl(modulo.urlVideo);
+			var videoUrl = 'https://player.vimeo.com/external/190002635.sd.mp4?s=5ebff57b349ee84e07ffaa7f001009d77c96c9d9&profile_id=164';
+			var videoPoster = commonService.getFileUrl(modulo.pathImgPreview);
+			console.log(videoPoster);
 			vm.config.sources = [{
-				src: $sce.trustAsResourceUrl(videoUrl), type: "video/mp4"
+				src: $sce.trustAsResourceUrl(videoUrl),
+				type: "video/mp4"
 			}];
-			vm.config.plugins.poster = commonService.getFileUrl(modulo.pathImgPreview);
+			vm.config.plugins = [{
+				poster : {
+				 	url: videoPoster
+				}
+			}];
+			
 		}
 		
 		

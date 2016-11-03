@@ -10645,33 +10645,9 @@ ion-side-menu.menu {
   background: url("../img/icon/user.svg");
   margin: 0 auto;
   position: relative; }
-  .avatar:before {
-    content: "\f2d3";
-    display: none;
-    font-family: "Ionicons";
-    font-size: 20px;
-    position: absolute;
-    color: #fff;
-    bottom: -3px;
-    right: 0; }
-  .avatar:after {
-    background: url("../img/icon/spinner.svg");
-    display: block;
-    content: "";
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    top: 0;
-    left: 0;
-    /* margin-left: -65px; */
-    /* margin-top: -65px; */
-    background-position: center center;
-    background-size: 130px;
-    overflow: hidden;
-    border-radius: 50%; }
   .avatar img {
-    width: 100px;
-    height: 100px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%; }
 
 .banner-avatar {

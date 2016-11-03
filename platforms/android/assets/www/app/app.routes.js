@@ -33,14 +33,15 @@
                 url: '/suscribirse',
                 //abstract: true,
                 templateUrl: 'app/login/suscribirse.html',
-                controller: 'LoginController',
-                controllerAs: 'login'
+                controller: 'RegistrarController',
+                controllerAs: 'registrar'
             })
             .state('codigo', {
                 url: '/codigo',
                 //abstract: true,
                 templateUrl: 'app/login/ingresar-codigo.html',
-                controller: 'LoginController'
+                controller: 'RegistrarController',
+                controllerAs: 'registrar'
             })
             .state('app', {
                 url: '/app',
@@ -114,8 +115,8 @@
                 views: {
                     'menuContent': {
                         templateUrl: 'app/user/history-user.html',
-                        controller: 'userController',
-                        controllerAs: 'user'
+                        controller: 'historialController',
+                        controllerAs: 'historial'
                     }
                 }
             })
@@ -159,13 +160,13 @@
                     }
                 }
             })
-            .state('app.patient-history', {
-                url: '/patient-history',
+            .state('app.history', {
+                url: '/history/:id',
                 views: {
                     'menuContent': {
-                        templateUrl: 'app/patients/patient-history.html',
-                        controller: 'patientsController',
-                        controllerAs: 'patients'
+                        templateUrl: 'app/history/history.html',
+                        controller: 'historyController',
+                        controllerAs: 'historyCtrl'
                     }
                 }
             })
