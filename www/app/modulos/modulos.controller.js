@@ -228,7 +228,43 @@
 			};
 			
 		}
+
+		// ionic-ratings(ratingsobj='ratingsObject', index='0') 
+		//Rating
+    $scope.ratingsObject = {
+        iconOn : 'ion-ios-star',
+        iconOff : 'ion-ios-star',
+        iconOnColor: '#f7d74c',
+        iconOffColor:  '#ffffff',
+        rating:  2,
+        minRating:1,
+        callback: function(rating) {
+            $scope.ratingsCallback(rating);
+        }
+    };
+
+    $scope.ratingsCallback = function(rating) {
+        console.log('Selected rating is : ', rating);
+    };
 		
+
+		vm.showRatings = function() {
+			var confirmPopup = $ionicPopup.confirm({
+				cssClass: 'ModalCalificar',
+				scope: $scope,
+				templateUrl: 'app/modulos/pop-up.html'
+			});
+
+			confirmPopup.then(function(res) {
+				if(res) {
+					
+					console.log('llenar form');
+				} else {
+					console.log('You are not sure');
+				}
+			});
+		};
+
 		
 	}
 })();

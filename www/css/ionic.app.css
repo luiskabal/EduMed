@@ -10061,6 +10061,13 @@ a:hover {
     text-align: center;
     font-size: 14px; }
 
+.popup-container.ModalCalificar .popup {
+  width: 300px; }
+  .popup-container.ModalCalificar .popup .popup-head {
+    display: none; }
+  .popup-container.ModalCalificar .popup .icon {
+    font-size: 50px; }
+
 .loading-container.active {
   z-index: 99; }
 
@@ -10881,6 +10888,37 @@ ion-side-menu.menu {
       -ms-flex: 0 0 30px;
       flex: 0 0 30px;
       max-width: 30px; }
+
+.calificar {
+  background-color: #25b8d3;
+  background: #25b8d3;
+  background: -moz-linear-gradient(20deg, #25b8d3 50%, #27b3c4 50%, #27b3c4 50%);
+  background: -webkit-linear-gradient(20deg, #25b8d3 50%, #27b3c4 50%, #27b3c4 50%);
+  background: linear-gradient(20deg, #25b8d3 50%, #27b3c4 50%, #27b3c4 50%);
+  padding: 10px;
+  border-radius: 10px;
+  position: relative; }
+  .calificar .enfermera {
+    background: url(../img/back/hola-enfermera.png);
+    width: 100px;
+    height: 125px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    left: 5px; }
+  .calificar p {
+    color: #ffffff;
+    font-weight: normal;
+    display: block;
+    margin: 0 0 10px 0;
+    font-size: 20px; }
+    .calificar p span {
+      font-weight: bold; }
+  .calificar.calificar-icono {
+    padding-left: 110px;
+    height: 160px;
+    text-align: left;
+    margin-bottom: 20px; }
 
 .content-video {
   height: 50%;

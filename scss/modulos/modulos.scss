@@ -259,3 +259,39 @@
 		}
 	}
 }
+.calificar {
+	background-color: #25b8d3;
+	background: #25b8d3;
+	background: -moz-linear-gradient(20deg, #25b8d3 50%, #27b3c4 50%, #27b3c4 50%);
+	background: -webkit-linear-gradient(20deg, #25b8d3 50%, #27b3c4 50%, #27b3c4 50%);
+	background: linear-gradient(20deg, #25b8d3 50%, #27b3c4 50%, #27b3c4 50%);
+	padding: 10px;
+	border-radius: 10px;
+  position:relative;
+
+  .enfermera {
+    background: url(../img/back/hola-enfermera.png);
+    width: 100px;
+    height: 125px;
+    background-size: contain;
+    background-repeat:no-repeat;
+    position:absolute;
+    left: 5px;
+  }
+  p {
+    color: #ffffff;
+    font-weight: normal;
+    display: block;
+    margin: 0 0 10px 0;
+    font-size: 20px;
+    span {
+      font-weight: bold;
+    }
+  }
+  &.calificar-icono {
+    padding-left: 110px;
+    height: 160px;
+    text-align: left;
+    margin-bottom: 20px;
+  }
+}

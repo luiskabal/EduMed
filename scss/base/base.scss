@@ -159,6 +159,21 @@ a {
     text-align: center;
     font-size: 14px;
   }
+  
+}
+.popup-container {
+  &.ModalCalificar  {
+    .popup {
+      width: 300px;
+      .popup-head {
+        display: none;
+      }
+      .icon {
+        font-size: 50px;
+      }
+
+    }
+  }
 }
 
 

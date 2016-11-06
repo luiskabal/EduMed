@@ -5,6 +5,7 @@
     .module('eduMed', [
         /* Shared modules */
         'ionic',
+        'ionic-ratings',
         'com.2fdevs.videogular',
         'com.2fdevs.videogular.plugins.controls',
         'com.2fdevs.videogular.plugins.buffering',
