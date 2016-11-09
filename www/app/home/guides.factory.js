@@ -12,8 +12,13 @@
             getGuide : getGuide,
             getNewGuides : getNewGuides,
             getGuidesOfInterest : getGuidesOfInterest,
-            getRelatedGuides : getRelatedGuides
+            getRelatedGuides : getRelatedGuides,
+            setValoracion: setValoracion
         };
+
+        function setValoracion(params){
+            return commonService.post('valoracion',params);
+        }
 
         function getNewGuides(){
             return commonService.getResource('guia?latest=' + CANT_GUIDES_HOME);

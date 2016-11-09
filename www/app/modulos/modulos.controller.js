@@ -20,7 +20,7 @@
 		vm.guide = {};
 		vm.relatedGuides = [];
 		vm.selectedModule = null;
-
+		vm.rating = 1;
 
 		vm.sendedVideo= null;
 
@@ -76,10 +76,21 @@
 					answers
 				).then(function(res){
 					angular.forEach(res,function(itemResp){
-						if(itemResp.idModulo == vm.selectedModule.idModulo){
+						if(itemResp.idModulo == vm.selectedModule.idModulo && vm.guide.idGuia == itemResp.idGuia){
 							console.log(itemResp.completado);
-							$scope.modal.hide();
-							loadGuide(vm.idGuide);
+							if(itemResp.completado) {
+								$scope.modal.hide();
+								if(vm.guide.modulos.length == vm.selectedModule.idModulo){
+									vm.showRatings();
+								}
+								$scope.setSelectedModule(vm.selectedModule.idModulo);
+								loadGuide(vm.idGuide);
+								$scope.setSelectedModule(vm.selectedModule.idModulo);
+
+
+							}else{
+								$scope.modal.hide();
+							}
 						}
 					});
 				});
@@ -204,9 +215,12 @@
 					}
 				});
 				selectedModule = vm.guide.modulos[lastComplete];
-				if(vm.sendedVideo!=null){
-					selectedModule = vm.guide.modulos[vm.sendedVideo+1];
+				if(angular.isUndefined(selectedModule)){
+					selectedModule = vm.guide.modulos[0];
 				}
+				/*if(vm.sendedVideo!=null){
+					selectedModule = vm.guide.modulos[vm.sendedVideo+1];
+				}*/
 
 				//id para las preguntas
 				_.forEach(selectedModule.preguntas,function(p){
@@ -217,7 +231,9 @@
 
 				console.log(selectedModule);
 			}
-			vm.selectedModule = selectedModule;
+			if(vm.selectedModule == null) {
+				vm.selectedModule = selectedModule;
+			};
 			setVideo(vm.selectedModule);
 		}
 
@@ -259,6 +275,7 @@
 
     $scope.ratingsCallback = function(rating) {
         console.log('Selected rating is : ', rating);
+		vm.rating = rating;
     };
 		
 
@@ -271,8 +288,17 @@
 
 			confirmPopup.then(function(res) {
 				if(res) {
-					
-					console.log('llenar form');
+					var params= {};
+					params.idGuia = vm.guide.idGuia;
+					params.rating = vm.rating;
+					guidesFactory.setValoracion(params).then(
+						function(ret){
+							console.log(ret);
+						},
+						function(e){
+							console.error(e);
+						}
+					);
 				} else {
 					console.log('You are not sure');
 				}
