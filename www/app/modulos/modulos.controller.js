@@ -74,9 +74,16 @@
 					vm.idGuide,
 					vm.selectedModule.idModulo,
 					answers
-				);
-				$scope.modal.hide();
-				loadGuide(vm.idGuide);
+				).then(function(res){
+					angular.forEach(res,function(itemResp){
+						if(itemResp.idModulo == vm.selectedModule.idModulo){
+							console.log(itemResp.completado);
+							$scope.modal.hide();
+							loadGuide(vm.idGuide);
+						}
+					});
+				});
+
 			}
 
 
@@ -93,12 +100,19 @@
 
 		$scope.moduleIsActive = function(id){
 			var modulo = vm.guide.avance.modulos[id-1];
-			return modulo && !modulo.completado;
+			var indice = id-2;
+			if(indice >= 0) {
+				return modulo && !modulo.completado && (vm.guide.avance.modulos[id - 2].completado);
+			}else{
+				return modulo && !modulo.completado;
+			}
 		};
 
 		$scope.setSelectedModule = function(id){
-			vm.selectedModule = vm.guide.modulos[id-1];
-			setVideo(vm.selectedModule);
+			if(vm.guide.avance.modulos[id-1].completado || $scope.moduleIsActive(id)) {
+				vm.selectedModule = vm.guide.modulos[id - 1];
+				setVideo(vm.selectedModule);
+			}
 		};
 
 
