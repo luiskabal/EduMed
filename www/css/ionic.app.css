@@ -10046,6 +10046,9 @@ a:hover {
     font-size: 13px;
     line-height: 130%; }
 
+.backdrop {
+  background-color: rgba(255, 255, 255, 0.68) !important; }
+
 .popup-container.active .popup {
   background: #fff; }
   .popup-container.active .popup .icon {
@@ -10915,6 +10918,41 @@ ion-side-menu.menu {
     .calificar p span {
       font-weight: bold; }
   .calificar.calificar-icono {
+    padding-left: 110px;
+    height: 160px;
+    text-align: left;
+    margin-bottom: 20px; }
+
+.popup-menjase {
+  background-color: #25b8d3;
+  background: #25b8d3;
+  background: -moz-linear-gradient(20deg, #25b8d3 50%, #27b3c4 50%, #27b3c4 50%);
+  background: -webkit-linear-gradient(20deg, #25b8d3 50%, #27b3c4 50%, #27b3c4 50%);
+  background: linear-gradient(20deg, #25b8d3 50%, #27b3c4 50%, #27b3c4 50%);
+  padding: 10px;
+  border-radius: 10px;
+  position: relative; }
+  .popup-menjase .doctor {
+    background: url(../img/back/doctor.png);
+    width: 100px;
+    height: 125px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    left: 5px; }
+  .popup-menjase p {
+    color: #ffffff;
+    font-weight: normal;
+    display: block;
+    margin: 0 0 10px 0;
+    font-size: 16px;
+    line-height: 120%; }
+    .popup-menjase p span {
+      font-weight: bold;
+      font-size: 20px; }
+    .popup-menjase p.small {
+      font-size: 14px; }
+  .popup-menjase.pop-up-icono {
     padding-left: 110px;
     height: 160px;
     text-align: left;
