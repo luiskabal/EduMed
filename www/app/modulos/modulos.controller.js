@@ -90,6 +90,9 @@
 
 							}else{
 								$scope.modal.hide();
+								var alertPopup = $ionicPopup.alert({
+									templateUrl: 'app/modulos/pop-up-video-fin.html'
+								});
 							}
 						}
 					});
