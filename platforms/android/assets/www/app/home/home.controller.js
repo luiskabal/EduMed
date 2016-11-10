@@ -60,7 +60,15 @@
         });
 
 
-
+        vm.toLearn = function(idGuide) {
+            console.log('toLearn: ' + idGuide);
+            $state.go(
+                'app.aprender',
+                {
+                    id: idGuide
+                }
+            );
+        };
 
         // scope functions
 
@@ -72,6 +80,10 @@
         $scope.cerrarSession = function(){
             storageService.setToken("");
             $location.path('/login');
+        };
+
+        $scope.irPerfil = function(){
+           $state.go('app.user', {}, {reload: true});
         };
 
         // internal functions

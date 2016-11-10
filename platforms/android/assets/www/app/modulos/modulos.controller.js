@@ -20,7 +20,7 @@
 		vm.guide = {};
 		vm.relatedGuides = [];
 		vm.selectedModule = null;
-
+		vm.rating = 1;
 
 		vm.sendedVideo= null;
 
@@ -74,9 +74,30 @@
 					vm.idGuide,
 					vm.selectedModule.idModulo,
 					answers
-				);
-				$scope.modal.hide();
-				loadGuide(vm.idGuide);
+				).then(function(res){
+					angular.forEach(res,function(itemResp){
+						if(itemResp.idModulo == vm.selectedModule.idModulo && vm.guide.idGuia == itemResp.idGuia){
+							console.log(itemResp.completado);
+							if(itemResp.completado) {
+								$scope.modal.hide();
+								if(vm.guide.modulos.length == vm.selectedModule.idModulo){
+									vm.showRatings();
+								}
+								$scope.setSelectedModule(vm.selectedModule.idModulo);
+								loadGuide(vm.idGuide);
+								$scope.setSelectedModule(vm.selectedModule.idModulo);
+
+
+							}else{
+								$scope.modal.hide();
+								var alertPopup = $ionicPopup.alert({
+									templateUrl: 'app/modulos/pop-up-video-fin.html'
+								});
+							}
+						}
+					});
+				});
+
 			}
 
 
@@ -93,12 +114,19 @@
 
 		$scope.moduleIsActive = function(id){
 			var modulo = vm.guide.avance.modulos[id-1];
-			return modulo && !modulo.completado;
+			var indice = id-2;
+			if(indice >= 0) {
+				return modulo && !modulo.completado && (vm.guide.avance.modulos[id - 2].completado);
+			}else{
+				return modulo && !modulo.completado;
+			}
 		};
 
 		$scope.setSelectedModule = function(id){
-			vm.selectedModule = vm.guide.modulos[id-1];
-			setVideo(vm.selectedModule);
+			if(vm.guide.avance.modulos[id-1].completado || $scope.moduleIsActive(id)) {
+				vm.selectedModule = vm.guide.modulos[id - 1];
+				setVideo(vm.selectedModule);
+			}
 		};
 
 
@@ -190,9 +218,12 @@
 					}
 				});
 				selectedModule = vm.guide.modulos[lastComplete];
-				if(vm.sendedVideo!=null){
-					selectedModule = vm.guide.modulos[vm.sendedVideo+1];
+				if(angular.isUndefined(selectedModule)){
+					selectedModule = vm.guide.modulos[0];
 				}
+				/*if(vm.sendedVideo!=null){
+					selectedModule = vm.guide.modulos[vm.sendedVideo+1];
+				}*/
 
 				//id para las preguntas
 				_.forEach(selectedModule.preguntas,function(p){
@@ -203,7 +234,9 @@
 
 				console.log(selectedModule);
 			}
-			vm.selectedModule = selectedModule;
+			if(vm.selectedModule == null) {
+				vm.selectedModule = selectedModule;
+			};
 			setVideo(vm.selectedModule);
 		}
 
@@ -223,14 +256,58 @@
 				src: $sce.trustAsResourceUrl(videoUrl),
 				type: "video/mp4"
 			}];
-			vm.config.plugins = [{
-				poster : {
-				 	url: videoPoster
-				}
-			}];
+			vm.config.plugins = {
+				poster :  videoPoster
+			};
 			
 		}
+
+		// ionic-ratings(ratingsobj='ratingsObject', index='0') 
+		//Rating
+    $scope.ratingsObject = {
+        iconOn : 'ion-ios-star',
+        iconOff : 'ion-ios-star',
+        iconOnColor: '#f7d74c',
+        iconOffColor:  '#ffffff',
+        rating:  2,
+        minRating:1,
+        callback: function(rating) {
+            $scope.ratingsCallback(rating);
+        }
+    };
+
+    $scope.ratingsCallback = function(rating) {
+        console.log('Selected rating is : ', rating);
+		vm.rating = rating;
+    };
 		
+
+		vm.showRatings = function() {
+			var confirmPopup = $ionicPopup.confirm({
+				cssClass: 'ModalCalificar',
+				scope: $scope,
+				templateUrl: 'app/modulos/pop-up.html'
+			});
+
+			confirmPopup.then(function(res) {
+				if(res) {
+					var params= {};
+					params.idGuia = vm.guide.idGuia;
+					params.rating = vm.rating;
+					guidesFactory.setValoracion(params).then(
+						function(ret){
+							console.log(ret);
+						},
+						function(e){
+							console.error(e);
+						}
+					);
+				} else {
+					console.log('You are not sure');
+				}
+			});
+		};
+
 		
 	}
 })();

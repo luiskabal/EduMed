@@ -120,6 +120,7 @@
               },
               function (e) {
                   console.error(e);
+
               }
           );
       };
@@ -145,6 +146,10 @@
                         $rootScope.perfil = data;
                     });
                 getPerfil();
+                $state.go('app.home', {}, {reload: true});
+            }
+            ,function(e){
+                console.log("ERROR!!!!!!!!!!!");
                 $state.go('app.home', {}, {reload: true});
             }
         );
@@ -185,6 +190,10 @@
       myPopup.then(function(res) {
         console.log('Tapped!', res);
         vm.takePicture();
+      }, function(error){
+          console.log('error', error);
+      }, function(myPopup){
+          myPopup.close();
       });
 
       $timeout(function() {
@@ -205,9 +214,9 @@
       };
 
       Camera.getPicture(options).then(function(imageData) {
-          vm.perfil.avatarPerfil = imageData;
-          $rootScope.perfil.avatarPerfil = imageData;
-          storageService.setToken($rootScope.perfil.avatarPerfil);
+          vm.perfil.avatarPerfil = "data:image/jpeg;base64," + imageData;
+          $rootScope.perfil.avatarPerfil = "data:image/jpeg;base64," + imageData;
+          storageService.setAvatar($rootScope.perfil.avatarPerfil);
       }, function(err) {
           console.log(err);
       });
@@ -226,7 +235,7 @@
       Camera.getPicture(options).then(function(imageData) {
          vm.perfil.avatarPerfil = "data:image/jpeg;base64," + imageData;
          $rootScope.perfil.avatarPerfil = "data:image/jpeg;base64," + imageData;
-         storageService.setToken($rootScope.perfil.avatarPerfil);
+         storageService.setAvatar($rootScope.perfil.avatarPerfil);
       }, function(err) {
          console.log(err);
       });
