@@ -91,6 +91,7 @@
                 }
             })
             .state('app.user', {
+                cache: false,
                 url: '/user',
                 views: {
                     'menuContent': {

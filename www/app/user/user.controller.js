@@ -24,102 +24,105 @@
           "nombre": "Femenino"
       }];
 
-      var callPerfil = profileFactory.getProfile();
-      callPerfil.then(
-          function (data) {
-              vm.perfil = data;
-              console.log(data);
-              vm.nombre = data.nombre;
-              var fecha = new Date(data.fechaNacimiento);
-              fecha.setDate(fecha.getDate()+1);
-              console.log(fecha);
-              vm.fechaNacimiento = fecha;
-              console.log(vm.fechaNacimiento);
+      getPerfil();
 
-              angular.forEach(vm.generos, function(currentGenero) {
-                  if(currentGenero.id == data.genero){
-                      vm.genero = currentGenero;
-                  }
-              });
+      function getPerfil() {
+          var callPerfil = profileFactory.getProfile();
+          callPerfil.then(
+              function (data) {
+                  vm.perfil = data;
+                  console.log(data);
+                  vm.nombre = data.nombre;
+                  var fecha = new Date(data.fechaNacimiento);
+                  fecha.setDate(fecha.getDate() + 1);
+                  console.log(fecha);
+                  vm.fechaNacimiento = fecha;
+                  console.log(vm.fechaNacimiento);
 
-              vm.perfil.avatarPerfil = commonService.getFileUrl(data.avatar);
-              var traerInstitucion = commonService.getResource("resource/institucion/"+vm.perfil.idInstitucion);
-              traerInstitucion.then(
-                  function(ins){
-                        vm.perfil.institucionDescripcion = ins.nombre;
-                  },
-                  function(e){
-                      console.error(e);
-                  }
-              );
-              var traerIntereses =  commonService.getResource("resource/perfil/"+vm.perfil.id+"/intereses");
-              traerIntereses.then(
-                  function(int){
-                      vm.perfil.intereses = int._embedded.enfermedades;
+                  angular.forEach(vm.generos, function (currentGenero) {
+                      if (currentGenero.id == data.genero) {
+                          vm.genero = currentGenero;
+                      }
+                  });
 
-                      var traerEnfermedad = commonService.getResource("resource/enfermedad");
-                      traerEnfermedad.then(
-                          function(int){
-                              vm.enfermedades = int._embedded.enfermedades;
-                              console.log(vm.enfermedades);
-                              console.log(vm.perfil.intereses);
-                              angular.forEach(vm.enfermedades, function(currentInteres) {
-                                  if(currentInteres.id == vm.perfil.intereses[0].id){
-                                      vm.enfermedad = currentInteres;
-                                  }
-                              });
-                          },
-                          function(e){
-                              console.error(e);
-                          }
-                      );
-                  },
-                  function(e){
-                      console.error(e);
-                  }
-              );
+                  vm.perfil.avatarPerfil = commonService.getFileUrl(data.avatar);
+                  var traerInstitucion = commonService.getResource("resource/institucion/" + vm.perfil.idInstitucion);
+                  traerInstitucion.then(
+                      function (ins) {
+                          vm.perfil.institucionDescripcion = ins.nombre;
+                      },
+                      function (e) {
+                          console.error(e);
+                      }
+                  );
+                  var traerIntereses = commonService.getResource("resource/perfil/" + vm.perfil.id + "/intereses");
+                  traerIntereses.then(
+                      function (int) {
+                          vm.perfil.intereses = int._embedded.enfermedades;
 
-              var traeInstituciones = utilsFactory.getInstituciones();
-              traeInstituciones.then(
-                  function(data){
-                      vm.instituciones = data._embedded.institucions;
-                      angular.forEach(vm.instituciones, function(current) {
-                          if(vm.perfil.idInstitucion == current.id){
-                              vm.institucion = current;
-                          }
-                      });
+                          var traerEnfermedad = commonService.getResource("resource/enfermedad");
+                          traerEnfermedad.then(
+                              function (int) {
+                                  vm.enfermedades = int._embedded.enfermedades;
+                                  console.log(vm.enfermedades);
+                                  console.log(vm.perfil.intereses);
+                                  angular.forEach(vm.enfermedades, function (currentInteres) {
+                                      if (currentInteres.id == vm.perfil.intereses[0].id) {
+                                          vm.enfermedad = currentInteres;
+                                      }
+                                  });
+                              },
+                              function (e) {
+                                  console.error(e);
+                              }
+                          );
+                      },
+                      function (e) {
+                          console.error(e);
+                      }
+                  );
 
-                      console.log(vm.instituciones);
-                  },
-                  function(e){
-                      console.error(e);
-                  }
-              );
-              var traeIsapres = utilsFactory.getIsapres();
-              traeIsapres.then(
-                  function(data){
-                      vm.isapres = data._embedded.isapres;
-                      console.log(vm.isapres);
-                      angular.forEach(vm.isapres, function(current) {
-                          if(vm.perfil.isapre == current.nombre){
-                              vm.isapre = current;
-                          }
-                      });
-                  },
-                  function(e){
-                      console.error(e);
-                  }
-              );
+                  var traeInstituciones = utilsFactory.getInstituciones();
+                  traeInstituciones.then(
+                      function (data) {
+                          vm.instituciones = data._embedded.institucions;
+                          angular.forEach(vm.instituciones, function (current) {
+                              if (vm.perfil.idInstitucion == current.id) {
+                                  vm.institucion = current;
+                              }
+                          });
 
-              /**/
+                          console.log(vm.instituciones);
+                      },
+                      function (e) {
+                          console.error(e);
+                      }
+                  );
+                  var traeIsapres = utilsFactory.getIsapres();
+                  traeIsapres.then(
+                      function (data) {
+                          vm.isapres = data._embedded.isapres;
+                          console.log(vm.isapres);
+                          angular.forEach(vm.isapres, function (current) {
+                              if (vm.perfil.isapre == current.nombre) {
+                                  vm.isapre = current;
+                              }
+                          });
+                      },
+                      function (e) {
+                          console.error(e);
+                      }
+                  );
+
+                  /**/
 
 
-
-          },
-          function (e) {
-              console.error(e);
-          }
-      );
+              },
+              function (e) {
+                  console.error(e);
+              }
+          );
+      };
 
     vm.save = function(){
         var params= {};
@@ -134,8 +137,15 @@
         var editarPerfil = commonService.patch("perfil",params);
         editarPerfil.then(
             function(response){
-                console.log(response)
-                $state.go('app.home');
+                console.log(response);
+                getPerfil();
+                var callPerfil = profileFactory.getProfile();
+                callPerfil.then(
+                    function (data) {
+                        $rootScope.perfil = data;
+                    });
+                getPerfil();
+                $state.go('app.home', {}, {reload: true});
             }
         );
 

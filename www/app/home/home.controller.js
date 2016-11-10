@@ -82,6 +82,10 @@
             $location.path('/login');
         };
 
+        $scope.irPerfil = function(){
+           $state.go('app.user', {}, {reload: true});
+        };
+
         // internal functions
 
 
