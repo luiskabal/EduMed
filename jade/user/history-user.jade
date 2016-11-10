@@ -11,6 +11,10 @@ ion-view(view-title="Historial de Aprendizaje")
         .col
           h3(ng-bind="current.titulo")
           h4(ng-bind="current.subtitulo")
+          h5 Fecha de Inicio :
+            span(ng-bind=" current.fechaInicio | date:'dd-MM-yyyy'")
+          h5(ng-if="current.completado && current.porcentaje== 100") Fecha de Termino :
+            span(ng-bind=" current.fechaCompletado | date:'dd-MM-yyyy'")
       //.collapse( ng-click="active = !active")-//
       .collapse
         //i.icon-collapse(ng-class="{'ion-chevron-up': active, 'ion-chevron-down': !active}")
