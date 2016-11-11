@@ -248,8 +248,8 @@
 			}
 
 			//https://player.vimeo.com/external/190002635.sd.mp4?s=5ebff57b349ee84e07ffaa7f001009d77c96c9d9&profile_id=164
-			//var videoUrl = modulo.urlVideo.substring(0,4)==='http' ? modulo.urlVideo : commonService.getFileUrl(modulo.urlVideo);
-			var videoUrl = 'https://player.vimeo.com/external/190002635.sd.mp4?s=5ebff57b349ee84e07ffaa7f001009d77c96c9d9&profile_id=164';
+			var videoUrl = modulo.urlVideo.substring(0,4)==='http' ? modulo.urlVideo : commonService.getFileUrl(modulo.urlVideo);
+			//var videoUrl = 'https://player.vimeo.com/external/190002635.sd.mp4?s=5ebff57b349ee84e07ffaa7f001009d77c96c9d9&profile_id=164';
 			var videoPoster = commonService.getFileUrl(modulo.pathImgPreview);
 			console.log(videoPoster);
 			vm.config.sources = [{
