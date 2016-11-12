@@ -207,10 +207,10 @@
 						&:after {
 							content:"4";
 						}
-						.step-ok {
+						&.step-ok {
 							&:after {
-								background:darken(#6BB6D2,20);
-								border: darken(#6BB6D2,20);
+								background:darken(#6BB6D2,15);
+								border: darken(#6BB6D2,15);
 								color:#fff;
 							}
 						}
@@ -219,10 +219,10 @@
 								content:"5";
 								
 							}
-							.step-ok {
+							&.step-ok {
 								&:after {
-									background:darken(#6BB6D2,25);
-									border: darken(#6BB6D2,25);
+									background:darken(#6BB6D2,20);
+									border: darken(#6BB6D2,20);
 									color:#fff;
 								}
 							}

@@ -10858,15 +10858,15 @@ ion-side-menu.menu {
       color: #fff; }
     .module-steps .module-step:first-child + .module-step + .module-step + .module-step:after {
       content: "4"; }
-    .module-steps .module-step:first-child + .module-step + .module-step + .module-step .step-ok:after {
-      background: #3286a5;
-      border: #3286a5;
+    .module-steps .module-step:first-child + .module-step + .module-step + .module-step.step-ok:after {
+      background: #3896b8;
+      border: #3896b8;
       color: #fff; }
     .module-steps .module-step:first-child + .module-step + .module-step + .module-step + .module-step:after {
       content: "5"; }
-    .module-steps .module-step:first-child + .module-step + .module-step + .module-step + .module-step .step-ok:after {
-      background: #2c7691;
-      border: #2c7691;
+    .module-steps .module-step:first-child + .module-step + .module-step + .module-step + .module-step.step-ok:after {
+      background: #3286a5;
+      border: #3286a5;
       color: #fff; }
 
 .foot-data {
