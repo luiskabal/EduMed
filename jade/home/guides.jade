@@ -2,7 +2,7 @@ ion-view(view-title="{{ guidesCtrl.titulo }}")
   ion-content
     label.item.item-input
       i.icon.ion-search.placeholder-icon
-      input(type='text', placeholder='Buscar Guías')
+      input(type='text', placeholder='Buscar Guías', ng-model="guidesCtrl.textSearch")
     
     ion-list
       ion-item.item-module(ng-repeat="g in guidesCtrl.guides",ng-click="guidesCtrl.toLearn(g.idGuia)")

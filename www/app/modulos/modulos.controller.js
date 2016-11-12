@@ -82,6 +82,12 @@
 								$scope.modal.hide();
 								if(vm.guide.modulos.length == vm.selectedModule.idModulo){
 									vm.showRatings();
+								}else{
+									var alertPopup = $ionicPopup.alert({
+										cssClass: 'ModalMensaje',
+										scope: $scope,
+										templateUrl: 'app/modulos/pop-up-mensaje-ok.html'
+									});
 								}
 								$scope.setSelectedModule(vm.selectedModule.idModulo);
 								loadGuide(vm.idGuide);
