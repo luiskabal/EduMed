@@ -10951,6 +10951,14 @@ ion-side-menu.menu {
     background-repeat: no-repeat;
     position: absolute;
     left: 5px; }
+  .popup-menjase .icon-ok {
+    background: url(../img/icon/icono_ok.png);
+    width: 80px;
+    height: 80px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    left: 5px; }
   .popup-menjase p {
     color: #ffffff;
     font-weight: normal;

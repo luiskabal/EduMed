@@ -28,7 +28,7 @@
       var confirmPopup = $ionicPopup.confirm({
         cssClass: 'ModalMensaje',
 				scope: $scope,
-				templateUrl: 'app/modulos/pop-up-mensaje-error.html'
+				templateUrl: 'app/modulos/pop-up-mensaje-ok.html'
       });
 
       confirmPopup.then(function(res) {
