@@ -91,7 +91,9 @@
 							}else{
 								$scope.modal.hide();
 								var alertPopup = $ionicPopup.alert({
-									templateUrl: 'app/modulos/pop-up-video-fin.html'
+									cssClass: 'ModalMensaje',
+									scope: $scope,
+									templateUrl: 'app/modulos/pop-up-mensaje-error.html'
 								});
 							}
 						}
@@ -133,8 +135,10 @@
 		//Comenzar cuestionario ?
 		vm.showConfirm = function() {
 			var confirmPopup = $ionicPopup.confirm({
+				cssClass: 'ModalMensaje',
 				title: vm.guide.titulo,
-				template: 'has terminado el video de este módulo. ¿Quieres comenzar a responder el test de esté modulo?'
+				//template: 'has terminado el video de este módulo. ¿Quieres comenzar a responder el test de esté modulo?'
+				templateUrl: 'app/modulos/pop-up-video-fin.html'
 			});
 
 			confirmPopup.then(function(res) {

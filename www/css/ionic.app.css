@@ -10892,6 +10892,9 @@ ion-side-menu.menu {
       flex: 0 0 30px;
       max-width: 30px; }
 
+.popup-container.ModalMensaje .popup {
+  width: 300px; }
+
 .calificar {
   background-color: #25b8d3;
   background: #25b8d3;
@@ -10940,6 +10943,14 @@ ion-side-menu.menu {
     background-repeat: no-repeat;
     position: absolute;
     left: 5px; }
+  .popup-menjase .error {
+    background: url(../img/icon/icono_error.png);
+    width: 80px;
+    height: 80px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    left: 5px; }
   .popup-menjase p {
     color: #ffffff;
     font-weight: normal;
@@ -10954,7 +10965,12 @@ ion-side-menu.menu {
       font-size: 14px; }
   .popup-menjase.pop-up-icono {
     padding-left: 110px;
-    height: 160px;
+    height: auto;
+    text-align: left;
+    margin-bottom: 20px; }
+  .popup-menjase.pop-up-icono-small {
+    padding-left: 100px;
+    height: auto;
     text-align: left;
     margin-bottom: 20px; }
 

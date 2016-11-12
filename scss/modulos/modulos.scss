@@ -259,6 +259,14 @@
 		}
 	}
 }
+//popup-container  popup-showing active
+.popup-container {
+	&.ModalMensaje {
+		.popup {
+			width: 300px;
+		}
+	}
+}
 .calificar {
 	background-color: #25b8d3;
 	background: #25b8d3;
@@ -304,7 +312,8 @@
 	padding: 10px;
 	border-radius: 10px;
   position:relative;
-
+	
+	
   .doctor {
     background: url(../img/back/doctor.png);
     width: 100px;
@@ -314,6 +323,16 @@
     position:absolute;
     left: 5px;
   }
+	.error {
+    background: url(../img/icon/icono_error.png);
+    width: 80px;
+    height: 80px;
+    background-size: contain;
+    background-repeat:no-repeat;
+    position:absolute;
+    left: 5px;
+  }
+	
   p {
     color: #ffffff;
     font-weight: normal;
@@ -331,7 +350,14 @@
   }
   &.pop-up-icono {
     padding-left: 110px;
-    height: 160px;
+    height: auto;
+    text-align: left;
+    margin-bottom: 20px;
+  }
+	&.pop-up-icono-small {
+    padding-left: 100px;
+
+    height: auto;
     text-align: left;
     margin-bottom: 20px;
   }

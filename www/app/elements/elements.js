@@ -5,8 +5,8 @@
     .module('eduMed')
     .controller('elementsController', elementsController);
 
-  elementsController.$inject = ['$log','$ionicPopup','$ionicLoading'];
-  function elementsController($log,$ionicPopup,$ionicLoading) {
+  elementsController.$inject = ['$log','$ionicPopup','$ionicLoading','$scope'];
+  function elementsController($log,$ionicPopup,$ionicLoading, $scope) {
     var vm = this;
     
     $log.log('elements');
@@ -26,8 +26,9 @@
 
     vm.showConfirm = function() {
       var confirmPopup = $ionicPopup.confirm({
-        title: '<i class="icon ion-ios-checkmark-outline"></i>',
-        template: 'Are you sure you want to eat this ice cream?'
+        cssClass: 'ModalMensaje',
+				scope: $scope,
+				templateUrl: 'app/modulos/pop-up-mensaje-error.html'
       });
 
       confirmPopup.then(function(res) {
