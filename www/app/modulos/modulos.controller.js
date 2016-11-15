@@ -121,12 +121,16 @@
 		};
 
 		$scope.moduleIsActive = function(id){
-			var modulo = vm.guide.avance.modulos[id-1];
-			var indice = id-2;
-			if(indice >= 0) {
-				return modulo && !modulo.completado && (vm.guide.avance.modulos[id - 2].completado);
+			if(angular.isUndefined($rootScope.perfil) || $rootScope.perfil.tipoUsuario !== "ROLE_DOCTOR") {
+				var modulo = vm.guide.avance.modulos[id - 1];
+				var indice = id - 2;
+				if (indice >= 0) {
+					return modulo && !modulo.completado && (vm.guide.avance.modulos[id - 2].completado);
+				} else {
+					return modulo && !modulo.completado;
+				}
 			}else{
-				return modulo && !modulo.completado;
+				return true;
 			}
 		};
 
