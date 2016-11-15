@@ -9,7 +9,7 @@ ion-view.ion-view-login(hide-nav-bar='true')
           form(name='form')
             label.item.item-input.item-stacked-label(ng-class="{'error':(form.inputUser.$error.required && form.inputUser.$touched) || (!form.inputUser.$error.required && form.inputUser.$touched && form.inputUser.$error.email) }")
               span.input-label E-mail:
-              input(type='email', placeholder='mail@mail.com',name='inputUser',ng-model='login.user', required='')
+              input(type='email', placeholder='mail@mail.com',name='inputUser',ng-model='login.user', required='',autocomplete='off')
               span.msj-error(ng-show='form.inputUser.$error.required && form.inputUser.$touched') Ingrese un E-mail
               span.msj-error(ng-show='!form.inputUser.$error.required && form.inputUser.$touched && form.inputUser.$error.email') E-mail no valido
             label.item.item-input.item-stacked-label(ng-class="{'error':(form.inputPassword.$error.required && form.inputPassword.$touched) || (!form.inputPassword.$error.required && login.errorLogin)}")
