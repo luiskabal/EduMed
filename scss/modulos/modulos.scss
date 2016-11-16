@@ -261,9 +261,14 @@
 }
 //popup-container  popup-showing active
 .popup-container {
-	&.ModalMensaje {
+	&.ModalMensaje {		
 		.popup {
 			width: 300px;
+			background-color: transparent;
+			padding: 0;
+			.popup-body {
+				padding: 0;
+			}
 		}
 	}
 }

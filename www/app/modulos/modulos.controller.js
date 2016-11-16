@@ -189,6 +189,7 @@
 		vm.onCompleteVideo = function() {
 			console.log("on complete 1");
 			//vm.modal.show();
+			vm.API.toggleFullScreen();
 			$timeout(function() {
 				vm.showConfirm(); //close the popup after 3 seconds for some reason
 			}, 600);
