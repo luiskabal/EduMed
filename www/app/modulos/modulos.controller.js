@@ -138,9 +138,14 @@
 			if(vm.guide.avance.modulos[id-1].completado || $scope.moduleIsActive(id)) {
 				vm.selectedModule = vm.guide.modulos[id - 1];
 				setVideo(vm.selectedModule);
+				var selectedModule = vm.selectedModule;
+				_.forEach(selectedModule.preguntas,function(p){
+					_.forEach(p.respuestas,function(r){
+						r.idRadio = 'p'+p.idPregunta+'r'+r.idRespuesta;
+					})
+				});
 			}
 		};
-
 
 		//Comenzar cuestionario ?
 		vm.showConfirm = function() {
@@ -274,10 +279,10 @@
 			vm.config.plugins = {
 				poster :  videoPoster
 			};
-			
+
 		}
 
-		// ionic-ratings(ratingsobj='ratingsObject', index='0') 
+		// ionic-ratings(ratingsobj='ratingsObject', index='0')
 		//Rating
     $scope.ratingsObject = {
         iconOn : 'ion-ios-star',
@@ -295,7 +300,7 @@
         console.log('Selected rating is : ', rating);
 		vm.rating = rating;
     };
-		
+
 
 		vm.showRatings = function() {
 			var confirmPopup = $ionicPopup.confirm({
@@ -323,6 +328,6 @@
 			});
 		};
 
-		
+
 	}
 })();
