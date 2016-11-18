@@ -3,12 +3,12 @@ ion-view(view-title="Historial de Paciente")
     .banner-avatar(id="detalle-header3")
       .cont-avatar
         .avatar
-          img(ng-src="{{ historyCtrl.getImage(historyCtrl.user.avatar) }}")
+          img(ng-src="http://ec2-107-21-84-195.compute-1.amazonaws.com:8080/api/file/pathAvatar")
         h4(ng-bind="historyCtrl.user.nombre")
     
     .item.modulo-history(ng-repeat="h in historyCtrl.hist.active")
       .collapse( ng-click="active = !active") 
-        i.icon-collapse(ng-class="{'ion-chevron-up': active, 'ion-chevron-down': !active}")
+        i.icon-collapse
         p Guía Actual
         h3(ng-bind="h.nombreGuia")
         h4(ng-bind="h.nombreModulo")
@@ -16,7 +16,7 @@ ion-view(view-title="Historial de Paciente")
           span {{h.porcentaje}}%
           .progress-porcent(ng-style="{ 'width': h.porcentaje + '%' }")
           
-      .row.info-history(ng-show="active")
+      //.row.info-history(ng-show="active")
         .col
           span Completado
           span.porcent 3
