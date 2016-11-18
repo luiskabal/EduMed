@@ -82,6 +82,12 @@
 								$scope.modal.hide();
 								if(vm.guide.modulos.length == vm.selectedModule.idModulo){
 									vm.showRatings();
+								}else{
+									var alertPopup = $ionicPopup.alert({
+										cssClass: 'ModalMensaje',
+										scope: $scope,
+										templateUrl: 'app/modulos/pop-up-mensaje-ok.html'
+									});
 								}
 								$scope.setSelectedModule(vm.selectedModule.idModulo);
 								loadGuide(vm.idGuide);
@@ -91,7 +97,9 @@
 							}else{
 								$scope.modal.hide();
 								var alertPopup = $ionicPopup.alert({
-									templateUrl: 'app/modulos/pop-up-video-fin.html'
+									cssClass: 'ModalMensaje',
+									scope: $scope,
+									templateUrl: 'app/modulos/pop-up-mensaje-error.html'
 								});
 							}
 						}
@@ -113,12 +121,16 @@
 		};
 
 		$scope.moduleIsActive = function(id){
-			var modulo = vm.guide.avance.modulos[id-1];
-			var indice = id-2;
-			if(indice >= 0) {
-				return modulo && !modulo.completado && (vm.guide.avance.modulos[id - 2].completado);
+			if(angular.isUndefined($rootScope.perfil) || $rootScope.perfil.tipoUsuario !== "ROLE_DOCTOR") {
+				var modulo = vm.guide.avance.modulos[id - 1];
+				var indice = id - 2;
+				if (indice >= 0) {
+					return modulo && !modulo.completado && (vm.guide.avance.modulos[id - 2].completado);
+				} else {
+					return modulo && !modulo.completado;
+				}
 			}else{
-				return modulo && !modulo.completado;
+				return true;
 			}
 		};
 
@@ -133,8 +145,10 @@
 		//Comenzar cuestionario ?
 		vm.showConfirm = function() {
 			var confirmPopup = $ionicPopup.confirm({
+				cssClass: 'ModalMensaje',
 				title: vm.guide.titulo,
-				template: 'has terminado el video de este módulo. ¿Quieres comenzar a responder el test de esté modulo?'
+				//template: 'has terminado el video de este módulo. ¿Quieres comenzar a responder el test de esté modulo?'
+				templateUrl: 'app/modulos/pop-up-video-fin.html'
 			});
 
 			confirmPopup.then(function(res) {
@@ -175,6 +189,7 @@
 		vm.onCompleteVideo = function() {
 			console.log("on complete 1");
 			//vm.modal.show();
+			vm.API.toggleFullScreen();
 			$timeout(function() {
 				vm.showConfirm(); //close the popup after 3 seconds for some reason
 			}, 600);
@@ -248,8 +263,8 @@
 			}
 
 			//https://player.vimeo.com/external/190002635.sd.mp4?s=5ebff57b349ee84e07ffaa7f001009d77c96c9d9&profile_id=164
-			//var videoUrl = modulo.urlVideo.substring(0,4)==='http' ? modulo.urlVideo : commonService.getFileUrl(modulo.urlVideo);
-			var videoUrl = 'https://player.vimeo.com/external/190002635.sd.mp4?s=5ebff57b349ee84e07ffaa7f001009d77c96c9d9&profile_id=164';
+			var videoUrl = modulo.urlVideo.substring(0,4)==='http' ? modulo.urlVideo : commonService.getFileUrl(modulo.urlVideo);
+			//var videoUrl = 'https://player.vimeo.com/external/190002635.sd.mp4?s=5ebff57b349ee84e07ffaa7f001009d77c96c9d9&profile_id=164';
 			var videoPoster = commonService.getFileUrl(modulo.pathImgPreview);
 			console.log(videoPoster);
 			vm.config.sources = [{

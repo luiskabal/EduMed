@@ -30,6 +30,9 @@
         },
         "ionic-plugin-keyboard": {
             "PACKAGE_NAME": "com.ionicframework.edumed302569"
+        },
+        "cordova-plugin-fullscreen": {
+            "PACKAGE_NAME": "com.ionicframework.edumed302569"
         }
     },
     "dependent_plugins": {

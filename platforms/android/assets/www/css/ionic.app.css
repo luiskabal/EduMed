@@ -10683,6 +10683,8 @@ ion-side-menu.menu {
     width: 100px;
     height: 100px;
     border-radius: 50%; }
+    .avatar img[on-error-src] {
+      display: none; }
 
 .banner-avatar {
   height: 150px;
@@ -10858,15 +10860,15 @@ ion-side-menu.menu {
       color: #fff; }
     .module-steps .module-step:first-child + .module-step + .module-step + .module-step:after {
       content: "4"; }
-    .module-steps .module-step:first-child + .module-step + .module-step + .module-step .step-ok:after {
-      background: #3286a5;
-      border: #3286a5;
+    .module-steps .module-step:first-child + .module-step + .module-step + .module-step.step-ok:after {
+      background: #3896b8;
+      border: #3896b8;
       color: #fff; }
     .module-steps .module-step:first-child + .module-step + .module-step + .module-step + .module-step:after {
       content: "5"; }
-    .module-steps .module-step:first-child + .module-step + .module-step + .module-step + .module-step .step-ok:after {
-      background: #2c7691;
-      border: #2c7691;
+    .module-steps .module-step:first-child + .module-step + .module-step + .module-step + .module-step.step-ok:after {
+      background: #3286a5;
+      border: #3286a5;
       color: #fff; }
 
 .foot-data {
@@ -10891,6 +10893,13 @@ ion-side-menu.menu {
       -ms-flex: 0 0 30px;
       flex: 0 0 30px;
       max-width: 30px; }
+
+.popup-container.ModalMensaje .popup {
+  width: 300px;
+  background-color: transparent;
+  padding: 0; }
+  .popup-container.ModalMensaje .popup .popup-body {
+    padding: 0; }
 
 .calificar {
   background-color: #25b8d3;
@@ -10940,6 +10949,22 @@ ion-side-menu.menu {
     background-repeat: no-repeat;
     position: absolute;
     left: 5px; }
+  .popup-menjase .error {
+    background: url(../img/icon/icono_error.png);
+    width: 80px;
+    height: 80px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    left: 5px; }
+  .popup-menjase .icon-ok {
+    background: url(../img/icon/icono_ok.png);
+    width: 80px;
+    height: 80px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    left: 5px; }
   .popup-menjase p {
     color: #ffffff;
     font-weight: normal;
@@ -10954,22 +10979,29 @@ ion-side-menu.menu {
       font-size: 14px; }
   .popup-menjase.pop-up-icono {
     padding-left: 110px;
-    height: 160px;
+    height: auto;
+    text-align: left;
+    margin-bottom: 20px; }
+  .popup-menjase.pop-up-icono-small {
+    padding-left: 100px;
+    height: auto;
     text-align: left;
     margin-bottom: 20px; }
 
 .content-video {
-  height: 50%;
-  height: 50vh;
-  overflow: hidden; }
-
-.videogular-container {
-  width: 100%;
-  height: 320px;
-  height: 50%;
-  height: 50vh;
-  margin: auto;
-  overflow: hidden; }
+  overflow: hidden;
+  position: relative; }
+  .content-video:before {
+    display: block;
+    content: "";
+    width: 100%;
+    padding-top: 56.25%; }
+  .content-video > videogular {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0; }
 
 videogular vg-poster img.stop, [videogular] vg-poster img.stop {
   display: block;

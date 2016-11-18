@@ -50,6 +50,7 @@
                 controller: 'homeController'
             })
             .state('app.home', {
+                cache: false,
                 url: '/home',
                 views: {
                     'menuContent': {
@@ -112,6 +113,7 @@
                 }
             })
             .state('app.history-user', {
+                cache: false,
                 url: '/history-user',
                 views: {
                     'menuContent': {
@@ -162,6 +164,7 @@
                 }
             })
             .state('app.history', {
+                cache: false,
                 url: '/history/:id',
                 views: {
                     'menuContent': {

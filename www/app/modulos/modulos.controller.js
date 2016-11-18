@@ -181,6 +181,14 @@
 
 		// Events video
 
+		
+		vm.hasBeenPlayed = false;
+
+		vm.onUpdateState = function($state) {
+				if ($state === 'play') vm.hasBeenPlayed = true;
+		};
+		
+
 		vm.onPlayerReady = function(API) {
 			console.log(API);
 			vm.API = API;
