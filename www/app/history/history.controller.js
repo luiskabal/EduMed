@@ -26,7 +26,8 @@
 
         $scope.$on('$ionicView.enter',function(e){
             var idUser = $stateParams.id;
-            loadProfile();
+            loadPatients(idUser);
+
             loadHistory(idUser);
 
             $rootScope.goBack = commonService.goBack($ionicHistory);
@@ -48,6 +49,22 @@
                 function(e){
                     console.error(e);
                 }
+            );
+        }
+
+        function loadPatients(idUser){
+            profileFactory.getPatients().then(
+                function(patients){
+                    //console.log(patients);
+                    angular.forEach(patients,function(item){
+                        if(item.paciente.id==idUser) {
+                            vm.user = item.paciente;
+                        }
+                        //vm.user =
+                    });
+                    //vm.patients = patients;
+                },
+                function(e){ console.error(e); }
             );
         }
 
