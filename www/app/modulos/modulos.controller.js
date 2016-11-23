@@ -23,6 +23,7 @@
 		vm.rating = 1;
 
 		vm.sendedVideo= null;
+		vm.mensajeFinalVideo=false;
 
 
 
@@ -135,6 +136,7 @@
 		};
 
 		$scope.setSelectedModule = function(id){
+			vm.mensajeFinalVideo = false;
 			if(vm.guide.avance.modulos[id-1].completado || $scope.moduleIsActive(id)) {
 				vm.selectedModule = vm.guide.modulos[id - 1];
 				setVideo(vm.selectedModule);
@@ -204,7 +206,8 @@
 			//vm.modal.show();
 			vm.API.toggleFullScreen();
 			$timeout(function() {
-				vm.showConfirm(); //close the popup after 3 seconds for some reason
+				//vm.showConfirm(); //close the popup after 3 seconds for some reason
+				vm.mensajeFinalVideo = true;
 			}, 600);
 
 		};
