@@ -264,13 +264,73 @@
               }
           );
       };
-
+      vm.avances = [];
+      vm.temporal = [];
+      vm.temporal2 = [];
       var traeAvance = profileFactory.getAvance();
         traeAvance.then(
             function(data){
-                vm.avances = data;
+                //vm.avances = data;
+                console.log(data);
+                angular.forEach(data, function (d) {
+                    if(angular.isUndefined(vm.temporal[d.idGuia])){
+                        vm.temporal[d.idGuia] = {};
+                        vm.temporal[d.idGuia].porcentaje = 0;
+                    }
+
+                    if(angular.isUndefined(vm.temporal[d.idGuia].fechaInicio)){
+                        vm.temporal[d.idGuia].fechaInicio = d.fechaInicio;
+                    }
+                    vm.temporal[d.idGuia].fechaCompletado = d.fechaCompletado;
+                    if(angular.isUndefined(vm.temporal[d.idGuia])){
+                        vm.temporal[d.idGuia].porcentaje = {};
+                    }
+                    vm.temporal[d.idGuia].porcentaje += d.porcentaje;
+                    vm.temporal[d.idGuia].idGuia = d.idGuia;
+                    vm.temporal[d.idGuia].completado = d.completado;
+                });
+                console.log(vm.temporal);
+                /*for(var i = 0; i < vm.temporal.length; i++){
+                    console.log(vm.temporal[i]);
+
+                }*/
+                for (var key in vm.temporal) {
+                    if (vm.temporal.hasOwnProperty(key)){
+                        vm.temporal2.push(vm.temporal[key]);
+                    }
+                }
+                angular.forEach(vm.temporal2, function (item) {
+                    guidesFactory.getGuide(item.idGuia).then(
+                        function(guide){
+                            console.log(guide);
+                            var avance = {};
+                            avance.titulo = guide.titulo;
+                            avance.subtitulo = guide.subtitulo;
+                            avance.pathImgPreview = guide.pathImgPreview;
+                            avance.totalModulos = guide.modulos.length;
+                            avance.porcentaje = item.porcentaje/guide.modulos.length;
+                            avance.fechaInicio = item.fechaInicio;
+                            avance.idGuia = item.idGuia;
+                            avance.fechaCompletado = item.fechaCompletado;
+                            avance.completado = item.completado;
+                            /*angular.forEach(guide.modulos, function(modulo) {
+                                if(avance.idModulo == modulo.idModulo) {
+                                    //avance.pathImgPreview = modulo.pathImgPreview;
+                                    //avance.titulo = guide.titulo +'-'+modulo.titulo;
+                                    //avance.subtitulo = modulo.subtitulo;
+                                    //avance.porcentaje = current2.avance.porcentaje;
+
+                                }
+                            });*/
+                            vm.avances.push(avance);
+                        },
+                        function(e){
+                            console.error(e);
+                        }
+                    );
+                });
                 console.log(vm.avances);
-                angular.forEach(vm.avances, function(current) {
+                /*angular.forEach(vm.avances, function(current) {
                     console.log(current);
                     guidesFactory.getNewGuides().then(
                         function(guides){
@@ -289,7 +349,7 @@
                         }
                     );
 
-                });
+                });*/
 
             },
             function(e){

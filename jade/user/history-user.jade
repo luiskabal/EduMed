@@ -4,7 +4,7 @@ ion-view(view-title="Historial de Aprendizaje")
       .mensaje.error(ng-show="historial.avances === undefined || historial.avances.length == 0")
         .icono
         p Aun no viste ningun contenido de Aprendizaje
-    .item.item-module.modulo-history(ng-repeat="current in historial.avances | unique: 'idGuia' ",ng-click="historial.toLearn(current.idGuia)")
+    .item.item-module.modulo-history(ng-repeat="current in historial.avances | orderBy : '-porcentaje' ",ng-click="historial.toLearn(current.idGuia)")
       .module.row
         .col
           img.full-image(ng-src="{{ historial.getImage(current.pathImgPreview) }}")

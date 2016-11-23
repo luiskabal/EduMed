@@ -9,9 +9,9 @@ ion-view(view-title="Historial de Paciente")
     .item.modulo-history(ng-repeat="h in historyCtrl.hist.active")
       .collapse( ng-click="active = !active") 
         i.icon-collapse
-        p Guía Actual
-        h3(ng-bind="h.nombreGuia")
-        h4(ng-bind="h.nombreModulo")
+        <!--p Guía Actual-->
+        h3(ng-bind="h.titulo")
+        h4(ng-bind="h.subtitulo")
         .cont-progress
           span {{h.porcentaje}}%
           .progress-porcent(ng-style="{ 'width': h.porcentaje + '%' }")
@@ -34,18 +34,18 @@ ion-view(view-title="Historial de Paciente")
         
       
     h3.title-bg.tcenter Guías Completadas
-    .item.modulo-history.modulo-history-small(ng-repeat="h in historyCtrl.hist.completed")
-      h3(ng-bind="h.nombreGuia")
-      h4(ng-bind="h.nombreModulo")
+    .item.modulo-history.modulo-history-small(ng-repeat="h in historyCtrl.hist.completed | unique: 'idGuia'")
+      h3(ng-bind="h.titulo")
+      h4(ng-bind="h.subtitulo")
       .row.foot-data
         .col
           i.icon.ion-android-calendar
         .col
           span 
             strong Inicio: 
-            | 24/06/2016 
+            | {{current.fechaInicio | date:'dd-MM-yyyy'"}}
         
           span 
             strong Fin:  
-            | 28/06/2016
-      
+            | {{current.fechaCompletado | date:'dd-MM-yyyy'"}}
+
