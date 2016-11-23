@@ -136,6 +136,7 @@
 		};
 
 		$scope.setSelectedModule = function(id){
+			vm.mensajeFinalVideo = false;
 			if(vm.guide.avance.modulos[id-1].completado || $scope.moduleIsActive(id)) {
 				vm.selectedModule = vm.guide.modulos[id - 1];
 				setVideo(vm.selectedModule);
