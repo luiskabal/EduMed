@@ -18,13 +18,13 @@
 
             if (window.StatusBar) {
                 // org.apache.cordova.statusbar required
-                StatusBar.styleLightContent();
+                //StatusBar.styleLightContent();
+                StatusBar.hide();
+                ionic.Platform.fullScreen();
             }
 
             ionic.Platform.fullScreen();
-            if (window.StatusBar) {
-                return StatusBar.hide();
-            }
+            
         });
     }
 })();

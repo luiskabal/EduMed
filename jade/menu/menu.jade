@@ -15,7 +15,7 @@ ion-side-menus(enable-menu-with-back-views='true')
       .cont-avatar
         a(href="#/app/user",menu-close-keep-history)
           .avatar
-            img(ng-src="{{perfil.avatarPerfil}}",on-error-src="")
+            img(ng-src="{{perfil.avatarPerfil}}",on-error-src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=")
       h1.title Hola, 
         strong(ng-bind='perfil.nombre')
     ion-content.has-header

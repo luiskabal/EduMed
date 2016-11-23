@@ -11,10 +11,14 @@
     function LoginController($scope,$log,$location,loginFactory,storageService,profileFactory,$rootScope,$ionicPopup,$ionicLoading,commonService) {
         var vm = this;
 
-        ionic.Platform.ready(function() {
-            // hide the status bar using the StatusBar plugin
-            StatusBar.hide();
-        });
+        if (ionic.Platform.isAndroid()) {
+            window.addEventListener("native.hidekeyboard", function () {
+            //show stuff on keyboard hide
+             StatusBar.hide();
+                window.AndroidFullScreen.immersiveMode(false, false);
+            });
+        }
+        
         vm.errorLogin = false;
             if (!angular.isUndefined(storageService.getToken())) {
                 showLoading();

@@ -29,8 +29,20 @@ ion-view(view-title="{{moduleCtrl.guide.titulo}}")
                       ng-class="{'step-ok': moduleIsComplete(mod.idModulo) , 'active': moduleIsActive(mod.idModulo) }")
 
           h2.title-view(ng-bind="moduleCtrl.guide.titulo",ng-click="moduleCtrl.showConfirm()")
+          .mensaje-final-video(ng-show="moduleCtrl.mensajeFinalVideo")
+            .popup-menjase.pop-up-icono
+              .doctor
+              p.small Terminaste de ver el video.
+              p 
+                |Completa el 
+                span Cuestionario  
+                |para 
+                span continuar 
+                | con los 
+                br
+                |siguientes 
+                span videos 
           .item
             button.button.button-full.button-positive(type='submit', ng-click='openModal()')
               | Comenzar Test
-    div(ng-show="moduleCtrl.mensajeFinalVideo")
-      span ejemplo
+   
