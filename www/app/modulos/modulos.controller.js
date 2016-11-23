@@ -23,6 +23,7 @@
 		vm.rating = 1;
 
 		vm.sendedVideo= null;
+		vm.mensajeFinalVideo=false;
 
 
 
@@ -204,7 +205,8 @@
 			//vm.modal.show();
 			vm.API.toggleFullScreen();
 			$timeout(function() {
-				vm.showConfirm(); //close the popup after 3 seconds for some reason
+				//vm.showConfirm(); //close the popup after 3 seconds for some reason
+				vm.mensajeFinalVideo = true;
 			}, 600);
 
 		};
