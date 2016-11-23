@@ -4,7 +4,6 @@ ion-view(view-title="{{moduleCtrl.guide.titulo}}")
       videogular(vg-player-ready='moduleCtrl.onPlayerReady($API)',
               vg-theme='moduleCtrl.config.theme.url',
               vg-complete='moduleCtrl.onCompleteVideo()',
-              vg-native-fullscreen="false",
               vg-update-state="moduleCtrl.onUpdateState($state)")
         vg-media(vg-src='moduleCtrl.config.sources', vg-native-controls='false')
         vg-overlay-play

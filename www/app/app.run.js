@@ -20,6 +20,11 @@
                 // org.apache.cordova.statusbar required
                 StatusBar.styleLightContent();
             }
+
+            ionic.Platform.fullScreen();
+            if (window.StatusBar) {
+                return StatusBar.hide();
+            }
         });
     }
 })();

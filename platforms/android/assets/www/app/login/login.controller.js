@@ -11,6 +11,10 @@
     function LoginController($scope,$log,$location,loginFactory,storageService,profileFactory,$rootScope,$ionicPopup,$ionicLoading,commonService) {
         var vm = this;
 
+        ionic.Platform.ready(function() {
+            // hide the status bar using the StatusBar plugin
+            StatusBar.hide();
+        });
         vm.errorLogin = false;
             if (!angular.isUndefined(storageService.getToken())) {
                 showLoading();
