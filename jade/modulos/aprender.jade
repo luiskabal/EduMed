@@ -3,7 +3,7 @@ ion-view(view-title="Aprender")
     .item.item-module.module-big
       .module.row
         .col.col-33.video(ng-click="aprenderCtrl.toContent(aprenderCtrl.guide.idGuia)")
-          img.full-image(ng-src="{{ aprenderCtrl.getImage() }}")
+          img.full-image(ng-src="{{ aprenderCtrl.getImage() }}", on-error-src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=")
         .col.modulo-info
           h3(ng-bind="aprenderCtrl.guide.titulo")
           h4(ng-bind="aprenderCtrl.guide.subtitulo")

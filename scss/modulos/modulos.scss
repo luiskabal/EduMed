@@ -112,7 +112,8 @@
 		position:relative;
 		font-size:14px;
 		text-align:center;
-        padding: 30px 0 0 0;
+    padding: 0;
+		height: 25px;
 		&:before {
 			content:"";
 			display:block;
@@ -139,11 +140,29 @@
 			color: #FFFFFF;
 			
 		}
-        span {
-            font-size: 12px;
-            line-height: 100%;
-            display: inline-block;
-        }
+		span {
+				font-size: 12px;
+				line-height: 100%;
+				display: inline-block;
+		}
+		&.actual {
+			position: relative;
+			span {
+				display: block;
+				
+					width: 50px;
+					height: 50px;
+					position: absolute;
+					top: 50%;
+					left: 50%;
+					margin-top: -25px;
+					margin-left: -25px;
+					border-radius: 50%;
+					border: 1px solid #F29659;
+				
+			}
+			
+		}
 		&:last-child {
 			&:before {
 				display:none;

@@ -212,6 +212,10 @@
 
 		};
 
+		$rootScope.stopVideo = function($state) {
+			vm.API.pause();
+		}
+
 		// init modal
 		$ionicModal.fromTemplateUrl('app/modulos/test.html', {
 			animation: 'slide-in-up', scope: $scope

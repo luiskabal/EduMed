@@ -19,7 +19,7 @@ ion-side-menus(enable-menu-with-back-views='true')
       h1.title Hola, 
         strong(ng-bind='perfil.nombre')
     ion-content.has-header
-      ion-list
+      ion-list(ng-click="stopVideo()")
         ion-item.item-icon-left.item-icon-right(menu-close-keep-history,href="#/app/home")
           i.icon.ion-android-home
           | Inicio

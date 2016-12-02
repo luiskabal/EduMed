@@ -157,48 +157,58 @@
     };
     //select cam
     // Triggered on a button click, or some other target
+    vm.myPopup = {};
     vm.showPopup = function() {
       vm.data = {};
 
       // An elaborate, custom popup
-      var myPopup = $ionicPopup.show({
+      vm.myPopup = $ionicPopup.show({
         template: '',
         title: '<i class="icon ion-image"></i>',
         subTitle: 'Selecciona el origen de la imagen',
         buttons: [
           { 
             text: '<i class="ion-camera"></i> Camara',
-            type: 'button-positive'
+            type: 'button-positive',
+            onTap: function(e) {
+                 vm.takePicture();
+               /* vm.myPopup.close();
+              $timeout(function() {
+                  vm.getPicture();
+                    //myPopup.close(); //close the popup after 3 seconds for some reason
+            }, 100);*/
+              
+              
+            }
 
           },
           {
             text: '<i class="ion-images"></i> Galeria',
             type: 'button-positive',
             onTap: function(e) {
-              vm.getPicture();
-              if (!vm.data.wifi) {
-                //don't allow the user to close unless he enters wifi password
-                e.preventDefault();
-              } else {
-                return vm.data.wifi;
-              }
+                 vm.getPicture();
+               /* vm.myPopup.close();
+              $timeout(function() {
+                  vm.getPicture();
+                    //myPopup.close(); //close the popup after 3 seconds for some reason
+            }, 100);*/
+              
+              
             }
           }
         ]
       });
 
-      myPopup.then(function(res) {
+      /*vm.myPopup.then(function(res) {
         console.log('Tapped!', res);
         vm.takePicture();
       }, function(error){
           console.log('error', error);
       }, function(myPopup){
-          myPopup.close();
-      });
+          vm.myPopup.close();
+      });*/
 
-      $timeout(function() {
-        myPopup.close(); //close the popup after 3 seconds for some reason
-      }, 3000);
+      
     };
 
 
@@ -217,9 +227,16 @@
           vm.perfil.avatarPerfil = "data:image/jpeg;base64," + imageData;
           $rootScope.perfil.avatarPerfil = "data:image/jpeg;base64," + imageData;
           storageService.setAvatar($rootScope.perfil.avatarPerfil);
+          //vm.myPopup.close();
+           $timeout(function() {
+                vm.myPopup.close(); //close the popup after 3 seconds for some reason
+            }, 100);
       }, function(err) {
           console.log(err);
+          vm.myPopup.close();
       });
+      
+      
     };  
     vm.takePicture = function (options) {
       $log.log('Camara');
