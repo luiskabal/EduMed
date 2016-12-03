@@ -97,11 +97,19 @@
 
 							}else{
 								$scope.modal.hide();
+								var selectedModule = vm.selectedModule;
+								_.forEach(selectedModule.preguntas,function(p){
+									_.forEach(p.respuestas,function(r){
+										//r.idRadio = 'p'+p.idPregunta+'r'+r.idRespuesta;
+										document.getElementById(r.idRadio).checked = false;
+									})
+								});
 								var alertPopup = $ionicPopup.alert({
 									cssClass: 'ModalMensaje',
 									scope: $scope,
 									templateUrl: 'app/modulos/pop-up-mensaje-error.html'
 								});
+
 							}
 						}
 					});
