@@ -6,8 +6,8 @@
         .controller('historyController', historyController);
 
 
-    historyController.$inject = ['$scope','$rootScope','$stateParams','$ionicHistory','profileFactory','commonService','avancesFactory','guidesFactory'];
-    function historyController($scope,$rootScope,$stateParams,$ionicHistory,profileFactory,commonService,avancesFactory,guidesFactory) {
+    historyController.$inject = ['$scope','$rootScope','$stateParams','$ionicHistory','profileFactory','commonService','avancesFactory','guidesFactory','$state'];
+    function historyController($scope,$rootScope,$stateParams,$ionicHistory,profileFactory,commonService,avancesFactory,guidesFactory,$state) {
          //forzar salida backbutton
         $scope.$on('$ionicView.beforeEnter', function (event, viewData) {
             viewData.enableBack = true;
@@ -51,6 +51,16 @@
                 }
             );
         }
+
+        vm.toLearn = function(idGuide) {
+            console.log('toLearn: ' + idGuide);
+            $state.go(
+                'app.aprender',
+                {
+                    id: idGuide
+                }
+            );
+        };
 
         function loadPatients(idUser){
             profileFactory.getPatients().then(

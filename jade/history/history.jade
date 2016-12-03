@@ -6,7 +6,7 @@ ion-view(view-title="Historial de Paciente")
           img(ng-src="http://ec2-107-21-84-195.compute-1.amazonaws.com:8080/api/file/pathAvatar")
         h4(ng-bind="historyCtrl.user.nombre")
     
-    .item.modulo-history(ng-repeat="h in historyCtrl.hist.active")
+    .item.modulo-history(ng-repeat="h in historyCtrl.hist.active",ng-click="historyCtrl.toLearn(h.idGuia)")
       .collapse( ng-click="active = !active") 
         i.icon-collapse
         <!--p Guía Actual-->
@@ -34,7 +34,7 @@ ion-view(view-title="Historial de Paciente")
         
       
     h3.title-bg.tcenter Guías Completadas
-    .item.modulo-history.modulo-history-small(ng-repeat="h in historyCtrl.hist.completed | unique: 'idGuia'")
+    .item.modulo-history.modulo-history-small(ng-repeat="h in historyCtrl.hist.completed | unique: 'idGuia'",ng-click="historyCtrl.toLearn(h.idGuia)")
       h3(ng-bind="h.titulo")
       h4(ng-bind="h.subtitulo")
       .row.foot-data

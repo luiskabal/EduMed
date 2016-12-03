@@ -23,6 +23,20 @@
                 ionic.Platform.fullScreen();
             }
 
+            if(window.Connection) {
+                if(navigator.connection.type == Connection.NONE) {
+                    $ionicPopup.confirm({
+                            title: "Desconectado de Internet",
+                            content: "El Internet está desconectado en su dispositivo."
+                        })
+                        .then(function(result) {
+                            if(!result) {
+                                ionic.Platform.exitApp();
+                            }
+                        });
+                }
+            }
+
             ionic.Platform.fullScreen();
             
         });
