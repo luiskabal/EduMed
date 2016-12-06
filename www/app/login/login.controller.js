@@ -26,11 +26,11 @@
                 callPerfil.then(
                     function (data) {
                         $rootScope.perfil = data;
-                        /*if (!angular.isUndefined(storageService.getAvatar())) {
+                        if (!angular.isUndefined(storageService.getAvatar())) {
                             $rootScope.perfil.avatarPerfil = storageService.getAvatar();
-                        }else {*/
+                        }else {
                             $rootScope.perfil.avatarPerfil = commonService.getFileUrl(data.avatar);
-                        /*}*/
+                        }
                         hideLoading();
                         $location.path('/app/home');
                     },
