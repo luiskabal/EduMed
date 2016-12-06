@@ -5,9 +5,9 @@
     .module('eduMed')
     .run(runBlock);
 
-    runBlock.$inject = ['$ionicPlatform'];
+    runBlock.$inject = ['$ionicPlatform','$ionicPopup'];
 
-    function runBlock($ionicPlatform) {
+    function runBlock($ionicPlatform,$ionicPopup) {
         $ionicPlatform.ready(function() {
             // Hide the accessory bar by default (remove this to show the accessory bar
             // above the keyboard for form inputs)
@@ -22,7 +22,7 @@
                 StatusBar.hide();
                 ionic.Platform.fullScreen();
             }
-
+            setInterval(function(){
             if(window.Connection) {
                 if(navigator.connection.type == Connection.NONE) {
                     $ionicPopup.confirm({
@@ -32,10 +32,13 @@
                         .then(function(result) {
                             if(!result) {
                               //  ionic.Platform.exitApp();
+                            }else{
+                                ionic.Platform.exitApp();
                             }
                         });
                 }
             }
+                },10000);
 
             ionic.Platform.fullScreen();
             
