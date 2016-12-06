@@ -312,8 +312,8 @@
         iconOff : 'ion-ios-star',
         iconOnColor: '#f7d74c',
         iconOffColor:  '#ffffff',
-        rating:  2,
-        minRating:1,
+        rating:  0,
+        minRating:0,
         callback: function(rating) {
             $scope.ratingsCallback(rating);
         }

@@ -26,12 +26,12 @@
             if(window.Connection) {
                 if(navigator.connection.type == Connection.NONE) {
                     $ionicPopup.confirm({
-                            title: "Desconectado de Internet",
-                            content: "El Internet está desconectado en su dispositivo."
+                            title: "SIN CONEXION A INTERNET!",
+                            content: "Revisa tu internet wifi o tu conexión móvil para continuar."
                         })
                         .then(function(result) {
                             if(!result) {
-                                ionic.Platform.exitApp();
+                              //  ionic.Platform.exitApp();
                             }
                         });
                 }
