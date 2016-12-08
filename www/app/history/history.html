@@ -1,16 +1,1 @@
-<ion-view view-title="Historial de Paciente"><ion-content><div id="detalle-header3" class="banner-avatar"><div class="cont-avatar"><div class="avatar"><img ng-src="http://ec2-107-21-84-195.compute-1.amazonaws.com:8080/api/file/pathAvatar"/></div><h4 ng-bind="historyCtrl.user.nombre"></h4></div></div><div ng-repeat="h in historyCtrl.hist.active" class="item modulo-history"><div ng-click="active = !active" class="collapse"> <i class="icon-collapse"></i><!--p Guía Actual--><h3 ng-bind="h.titulo"></h3><h4 ng-bind="h.subtitulo"></h4><div class="cont-progress"><span>{{h.porcentaje}}%</span><div ng-style="{ 'width': h.porcentaje + '%' }" class="progress-porcent"></div></div></div><!--.row.info-history(ng-show="active").col
-  span Completado
-  span.porcent 3
-  small Modulos
-.col
-  span Reintentos
-  span.porcent 4
-  small Intentos
-.col
-  span Tiempo
-  span.porcent 1
-  small Semana
-
-h4 Detalle {{detalle}}
-
---></div><h3 class="title-bg tcenter">Guías Completadas</h3><div ng-repeat="h in historyCtrl.hist.completed | unique: 'idGuia'" class="item modulo-history modulo-history-small"><h3 ng-bind="h.titulo"></h3><h4 ng-bind="h.subtitulo"></h4><div class="row foot-data"><div class="col"><i class="icon ion-android-calendar"></i></div><div class="col"><span> <strong>Inicio: </strong>{{current.fechaInicio | date:'dd-MM-yyyy'"}}</span><span> <strong>Fin:  </strong>{{current.fechaCompletado | date:'dd-MM-yyyy'"}}</span></div></div></div></ion-content></ion-view>
+<ion-view view-title="Historial de Paciente"><ion-content><div id="detalle-header3" class="banner-avatar"><div class="cont-avatar"><div class="avatar"><img ng-src="http://ec2-107-21-84-195.compute-1.amazonaws.com:8080/api/file/pathAvatar"/></div><h4 ng-bind="historyCtrl.user.nombre"></h4></div></div><div ng-repeat="h in historyCtrl.hist.active" ng-click="historyCtrl.toLearn(h.idGuia)" class="item item-module modulo-history"><div class="module row"><div class="col"><img src="img/video/La_artritis_psoriasica.jpg" class="full-image"/></div><div class="col"><h3 ng-bind="h.titulo"></h3><h4 ng-bind="h.subtitulo"></h4><h5 class="fecha">Fecha de Inicio :<span ng-bind=" h.fechaInicio | date:'dd-MM-yyyy'"></span></h5><h5 ng-if="h.completado &amp;&amp; h.porcentaje== 100" class="fecha">Fecha de Termino :<span ng-bind=" h.fechaCompletado | date:'dd-MM-yyyy'"></span></h5></div></div><div class="collapse"><!--i.icon-collapse(ng-class="{'ion-chevron-up': active, 'ion-chevron-down': !active}")--><i class="icon-collapse"></i><!--p Guía Actual--><div class="cont-progress"><span>{{h.porcentaje}}%</span><div style="width:{{h.porcentaje}}%" class="progress-porcent"></div></div></div></div><h3 class="title-bg tcenter">Guías Completadas</h3><div ng-repeat="h in historyCtrl.hist.completed | unique: 'idGuia'" ng-click="historyCtrl.toLearn(h.idGuia)" class="item modulo-history modulo-history-small"><h3 ng-bind="h.titulo"></h3><h4 ng-bind="h.subtitulo"></h4><div class="row foot-data"><div class="col"><i class="icon ion-android-calendar"></i></div><div class="col"><span> <strong>Inicio: </strong>{{current.fechaInicio | date:'dd-MM-yyyy'"}}</span><span> <strong>Fin:  </strong>{{current.fechaCompletado | date:'dd-MM-yyyy'"}}</span></div></div></div></ion-content></ion-view>

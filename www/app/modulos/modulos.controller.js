@@ -327,7 +327,7 @@
 
 		vm.showRatings = function() {
 			var confirmPopup = $ionicPopup.confirm({
-				cssClass: 'ModalCalificar',
+				cssClass: 'ModalMensaje',
 				scope: $scope,
 				templateUrl: 'app/modulos/pop-up.html'
 			});

@@ -10826,9 +10826,7 @@ ion-side-menu.menu {
       font-size: 12px;
       line-height: 100%;
       display: inline-block; }
-    .module-steps .module-step.actual {
-      position: relative; }
-      .module-steps .module-step.actual span {
+      .module-steps .module-step span.actual {
         display: block;
         width: 50px;
         height: 50px;
@@ -10845,13 +10843,15 @@ ion-side-menu.menu {
       background: #F29659 !important;
       border-color: #F29659;
       color: #fff; }
-    .module-steps .module-step.step-ok span:before {
-      display: inline-block;
-      font-family: "Ionicons";
-      content: "\f121 ";
-      color: #6BB6D2;
-      font-size: 12px;
-      margin-right: 3px; }
+    .module-steps .module-step.step-ok span {
+      /*&:before {
+					display: inline-block;
+					font-family: "Ionicons";
+					content: "\f121 ";
+					color: #6BB6D2;
+					font-size: 12px;
+					margin-right: 3px;
+				}*/ }
     .module-steps .module-step:first-child:after {
       content: "1"; }
     .module-steps .module-step:first-child.step-ok:after {
@@ -11090,6 +11090,12 @@ videogular vg-poster img.stop, [videogular] vg-poster img.stop {
 
 .modulo-history .cont-progress {
   margin: 10px 0 10px; }
+
+.modulo-history .fecha {
+  font-size: 13px;
+  color: #3e4050;
+  display: block;
+  margin: 4px 0; }
 
 .modulo-history.modulo-history-small .collapse h4 {
   font-size: 14px; }

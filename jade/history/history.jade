@@ -6,32 +6,25 @@ ion-view(view-title="Historial de Paciente")
           img(ng-src="http://ec2-107-21-84-195.compute-1.amazonaws.com:8080/api/file/pathAvatar")
         h4(ng-bind="historyCtrl.user.nombre")
     
-    .item.modulo-history(ng-repeat="h in historyCtrl.hist.active",ng-click="historyCtrl.toLearn(h.idGuia)")
-      .collapse( ng-click="active = !active") 
+    .item.item-module.modulo-history(ng-repeat="h in historyCtrl.hist.active",ng-click="historyCtrl.toLearn(h.idGuia)")
+      .module.row
+        .col
+          img.full-image(src="img/video/La_artritis_psoriasica.jpg")
+        .col
+          h3(ng-bind="h.titulo")
+          h4(ng-bind="h.subtitulo")
+          h5.fecha Fecha de Inicio :
+            span(ng-bind=" h.fechaInicio | date:'dd-MM-yyyy'")
+          h5.fecha(ng-if="h.completado && h.porcentaje== 100") Fecha de Termino :
+            span(ng-bind=" h.fechaCompletado | date:'dd-MM-yyyy'")
+      .collapse
+        //i.icon-collapse(ng-class="{'ion-chevron-up': active, 'ion-chevron-down': !active}")
         i.icon-collapse
-        <!--p Guía Actual-->
-        h3(ng-bind="h.titulo")
-        h4(ng-bind="h.subtitulo")
+        //p Guía Actual
         .cont-progress
-          span {{h.porcentaje}}%
-          .progress-porcent(ng-style="{ 'width': h.porcentaje + '%' }")
-          
-      //.row.info-history(ng-show="active")
-        .col
-          span Completado
-          span.porcent 3
-          small Modulos
-        .col
-          span Reintentos
-          span.porcent 4
-          small Intentos
-        .col
-          span Tiempo
-          span.porcent 1
-          small Semana
+          span{{h.porcentaje}}%
+          .progress-porcent(style="width:{{h.porcentaje}}%")
       
-        h4 Detalle {{detalle}}
-        
       
     h3.title-bg.tcenter Guías Completadas
     .item.modulo-history.modulo-history-small(ng-repeat="h in historyCtrl.hist.completed | unique: 'idGuia'",ng-click="historyCtrl.toLearn(h.idGuia)")

@@ -144,12 +144,8 @@
 				font-size: 12px;
 				line-height: 100%;
 				display: inline-block;
-		}
-		&.actual {
-			position: relative;
-			span {
-				display: block;
-				
+				&.actual {
+					display: block;
 					width: 50px;
 					height: 50px;
 					position: absolute;
@@ -159,10 +155,11 @@
 					margin-left: -25px;
 					border-radius: 50%;
 					border: 1px solid #F29659;
-				
-			}
-			
+						
+					
+				}
 		}
+		
 		&:last-child {
 			&:before {
 				display:none;
@@ -177,14 +174,14 @@
 		}
 		&.step-ok {
 			span {
-				&:before {
+				/*&:before {
 					display: inline-block;
 					font-family: "Ionicons";
 					content: "\f121 ";
 					color: #6BB6D2;
 					font-size: 12px;
 					margin-right: 3px;
-				}
+				}*/
 			}
 		}
 		&:first-child {
