@@ -27,7 +27,7 @@ ion-view(view-title="{{moduleCtrl.guide.titulo}}")
           ul.module-steps
             //la clase que pinta el video actual es .actual aplicala en li.module-step si complica en el span pero me avisas
             li.module-step(ng-repeat="mod in moduleCtrl.guide.modulos", ng-click="setSelectedModule(mod.idModulo)", ng-class="{'step-ok': moduleIsComplete(mod.idModulo) , 'active': moduleIsActive(mod.idModulo) }")
-             span
+             span(ng-class="{'actual': mod.idModulo == moduleCtrl.selectedModule.idModulo }")
 
 
           h2.title-view(ng-bind="moduleCtrl.guide.titulo",ng-click="moduleCtrl.showConfirm()")
