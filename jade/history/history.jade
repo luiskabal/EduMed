@@ -9,7 +9,7 @@ ion-view(view-title="Historial de Paciente")
     .item.item-module.modulo-history(ng-repeat="h in historyCtrl.hist.active",ng-click="historyCtrl.toLearn(h.idGuia)")
       .module.row
         .col
-          img.full-image(src="img/video/La_artritis_psoriasica.jpg")
+          img.full-image(ng-src="{{ historyCtrl.getImage(h.pathImgPreview) }}")
         .col
           h3(ng-bind="h.titulo")
           h4(ng-bind="h.subtitulo")
@@ -27,9 +27,9 @@ ion-view(view-title="Historial de Paciente")
       
       
     h3.title-bg.tcenter Guías Completadas
-    .item.modulo-history.modulo-history-small(ng-repeat="h in historyCtrl.hist.completed | unique: 'idGuia'",ng-click="historyCtrl.toLearn(h.idGuia)")
-      h3(ng-bind="h.titulo")
-      h4(ng-bind="h.subtitulo")
+    .item.modulo-history.modulo-history-small(ng-repeat="j in historyCtrl.hist.completed",ng-click="historyCtrl.toLearn(j.idGuia)")
+      h3(ng-bind="j.titulo")
+      h4(ng-bind="j.subtitulo")
       .row.foot-data
         .col
           i.icon.ion-android-calendar
