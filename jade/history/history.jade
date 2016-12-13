@@ -32,6 +32,8 @@ ion-view(view-title="Historial de Paciente")
       h4(ng-bind="j.subtitulo")
       .row.foot-data
         .col
+          img.full-image(ng-src="{{ historyCtrl.getImage(j.pathImgPreview) }}")
+        .col
           i.icon.ion-android-calendar
         .col
           span 
