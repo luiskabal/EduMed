@@ -177,7 +177,7 @@
             $rootScope.registro.tipoUsuario = 'ROLE_PACIENTE';
             $rootScope.registro.especialidad = " ";
             $rootScope.registro.intereses = [];
-            $rootScope.registro.isapre = vm.institucion.id;
+            $rootScope.registro.isapre = vm.isapre.id;
 
             console.log($filter('json')($rootScope.registro));
             var registrar = loginFactory.suscribirse($rootScope.registro);
